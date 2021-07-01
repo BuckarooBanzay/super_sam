@@ -25,3 +25,12 @@
 [submodule "mods/moreblocks"]
 	path = mods/moreblocks
 	url = https://github.com/minetest-mods/moreblocks.git
+[submodule "mods/epic"]
+	path = mods/epic
+	url = https://github.com/damocles-minetest/epic
+[submodule "mods/epic_skybox"]
+	path = mods/epic_skybox
+	url = https://github.com/damocles-minetest/epic_skybox
+[submodule "mods/epic_weather"]
+	path = mods/epic_weather
+	url = https://github.com/damocles-minetest/epic_weather
