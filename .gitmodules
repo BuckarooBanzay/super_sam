@@ -34,3 +34,6 @@
 [submodule "mods/epic_weather"]
 	path = mods/epic_weather
 	url = https://github.com/damocles-minetest/epic_weather
+[submodule "mods/bakedclay"]
+	path = mods/bakedclay
+	url = https://github.com/minetest-mirrors/bakedclay

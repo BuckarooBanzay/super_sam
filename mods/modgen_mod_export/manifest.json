@@ -1,13 +1,31 @@
 {
-   "mapblock_count" : 12,
-   "metadata_count" : 0,
-   "next_id" : 4,
+   "mapblock_count" : 32,
+   "metadata_count" : 2,
+   "next_id" : 22,
    "node_mapping" : {
       "air" : 0,
+      "bakedclay:green" : 21,
+      "bakedclay:slope_baked_clay_green" : 20,
+      "bakedclay:slope_baked_clay_green_half" : 19,
+      "bakedclay:slope_baked_clay_green_half_raised" : 18,
+      "bakedclay:white" : 13,
       "default:diamondblock" : 2,
+      "default:dirt_with_grass" : 4,
       "default:glass" : 3,
-      "default:stone" : 1
+      "default:grass_2" : 9,
+      "default:grass_3" : 7,
+      "default:grass_4" : 6,
+      "default:grass_5" : 10,
+      "default:meselamp" : 12,
+      "default:stone" : 1,
+      "epic:epic" : 15,
+      "epic:function" : 14,
+      "epic:nop" : 17,
+      "epic:teleport" : 16,
+      "flowers:geranium" : 8,
+      "flowers:rose" : 5,
+      "flowers:viola" : 11
    },
-   "size" : 1482,
+   "size" : 5942,
    "version" : 2
 }
