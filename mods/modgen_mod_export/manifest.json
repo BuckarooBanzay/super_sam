@@ -1,11 +1,13 @@
 {
-   "mapblock_count" : 4,
+   "mapblock_count" : 12,
    "metadata_count" : 0,
-   "next_id" : 2,
+   "next_id" : 4,
    "node_mapping" : {
       "air" : 0,
+      "default:diamondblock" : 2,
+      "default:glass" : 3,
       "default:stone" : 1
    },
-   "size" : 570,
+   "size" : 1482,
    "version" : 2
 }
