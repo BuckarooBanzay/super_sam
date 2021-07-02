@@ -1,7 +1,7 @@
 {
-   "mapblock_count" : 32,
+   "mapblock_count" : 34,
    "metadata_count" : 2,
-   "next_id" : 22,
+   "next_id" : 23,
    "node_mapping" : {
       "air" : 0,
       "bakedclay:green" : 21,
@@ -10,6 +10,7 @@
       "bakedclay:slope_baked_clay_green_half_raised" : 18,
       "bakedclay:white" : 13,
       "default:diamondblock" : 2,
+      "default:dirt" : 22,
       "default:dirt_with_grass" : 4,
       "default:glass" : 3,
       "default:grass_2" : 9,
@@ -26,6 +27,6 @@
       "flowers:rose" : 5,
       "flowers:viola" : 11
    },
-   "size" : 5942,
+   "size" : 6764,
    "version" : 2
 }
