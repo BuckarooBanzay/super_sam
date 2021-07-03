@@ -58,3 +58,6 @@
 [submodule "mods/glass_stained"]
 	path = mods/glass_stained
 	url = https://github.com/v-rob/glass_stained
+[submodule "mods/mesecons"]
+	path = mods/mesecons
+	url = https://github.com/minetest-mods/mesecons

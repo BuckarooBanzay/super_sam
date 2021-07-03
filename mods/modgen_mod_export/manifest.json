@@ -1,7 +1,7 @@
 {
-   "mapblock_count" : 70,
-   "metadata_count" : 6,
-   "next_id" : 49,
+   "mapblock_count" : 105,
+   "metadata_count" : 7,
+   "next_id" : 63,
    "node_mapping" : {
       "air" : 0,
       "bakedclay:green" : 21,
@@ -22,6 +22,7 @@
       "default:grass_5" : 10,
       "default:ladder_steel" : 38,
       "default:lava_source" : 47,
+      "default:mese" : 54,
       "default:meselamp" : 12,
       "default:stone" : 1,
       "default:stonebrick" : 23,
@@ -42,8 +43,21 @@
       "jumping:cushion" : 24,
       "jumping:trampoline1" : 25,
       "jumping:trampoline6" : 42,
+      "mesecons_blinkyplant:blinky_plant_off" : 49,
+      "mesecons_blinkyplant:blinky_plant_on" : 51,
+      "mesecons_extrawires:mese_powered" : 56,
+      "mesecons_gates:not_off" : 53,
+      "mesecons_gates:not_on" : 55,
+      "mesecons_luacontroller:luacontroller0000" : 58,
+      "mesecons_luacontroller:luacontroller0001" : 60,
+      "mesecons_luacontroller:luacontroller1101" : 61,
+      "mesecons_luacontroller:luacontroller1110" : 62,
+      "mesecons_random:ghoststone" : 50,
+      "mesecons_random:ghoststone_active" : 52,
       "moreblocks:clean_glass" : 48,
+      "moreblocks:slab_stonebrick" : 59,
       "moreblocks:slope_aspen_wood" : 34,
+      "moreblocks:slope_stonebrick" : 57,
       "moreblocks:stair_aspen_wood_alt_4" : 33,
       "pkarcs:stone_arc" : 26,
       "pkarcs_doors3:steel_Ldoor" : 27,
@@ -53,6 +67,6 @@
       "pkarcs_doors:steel_Rdoor" : 40,
       "pkarcs_doors:steel_Rdoor_open" : 41
    },
-   "size" : 18670,
+   "size" : 23993,
    "version" : 2
 }
