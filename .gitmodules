@@ -37,3 +37,6 @@
 [submodule "mods/bakedclay"]
 	path = mods/bakedclay
 	url = https://github.com/minetest-mirrors/bakedclay
+[submodule "mods/jumping"]
+	path = mods/jumping
+	url = https://github.com/minetest-mods/jumping

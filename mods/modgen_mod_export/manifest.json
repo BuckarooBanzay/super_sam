@@ -1,7 +1,7 @@
 {
-   "mapblock_count" : 34,
-   "metadata_count" : 2,
-   "next_id" : 23,
+   "mapblock_count" : 40,
+   "metadata_count" : 3,
+   "next_id" : 26,
    "node_mapping" : {
       "air" : 0,
       "bakedclay:green" : 21,
@@ -19,14 +19,17 @@
       "default:grass_5" : 10,
       "default:meselamp" : 12,
       "default:stone" : 1,
+      "default:stonebrick" : 23,
       "epic:epic" : 15,
       "epic:function" : 14,
       "epic:nop" : 17,
       "epic:teleport" : 16,
       "flowers:geranium" : 8,
       "flowers:rose" : 5,
-      "flowers:viola" : 11
+      "flowers:viola" : 11,
+      "jumping:cushion" : 24,
+      "jumping:trampoline1" : 25
    },
-   "size" : 6764,
+   "size" : 9635,
    "version" : 2
 }
