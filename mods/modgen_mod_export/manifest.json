@@ -1,7 +1,7 @@
 {
-   "mapblock_count" : 40,
+   "mapblock_count" : 52,
    "metadata_count" : 3,
-   "next_id" : 26,
+   "next_id" : 31,
    "node_mapping" : {
       "air" : 0,
       "bakedclay:green" : 21,
@@ -27,9 +27,14 @@
       "flowers:geranium" : 8,
       "flowers:rose" : 5,
       "flowers:viola" : 11,
+      "glass_stained:glass_18_double" : 30,
       "jumping:cushion" : 24,
-      "jumping:trampoline1" : 25
+      "jumping:trampoline1" : 25,
+      "pkarcs:stone_arc" : 26,
+      "pkarcs_doors3:steel_Ldoor" : 27,
+      "pkarcs_doors3:steel_Ldoor_open" : 28,
+      "pkarcs_doors3:steel_Rdoor" : 29
    },
-   "size" : 9635,
+   "size" : 13371,
    "version" : 2
 }

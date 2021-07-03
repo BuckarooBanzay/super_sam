@@ -40,3 +40,21 @@
 [submodule "mods/jumping"]
 	path = mods/jumping
 	url = https://github.com/minetest-mods/jumping
+[submodule "mods/pkarcs"]
+	path = mods/pkarcs
+	url = https://github.com/TumeniNodes/pkarcs
+[submodule "mods/hidden_doors"]
+	path = mods/hidden_doors
+	url = https://github.com/minetest-mirrors/hidden_doors
+[submodule "mods/xpanes"]
+	path = mods/xpanes
+	url = https://github.com/minetest-game/xpanes
+[submodule "mods/vessels"]
+	path = mods/vessels
+	url = https://github.com/minetest-game/vessels
+[submodule "mods/stairs"]
+	path = mods/stairs
+	url = https://github.com/minetest-game/stairs
+[submodule "mods/glass_stained"]
+	path = mods/glass_stained
+	url = https://github.com/v-rob/glass_stained
