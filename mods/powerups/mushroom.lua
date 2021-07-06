@@ -1,0 +1,3 @@
+
+powerups.register("", function()
+end)
