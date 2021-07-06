@@ -1,8 +1,8 @@
 
 local effects = {}
 
-function powerups.register_effect(name, def)
-    effects[name] = def
+function powerups.register_effect(def)
+    effects[def.itemname] = def
 end
 
 function powerups.get_effect(name)
