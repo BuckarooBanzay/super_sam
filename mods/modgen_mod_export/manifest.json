@@ -1,6 +1,7 @@
 {
-   "mapblock_count" : 120,
-   "metadata_count" : 9,
+   "mapblock_count" : 118,
+   "metadata_count" : 6,
+   "mtime" : 1626806558,
    "next_id" : 77,
    "node_mapping" : {
       "air" : 0,
@@ -81,6 +82,7 @@
       "pkarcs_doors:steel_Rdoor" : 40,
       "pkarcs_doors:steel_Rdoor_open" : 41
    },
-   "size" : 28051,
+   "size" : 28318,
+   "uid" : "01727816-52a2-444a-907e-38579d9b52ea",
    "version" : 2
 }
