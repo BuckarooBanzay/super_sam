@@ -1,8 +1,8 @@
 {
    "mapblock_count" : 118,
-   "metadata_count" : 6,
-   "mtime" : 1626806558,
-   "next_id" : 77,
+   "metadata_count" : 7,
+   "mtime" : 1626807686,
+   "next_id" : 82,
    "node_mapping" : {
       "air" : 0,
       "bakedclay:delphinium" : 65,
@@ -15,6 +15,7 @@
       "bakedclay:thistle" : 72,
       "bakedclay:white" : 13,
       "default:aspen_wood" : 32,
+      "default:brick" : 77,
       "default:chest" : 46,
       "default:cobble" : 43,
       "default:diamondblock" : 2,
@@ -38,6 +39,7 @@
       "doors:door_steel_b" : 45,
       "doors:hidden" : 37,
       "doors:hidden_door_stone_a" : 36,
+      "epic:additem" : 78,
       "epic:epic" : 15,
       "epic:function" : 14,
       "epic:nop" : 17,
@@ -54,6 +56,9 @@
       "glass_stained:pane_bar_double" : 75,
       "jumping:cushion" : 24,
       "jumping:trampoline1" : 25,
+      "jumping:trampoline2" : 79,
+      "jumping:trampoline3" : 80,
+      "jumping:trampoline4" : 81,
       "jumping:trampoline6" : 42,
       "mesecons_blinkyplant:blinky_plant_off" : 49,
       "mesecons_blinkyplant:blinky_plant_on" : 51,
@@ -82,7 +87,7 @@
       "pkarcs_doors:steel_Rdoor" : 40,
       "pkarcs_doors:steel_Rdoor_open" : 41
    },
-   "size" : 28318,
+   "size" : 28543,
    "uid" : "01727816-52a2-444a-907e-38579d9b52ea",
    "version" : 2
 }
