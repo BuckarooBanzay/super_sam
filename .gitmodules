@@ -61,3 +61,9 @@
 [submodule "mods/mesecons"]
 	path = mods/mesecons
 	url = https://github.com/minetest-mods/mesecons
+[submodule "mods/item_drop"]
+	path = mods/item_drop
+	url = https://github.com/minetest-mods/item_drop/
+[submodule "mods/currency"]
+	path = mods/currency
+	url = https://gitlab.com/VanessaE/currency.git
