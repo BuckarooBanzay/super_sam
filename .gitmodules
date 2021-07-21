@@ -67,3 +67,6 @@
 [submodule "mods/currency"]
 	path = mods/currency
 	url = https://gitlab.com/VanessaE/currency.git
+[submodule "textures/soothing-32"]
+	path = textures/soothing-32
+	url = https://gitlab.com/zughy-friends-minetest/soothing-32
