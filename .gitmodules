@@ -70,3 +70,9 @@
 [submodule "textures/soothing-32"]
 	path = textures/soothing-32
 	url = https://gitlab.com/zughy-friends-minetest/soothing-32
+[submodule "mods/mesecons_stealthnode"]
+	path = mods/mesecons_stealthnode
+	url = https://github.com/acmgit/mesecons_stealthnode
+[submodule "mods/digilines"]
+	path = mods/digilines
+	url = https://github.com/minetest-mods/digilines
