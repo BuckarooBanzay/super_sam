@@ -11,7 +11,7 @@ jobs:
       - name: apt
         run: sudo apt-get install -y jq
       - id: media_size
-        run: echo "##[set-output name=data;]$(find -type f -name '*.png' -o -name '*.ogg' -o -name '*.x' -o -name '*.b3d' -exec du -ch {} + | grep total | cut -f1)"
+        run: echo "##[set-output name=data;]$(find mods -type f -name '*.png' -exec du -ch {} + | grep total | cut -f1)"
       - id: size
         run: echo "##[set-output name=data;]$(cat mods/modgen_mod_export/manifest.json | jq .size/1000) kb"
       - id: mapblock_count
