@@ -1,7 +1,7 @@
 
 
 local nodes = {
-    ["brick"] = { tiles={"default_brick.png^[transformFX", "default_brick.png"} },
+    ["brick"] = {tiles={"default_brick.png^[transformFX", "default_brick.png"} },
     ["cobble"] = {},
     ["stone"] = {},
     ["stone_block"] = {},
@@ -30,5 +30,12 @@ for name, def in pairs(nodes) do
     def.tiles = def.tiles or {"default_" .. name .. ".png"}
 
     minetest.register_node("super_sam:" .. name, def)
-end
 
+    local stairsdef = table.copy(def)
+    if #stairsdef.tiles > 1 and stairsdef.drawtype and stairsdef.drawtype:find("glass") then
+        stairsdef.tiles = {stairsdef.tiles[1]}
+        stairsdef.paramtype2 = nil
+    end
+
+    stairsplus:register_all("super_sam", name, "super_sam:" .. name, stairsdef)
+end

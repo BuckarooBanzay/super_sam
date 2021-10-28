@@ -39,5 +39,7 @@ for name, def in pairs(bakedclay) do
     def.tiles = def.tiles or {"baked_clay_" .. name .. ".png"}
 
     minetest.register_node("super_sam:clay_" .. name, def)
+
+    stairsplus:register_all("super_sam", "clay_" .. name, "super_sam:clay_" .. name, def)
 end
 

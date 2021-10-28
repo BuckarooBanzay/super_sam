@@ -1,0 +1,3 @@
+[submodule "mods/moreblocks"]
+	path = mods/moreblocks
+	url = https://github.com/minetest-mods/moreblocks
