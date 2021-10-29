@@ -10,7 +10,7 @@ local plants = {
 for name, def in pairs(plants) do
     def.description = "Super sam '" .. name .. "' plant"
     def.tiles = def.tiles or {"default_" .. name .. ".png"}
-
+    def.groups = def.groups or { cracky = 1 }
     def.inventory_image = "default_" .. name .. ".png"
 	def.wield_image = "default_" .. name .. ".png"
     def.drawtype = "plantlike"

@@ -28,6 +28,7 @@ local nodes = {
 for name, def in pairs(nodes) do
     def.description = "Super sam '" .. name .. "' node"
     def.tiles = def.tiles or {"default_" .. name .. ".png"}
+    def.groups = def.groups or { cracky = 1 }
 
     minetest.register_node("super_sam:" .. name, def)
 
