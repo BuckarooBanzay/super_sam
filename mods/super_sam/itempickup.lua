@@ -3,8 +3,8 @@
 local callbacks = {}
 
 local function check_player_for_pickups(player)
-    local pos = player:get_pos()
-    local objects = minetest.get_objects_inside_radius(pos, 1)
+    local pos = vector.add(player:get_pos(), {x=0, y=0.5, z=0})
+    local objects = minetest.get_objects_inside_radius(pos, 1.5)
 
     for _, obj in ipairs(objects) do
         local is_player = obj.is_player and obj:is_player()
@@ -26,7 +26,7 @@ local function check_for_pickups()
         check_player_for_pickups(player)
     end
 
-    minetest.after(0.5, check_for_pickups)
+    minetest.after(0.1, check_for_pickups)
 end
 
 check_for_pickups()
