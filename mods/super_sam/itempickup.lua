@@ -1,16 +1,22 @@
 
--- itemname -> callback()
+-- itemname -> list<callback>
 local callbacks = {}
 
 local function check_player_for_pickups(player)
     local pos = player:get_pos()
-    local list = minetest.get_objects_inside_radius(pos, 1)
+    local objects = minetest.get_objects_inside_radius(pos, 1)
 
-    for _, obj in ipairs(list) do
+    for _, obj in ipairs(objects) do
         local is_player = obj.is_player and obj:is_player()
+        local entity = obj:get_luaentity()
 
-        if not is_player then
-            print(dump(obj:get_luaentity().data))
+        if not is_player and entity.name == "super_sam:item" and entity.data then
+            local itemname = entity.data.wield_item
+            local list = callbacks[itemname] or {}
+            for _, callback in ipairs(list) do
+                callback(player, itemname)
+                obj:remove()
+            end
         end
     end
 end
@@ -26,7 +32,13 @@ end
 check_for_pickups()
 
 function super_sam.register_on_pickup(itemname, callback)
-    callbacks[itemname] = callback
+    local list = callbacks[itemname]
+    if not list then
+        list = {}
+        callbacks[itemname] = list
+    end
+
+    table.insert(list, callback)
 end
 
 minetest.register_entity("super_sam:item", {
@@ -56,3 +68,7 @@ minetest.register_chatcommand("test", {
         end
     end
 })
+
+super_sam.register_on_pickup("super_sam:coin", function(player, itemname)
+    print(player:get_player_name() .. " picked up: " .. itemname)
+end)
