@@ -1,5 +1,5 @@
 
-
+-- "default" nodes
 local nodes = {
     ["brick"] = {tiles={"default_brick.png^[transformFX", "default_brick.png"} },
     ["cobble"] = {},
@@ -40,3 +40,14 @@ for name, def in pairs(nodes) do
 
     stairsplus:register_all("super_sam", name, "super_sam:" .. name, stairsdef)
 end
+
+-- special nodes
+
+minetest.register_node("super_sam:border", {
+	description = "Border node",
+	drawtype = "airlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	drop = "",
+	groups = {cracky = 1}
+})
