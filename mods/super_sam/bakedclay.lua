@@ -38,6 +38,7 @@ for name, def in pairs(bakedclay) do
     def.description = "Super sam '" .. name .. "' node"
     def.tiles = def.tiles or {"baked_clay_" .. name .. ".png"}
     def.groups = def.groups or { cracky = 1 }
+    def.paramtype2 = "facedir"
 
     minetest.register_node("super_sam:clay_" .. name, def)
 
