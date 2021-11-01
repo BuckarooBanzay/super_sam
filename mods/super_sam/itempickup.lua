@@ -73,5 +73,10 @@ super_sam.register_on_pickup("super_sam:coin", function(player, itemname)
     local playername = player:get_player_name()
     print(playername .. " picked up: " .. itemname)
     super_sam.add_score(playername, 1)
-    -- TODO: audio
+    minetest.sound_play({
+        name = "super_sam_coin",
+        gain = 1
+    }, {
+        to_player = playername
+    }, true)
 end)
