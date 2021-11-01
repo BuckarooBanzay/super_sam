@@ -2,6 +2,7 @@ super_sam = {}
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
 dofile(MP .. "/skybox.lua")
+dofile(MP .. "/score.lua")
 dofile(MP .. "/hud.lua")
 dofile(MP .. "/privs.lua")
 dofile(MP .. "/protection.lua")

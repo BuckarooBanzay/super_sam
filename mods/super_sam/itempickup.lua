@@ -70,5 +70,8 @@ minetest.register_chatcommand("test", {
 })
 
 super_sam.register_on_pickup("super_sam:coin", function(player, itemname)
-    print(player:get_player_name() .. " picked up: " .. itemname)
+    local playername = player:get_player_name()
+    print(playername .. " picked up: " .. itemname)
+    super_sam.add_score(playername, 1)
+    -- TODO: audio
 end)
