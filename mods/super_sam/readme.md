@@ -9,3 +9,4 @@ Super sam base mod
 * `textures/super_sam_items.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
 * `textures/arid*` CC-BY SA 3.0 https://opengameart.org/content/skiingpenguins-skybox-pack
 * `sounds/super_sam_coin.ogg` CC0 https://freesound.org/people/plasterbrain/sounds/242857/
+* `models/super_sam_sphere.obj` LGPL 2.0 https://github.com/mt-mods/technic

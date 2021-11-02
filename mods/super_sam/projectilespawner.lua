@@ -29,9 +29,9 @@ local function activate_spawner(pos)
     timer:start(0)
 end
 
-minetest.register_node("super_sam:platform_spawner", {
-    description = "Platform spawner",
-    tiles = {"super_sam_items.png^[sheet:6x5:3,4"},
+minetest.register_node("super_sam:projectile_spawner", {
+    description = "Projectile spawner",
+    tiles = {"super_sam_items.png^[sheet:6x5:3,3"},
     groups = { cracky = 1 },
     on_receive_fields = function(pos, _, fields, sender)
         if not minetest.check_player_privs(sender, "super_sam_builder") or not fields.save then
@@ -95,14 +95,25 @@ minetest.register_node("super_sam:platform_spawner", {
         local yvel = tonumber(meta:get_string("yvel")) or 0
         local zvel = tonumber(meta:get_string("zvel")) or 0
 
-        minetest.add_entity(spawn_pos, "super_sam:platform", minetest.serialize({
-            visual = "wielditem",
+        local itemdef = minetest.registered_items[item_name]
+        if itemdef.liquid_alternative_flowing then
+            -- use tiles from liquid alternative node
+            itemdef = minetest.registered_items[itemdef.liquid_alternative_flowing]
+        end
+
+        if not itemdef or not itemdef.tiles then
+            return
+        end
+
+        minetest.add_entity(spawn_pos, "super_sam:projectile", minetest.serialize({
+            visual = "mesh",
+            mesh = "super_sam_sphere.obj",
+            textures = itemdef.tiles,
             wield_item = item_name,
-            visual_size = { x=0.675*xsize, y=0.675*ysize, z=0.675*zsize },
+            visual_size = { x=10*xsize, y=10*ysize, z=10*zsize },
             collisionbox = {-0.5*xsize, -0.5*ysize, -0.5*zsize, 0.5*xsize, 0.5*ysize, 0.5*zsize},
             physical = true,
             collide_with_objects = true,
-            makes_footstep_sound = true,
             pointable = false,
             velocity = {
                 x = xvel,
@@ -117,7 +128,7 @@ minetest.register_node("super_sam:platform_spawner", {
     end
 })
 
-minetest.register_entity("super_sam:platform", {
+minetest.register_entity("super_sam:projectile", {
     initial_properties = {},
     static_save = false,
     on_activate = function(self, staticdata)
@@ -137,9 +148,9 @@ minetest.register_entity("super_sam:platform", {
 })
 
 minetest.register_lbm({
-    label = "Platform spawner trigger",
-    name = "super_sam:platform_spawner",
-    nodenames = "super_sam:platform_spawner",
+    label = "Projectile spawner trigger",
+    name = "super_sam:projectile_spawner",
+    nodenames = "super_sam:projectile_spawner",
     run_at_every_load = true,
     action = activate_spawner
 })
