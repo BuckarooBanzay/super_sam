@@ -18,7 +18,8 @@ local function add_item(pos)
         visual = "wielditem",
         wield_item = item_name,
         visual_size = { x=0.5, y=0.5 },
-        automatic_rotate = 1
+        automatic_rotate = 1,
+        pointable = false
     }))
 end
 

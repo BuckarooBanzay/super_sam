@@ -52,23 +52,6 @@ minetest.register_entity("super_sam:item", {
 	end
 })
 
--- Test code below
-
-minetest.register_chatcommand("test", {
-    func = function(name)
-        local player = minetest.get_player_by_name(name)
-        if player then
-            local pos = player:get_pos()
-            minetest.add_entity(pos, "super_sam:item", minetest.serialize({
-                visual = "wielditem",
-                wield_item = "super_sam:coin",
-                visual_size = { x=0.5, y=0.5 },
-                automatic_rotate = 1
-            }))
-        end
-    end
-})
-
 super_sam.register_on_pickup("super_sam:coin", function(player, itemname)
     local playername = player:get_player_name()
     print(playername .. " picked up: " .. itemname)
