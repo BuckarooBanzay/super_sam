@@ -34,7 +34,10 @@ local function remove_item(pos)
 
     local objects = minetest.get_objects_in_area(pos1, pos2)
     for _, object in ipairs(objects) do
-        object:remove()
+        local entity = object:get_luaentity()
+        if entity.name == "super_sam:item" then
+            object:remove()
+        end
     end
 end
 
@@ -91,5 +94,8 @@ minetest.register_lbm({
     name = "super_sam:item_spawner",
     nodenames = "super_sam:item_spawner",
     run_at_every_load = true,
-    action = add_item
+    action = function(pos)
+        remove_item(pos)
+        add_item(pos)
+    end
 })
