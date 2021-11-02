@@ -16,7 +16,7 @@ local nodes = {
     ["grass"] = {},
     ["obsidian_block"] = {},
     ["obsidian_brick"] = {},
-    ["ice"] = {groups={slippery=3}},
+    ["ice"] = {groups={slippery=3, cracky=1}},
     ["snow"] = {},
     ["glass"] = {
         tiles = {"default_glass.png", "default_glass_detail.png"},
