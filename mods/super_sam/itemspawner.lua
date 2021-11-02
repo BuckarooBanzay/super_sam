@@ -57,7 +57,7 @@ minetest.register_node("super_sam:item_spawner", {
     tiles = {"super_sam_items.png^[sheet:6x5:3,2"},
     groups = { cracky = 1 },
     on_receive_fields = function(pos, _, fields, sender)
-        if not minetest.check_player_privs(sender, "super_sam_builder") then
+        if not minetest.check_player_privs(sender, "super_sam_builder") or not fields.save then
             return
         end
 

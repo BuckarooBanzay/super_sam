@@ -10,7 +10,7 @@ local score_position = { x = 0.5, y = 0.05 }
 local health_position = { x = 0.25, y = 0.05 }
 local level_position = { x = 0.75, y = 0.05 }
 
-local function setup_player(player)
+local function restrict_player_hud(player)
     player:hud_set_flags({
         crosshair = true,
         hotbar = false,
@@ -20,7 +20,9 @@ local function setup_player(player)
         minimap = false,
         minimap_radar = false
     })
+end
 
+local function setup_player(player)
     local data = {}
 
     data.score_img = player:hud_add({
@@ -77,6 +79,10 @@ end
 local function hud_update_player(player)
     local playername = player:get_player_name()
     local data = hud_data[playername]
+    if not data then
+        return
+    end
+
     if data.score_text then
         player:hud_change(data.score_text, "text", "x" .. super_sam.get_score(playername))
     end
@@ -92,9 +98,11 @@ end
 hud_update()
 
 minetest.register_on_joinplayer(function(player)
-    if not minetest.check_player_privs(player, "super_sam_builder") then
+    setup_player(player)
+
+    if minetest.check_player_privs(player, "super_sam_builder") then
         setup_builder(player)
     else
-        setup_player(player)
+        restrict_player_hud(player)
     end
 end)
