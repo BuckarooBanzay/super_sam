@@ -11,6 +11,7 @@ dofile(MP .. "/skybox.lua")
 dofile(MP .. "/sounds.lua")
 dofile(MP .. "/itempickup.lua")
 dofile(MP .. "/score.lua")
+dofile(MP .. "/health.lua")
 dofile(MP .. "/hud.lua")
 
 -- nodes, items, etc

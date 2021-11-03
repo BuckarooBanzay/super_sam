@@ -82,6 +82,9 @@ function super_sam.update_player_hud(player)
     if data.score_text then
         player:hud_change(data.score_text, "text", "x" .. super_sam.get_score(playername))
     end
+    if data.health_text then
+        player:hud_change(data.health_text, "text", "x" .. super_sam.get_health(playername))
+    end
 end
 
 local function update_hud()
