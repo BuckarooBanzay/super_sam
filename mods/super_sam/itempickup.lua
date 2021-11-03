@@ -41,25 +41,4 @@ function super_sam.register_on_pickup(itemname, callback)
     table.insert(list, callback)
 end
 
-minetest.register_entity("super_sam:item", {
-    initial_properties = {},
-    static_save = false,
-    on_activate = function(self, staticdata)
-		self.object:set_armor_groups({punch_operable = 1})
-		local data = minetest.deserialize(staticdata)
-        self.data = data
-        self.object:set_properties(data)
-	end
-})
 
-super_sam.register_on_pickup("super_sam:coin", function(player, itemname)
-    local playername = player:get_player_name()
-    print(playername .. " picked up: " .. itemname)
-    super_sam.add_score(playername, 1)
-    minetest.sound_play({
-        name = "super_sam_coin",
-        gain = 1
-    }, {
-        to_player = playername
-    }, true)
-end)

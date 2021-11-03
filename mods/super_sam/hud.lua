@@ -1,8 +1,4 @@
 
-local function setup_builder()
-    -- TODO: debug stuff
-end
-
 -- player => { name => id }
 local hud_data = {}
 
@@ -22,7 +18,7 @@ local function restrict_player_hud(player)
     })
 end
 
-local function setup_player(player)
+local function setup_hud(player)
     local data = {}
 
     data.score_img = player:hud_add({
@@ -76,7 +72,7 @@ local function setup_player(player)
     hud_data[player:get_player_name()] = data
 end
 
-local function hud_update_player(player)
+function super_sam.update_player_hud(player)
     local playername = player:get_player_name()
     local data = hud_data[playername]
     if not data then
@@ -88,21 +84,19 @@ local function hud_update_player(player)
     end
 end
 
-local function hud_update()
+local function update_hud()
     for _, player in ipairs(minetest.get_connected_players()) do
-        hud_update_player(player)
+        super_sam.update_player_hud(player)
     end
-    minetest.after(0.5, hud_update)
+    minetest.after(1, update_hud)
 end
 
-hud_update()
+update_hud()
 
 minetest.register_on_joinplayer(function(player)
-    setup_player(player)
+    setup_hud(player)
 
-    if minetest.check_player_privs(player, "super_sam_builder") then
-        setup_builder(player)
-    else
+    if not minetest.check_player_privs(player, "super_sam_builder") then
         restrict_player_hud(player)
     end
 end)

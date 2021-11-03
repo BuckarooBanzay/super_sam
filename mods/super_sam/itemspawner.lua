@@ -89,6 +89,17 @@ minetest.register_node("super_sam:item_spawner", {
     on_destruct = remove_item
 })
 
+minetest.register_entity("super_sam:item", {
+    initial_properties = {},
+    static_save = false,
+    on_activate = function(self, staticdata)
+		self.object:set_armor_groups({punch_operable = 1})
+		local data = minetest.deserialize(staticdata)
+        self.data = data
+        self.object:set_properties(data)
+	end
+})
+
 minetest.register_lbm({
     label = "Item spawner trigger",
     name = "super_sam:item_spawner",
