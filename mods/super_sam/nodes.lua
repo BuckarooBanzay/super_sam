@@ -1,21 +1,54 @@
 
 -- "default" nodes
 local nodes = {
-    ["brick"] = {tiles={"default_brick.png^[transformFX", "default_brick.png"} },
-    ["cobble"] = {},
-    ["stone"] = {},
-    ["stone_block"] = {},
-    ["stone_brick"] = {},
-    ["desert_sandstone"] = {},
-    ["desert_sandstone_block"] = {},
-    ["desert_sandstone_brick"] = {},
-    ["desert_stone"] = {},
-    ["desert_stone_block"] = {},
-    ["desert_stone_brick"] = {},
-    ["dirt"] = {},
-    ["grass"] = {},
-    ["obsidian_block"] = {},
-    ["obsidian_brick"] = {},
+    ["brick"] = {
+        tiles= {
+            "default_brick.png^[transformFX",
+            "default_brick.png"
+        }
+    },
+    ["cobble"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["stone"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["stone_block"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["stone_brick"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["desert_sandstone"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["desert_sandstone_block"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["desert_sandstone_brick"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["desert_stone"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["desert_stone_block"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["desert_stone_brick"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["dirt"] = {
+        sounds = super_sam.node_sound_dirt()
+    },
+    ["grass"] = {
+        sounds = super_sam.node_sound_dirt()
+    },
+    ["obsidian_block"] = {
+        sounds = super_sam.node_sound_stone()
+    },
+    ["obsidian_brick"] = {
+        sounds = super_sam.node_sound_stone()
+    },
     ["ice"] = {groups={slippery=3, cracky=1}},
     ["snow"] = {},
     ["glass"] = {

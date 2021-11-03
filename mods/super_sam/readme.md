@@ -8,5 +8,6 @@ Super sam base mod
 * `textures/baked_clay_*` MIT https://notabug.org/TenPlus1/bakedclay
 * `textures/super_sam_items.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
 * `textures/arid*` CC-BY SA 3.0 https://opengameart.org/content/skiingpenguins-skybox-pack
-* `sounds/super_sam_coin.ogg` CC0 https://freesound.org/people/plasterbrain/sounds/242857/
 * `models/super_sam_sphere.obj` LGPL 2.0 https://github.com/mt-mods/technic
+* `sounds/super_sam_coin.ogg` CC0 https://freesound.org/people/plasterbrain/sounds/242857/
+* `sounds/default_*` CC-BY SA 4.0 https://github.com/tacotexmex/snowsong
