@@ -147,6 +147,31 @@ minetest.register_entity("super_sam:projectile", {
     end
 })
 
+local function check_player(player)
+    local pos = vector.add(player:get_pos(), {x=0, y=0.5, z=0})
+    local objects = minetest.get_objects_inside_radius(pos, 1.5)
+
+    for _, obj in ipairs(objects) do
+        local is_player = obj.is_player and obj:is_player()
+        local entity = obj:get_luaentity()
+
+        if not is_player and entity.name == "super_sam:projectile" then
+            obj:remove()
+            super_sam.add_health(player:get_player_name(), -1)
+            -- TODO: boom
+        end
+    end
+end
+
+local function check()
+    for _, player in ipairs(minetest.get_connected_players()) do
+        check_player(player)
+    end
+    minetest.after(0.1, check)
+end
+
+check()
+
 minetest.register_lbm({
     label = "Projectile spawner trigger",
     name = "super_sam:projectile_spawner",

@@ -9,7 +9,12 @@ dofile(MP .. "/spawn.lua")
 dofile(MP .. "/privs.lua")
 dofile(MP .. "/skybox.lua")
 dofile(MP .. "/sounds.lua")
+
+-- item/node callbacks
 dofile(MP .. "/itempickup.lua")
+dofile(MP .. "/nodetouch.lua")
+
+-- hud stuff
 dofile(MP .. "/score.lua")
 dofile(MP .. "/health.lua")
 dofile(MP .. "/hud.lua")
