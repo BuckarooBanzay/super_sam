@@ -33,7 +33,7 @@ super_sam.register_on_pickup("super_sam:heart", function(player)
     local playername = player:get_player_name()
     super_sam.add_health(playername, 1)
     super_sam.update_player_hud(player)
-    -- TODO: sound
+    minetest.sound_play({ name = "super_sam_heart", gain = 0.7 }, { to_player = playername }, true)
 end)
 
 super_sam.register_on_nodetouch("super_sam:lava_source", function(player)
