@@ -2,9 +2,10 @@
 -- player => { name => id }
 local hud_data = {}
 
-local score_position = { x = 0.5, y = 0.05 }
-local health_position = { x = 0.25, y = 0.05 }
-local level_position = { x = 0.75, y = 0.05 }
+local health_position = { x = 0.2, y = 0.05 }
+local coins_position = { x = 0.4, y = 0.05 }
+local level_position = { x = 0.6, y = 0.05 }
+local score_position = { x = 0.8, y = 0.05 }
 
 local function restrict_player_hud(player)
     player:hud_set_flags({
@@ -21,18 +22,32 @@ end
 local function setup_hud(player)
     local data = {}
 
-    data.score_img = player:hud_add({
-        hud_elem_type = "image",
+    -- Score
+
+    data.score_text = player:hud_add({
+        hud_elem_type = "text",
         position = score_position,
+        number = 0xffffff,
+        text = "Score: 0",
+        offset = {x = 0,   y = 0},
+        alignment = { x = 0, y = 0},
+        scale = {x = 2, y = 2}
+    })
+
+    -- Coins
+
+    data.coins_img = player:hud_add({
+        hud_elem_type = "image",
+        position = coins_position,
         text = "super_sam_items.png^[sheet:6x5:4,3",
         offset = {x = 0,   y = 0},
         alignment = { x = -1, y = 0},
         scale = {x = 2, y = 2}
     })
 
-    data.score_text = player:hud_add({
+    data.coins_text = player:hud_add({
         hud_elem_type = "text",
-        position = score_position,
+        position = coins_position,
         number = 0xffffff,
         text = "x0",
         offset = {x = 0,   y = 0},
@@ -40,10 +55,12 @@ local function setup_hud(player)
         scale = {x = 2, y = 2}
     })
 
+    -- Health
+
     data.health_img = player:hud_add({
         hud_elem_type = "image",
         position = health_position,
-        text = "super_sam_items.png^[sheet:6x5:0,2",
+        text = "super_sam_heart.png",
         offset = {x = 0,   y = 0},
         alignment = { x = -1, y = 0},
         scale = {x = 2, y = 2}
@@ -59,11 +76,13 @@ local function setup_hud(player)
         scale = {x = 2, y = 2}
     })
 
+    -- Current level
+
     data.level_text = player:hud_add({
         hud_elem_type = "text",
         position = level_position,
         number = 0xffffff,
-        text = "Level 0-0",
+        text = "Level 0-0 / 02:10",
         offset = {x = 0,   y = 0},
         alignment = { x = 1, y = 0},
         scale = {x = 2, y = 2}
@@ -79,8 +98,8 @@ function super_sam.update_player_hud(player)
         return
     end
 
-    if data.score_text then
-        player:hud_change(data.score_text, "text", "x" .. super_sam.get_score(playername))
+    if data.coins_text then
+        player:hud_change(data.coins_text, "text", "x" .. super_sam.get_score(playername))
     end
     if data.health_text then
         player:hud_change(data.health_text, "text", "x" .. super_sam.get_health(playername))

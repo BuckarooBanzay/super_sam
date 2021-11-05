@@ -28,3 +28,8 @@ minetest.register_craftitem("super_sam:star_2", {
     inventory_image = "super_sam_items.png^[sheet:6x5:5,2",
     description = "Star 2"
 })
+
+minetest.register_craftitem("super_sam:heart", {
+    inventory_image = "super_sam_heart.png",
+    description = "Heart"
+})

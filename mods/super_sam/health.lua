@@ -29,7 +29,7 @@ function super_sam.add_health(name, health)
     return sum
 end
 
-super_sam.register_on_pickup("super_sam:mushroom_1", function(player)
+super_sam.register_on_pickup("super_sam:heart", function(player)
     local playername = player:get_player_name()
     super_sam.add_health(playername, 1)
     super_sam.update_player_hud(player)
