@@ -9,6 +9,10 @@ dofile(MP .. "/spawn.lua")
 dofile(MP .. "/privs.lua")
 dofile(MP .. "/skybox.lua")
 dofile(MP .. "/sounds.lua")
+dofile(MP .. "/level.lua")
+
+-- levels
+dofile(MP .. "/levels/s01.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
