@@ -6,3 +6,9 @@ Super sam adventure PoC
 [![Download](https://img.shields.io/badge/Download-ContentDB-blue.svg)](https://content.minetest.net/packages/BuckarooBanzay/super_sam)
 
 State: **WIP**
+
+
+# License
+
+* `menu/icon.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
+* Others: see the `readme.md` or `license.txt` files in the various `mods/*` folder
