@@ -22,3 +22,9 @@ function super_sam.node_sound_gravel()
         footstep = {name = "default_gravel_footstep", gain = 0.3}
     }
 end
+
+function super_sam.node_sound_metal()
+    return {
+        footstep = {name = "default_metal_footstep", gain = 0.3}
+    }
+end
