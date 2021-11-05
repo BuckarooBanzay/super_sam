@@ -5,6 +5,7 @@ local hud_data = {}
 local health_position = { x = 0.2, y = 0.05 }
 local coins_position = { x = 0.4, y = 0.05 }
 local level_position = { x = 0.6, y = 0.05 }
+local time_position = { x = 0.6, y = 0.08 }
 local score_position = { x = 0.8, y = 0.05 }
 
 local function restrict_player_hud(player)
@@ -28,9 +29,21 @@ local function setup_hud(player)
         hud_elem_type = "text",
         position = score_position,
         number = 0xffffff,
-        text = "Score: 0",
+        text = "",
         offset = {x = 0,   y = 0},
-        alignment = { x = 0, y = 0},
+        alignment = { x = 1, y = 0},
+        scale = {x = 2, y = 2}
+    })
+
+    -- Time
+
+    data.time_text = player:hud_add({
+        hud_elem_type = "text",
+        position = time_position,
+        number = 0xffffff,
+        text = "",
+        offset = {x = 0,   y = 0},
+        alignment = { x = 1, y = 0},
         scale = {x = 2, y = 2}
     })
 
@@ -49,7 +62,7 @@ local function setup_hud(player)
         hud_elem_type = "text",
         position = coins_position,
         number = 0xffffff,
-        text = "x0",
+        text = "",
         offset = {x = 0,   y = 0},
         alignment = { x = 1, y = 0},
         scale = {x = 2, y = 2}
@@ -70,7 +83,7 @@ local function setup_hud(player)
         hud_elem_type = "text",
         position = health_position,
         number = 0xffffff,
-        text = "x0",
+        text = "",
         offset = {x = 0,   y = 0},
         alignment = { x = 1, y = 0},
         scale = {x = 2, y = 2}
@@ -82,7 +95,7 @@ local function setup_hud(player)
         hud_elem_type = "text",
         position = level_position,
         number = 0xffffff,
-        text = "Level 0-0 / 02:10",
+        text = "",
         offset = {x = 0,   y = 0},
         alignment = { x = 1, y = 0},
         scale = {x = 2, y = 2}
@@ -99,10 +112,27 @@ function super_sam.update_player_hud(player)
     end
 
     if data.coins_text then
-        player:hud_change(data.coins_text, "text", "x" .. super_sam.get_score(playername))
+        player:hud_change(data.coins_text, "text", "x" .. super_sam.get_coins(playername))
     end
     if data.health_text then
         player:hud_change(data.health_text, "text", "x" .. super_sam.get_health(playername))
+    end
+    if data.score_text then
+        -- TODO: 1000-separator
+        player:hud_change(data.score_text, "text", "$ " .. super_sam.get_score(playername))
+    end
+    if data.level_text then
+        local levelname = super_sam.get_current_level_name(player)
+        player:hud_change(data.level_text, "text", "Level: '" .. (levelname or "<none>"))
+    end
+    if data.time_text then
+        local time = super_sam.get_time(playername)
+        player:hud_change(data.time_text, "text", "Time: " .. (time or "-"))
+        if time and time > 60 then
+            player:hud_change(data.time_text, "color", 0x00ff00)
+        else
+            player:hud_change(data.time_text, "color", 0xff0000)
+        end
     end
 end
 
@@ -121,4 +151,6 @@ minetest.register_on_joinplayer(function(player)
     if not minetest.check_player_privs(player, "super_sam_builder") then
         restrict_player_hud(player)
     end
+
+    super_sam.update_player_hud(player)
 end)
