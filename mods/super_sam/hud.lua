@@ -123,7 +123,7 @@ function super_sam.update_player_hud(player)
     end
     if data.level_text then
         local levelname = super_sam.get_current_level_name(player)
-        player:hud_change(data.level_text, "text", "Level: '" .. (levelname or "<none>"))
+        player:hud_change(data.level_text, "text", "Level: '" .. (levelname or "<none>") .. "'")
     end
     if data.time_text then
         local time = super_sam.get_time(playername)
