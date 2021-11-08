@@ -20,4 +20,6 @@ Super sam base mod
 * `textures/super_sam_spike_*.png` CC0 https://github.com/starninjas/xspikes
 * `sounds/super_sam_effect_on.ogg` CC-BY 3.0 https://freesound.org/people/alonsotm/sounds/396501/
 * `sounds/super_sam_effect_off.ogg` CC-BY 3.0 https://freesound.org/people/qubodup/sounds/219570/
-
+* `textures/super_sam_lights*` CC-BY SA 4.0 https://github.com/random-geek/morelights
+* `models/super_sam_lights*` CC-BY SA 4.0 https://github.com/random-geek/morelights
+* `lights.lua` LGPL v3.0 adapted from https://github.com/random-geek/morelights/blob/master/morelights_vintage/init.lua
