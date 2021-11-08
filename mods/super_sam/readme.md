@@ -18,3 +18,6 @@ Super sam base mod
 * `textures/super_sam_heart.png` CC-BY SA 3.0 https://github.com/minetest/minetest
 * `textures/super_sam_beacon_*.png` CC-BY SA 4.0 https://github.com/mt-mods/telemosaic
 * `textures/super_sam_spike_*.png` CC0 https://github.com/starninjas/xspikes
+* `sounds/super_sam_effect_on.ogg` CC-BY 3.0 https://freesound.org/people/alonsotm/sounds/396501/
+* `sounds/super_sam_effect_off.ogg` CC-BY 3.0 https://freesound.org/people/qubodup/sounds/219570/
+

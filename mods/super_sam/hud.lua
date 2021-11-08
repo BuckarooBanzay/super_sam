@@ -8,6 +8,10 @@ local level_position = { x = 0.6, y = 0.05 }
 local time_position = { x = 0.6, y = 0.08 }
 local score_position = { x = 0.8, y = 0.05 }
 
+local hud_powerup_position = { x = 0.2, y = 0.08 }
+
+local position_offscreen = { x = -1, y = -1 }
+
 local function restrict_player_hud(player)
     player:hud_set_flags({
         crosshair = true,
@@ -101,6 +105,35 @@ local function setup_hud(player)
         scale = {x = 2, y = 2}
     })
 
+    -- powerups / effects
+
+    data.powerup1 = player:hud_add({
+        hud_elem_type = "image",
+        position = position_offscreen,
+        text = "super_sam_items.png^[sheet:6x5:0,2",
+        offset = {x = -32,   y = 0},
+        alignment = { x = 0, y = 0},
+        scale = {x = 2, y = 2}
+    })
+
+    data.powerup2 = player:hud_add({
+        hud_elem_type = "image",
+        position = position_offscreen,
+        text = "super_sam_items.png^[sheet:6x5:1,2",
+        offset = {x = 0,   y = 0},
+        alignment = { x = 0, y = 0},
+        scale = {x = 2, y = 2}
+    })
+
+    data.powerup3 = player:hud_add({
+        hud_elem_type = "image",
+        position = position_offscreen,
+        text = "super_sam_items.png^[sheet:6x5:2,2",
+        offset = {x = 32,   y = 0},
+        alignment = { x = 0, y = 0},
+        scale = {x = 2, y = 2}
+    })
+
     hud_data[player:get_player_name()] = data
 end
 
@@ -133,6 +166,13 @@ function super_sam.update_player_hud(player)
         else
             player:hud_change(data.time_text, "color", 0xff0000)
         end
+    end
+    local effects = super_sam.get_player_effects(playername)
+    if data.powerup1 then
+        player:hud_change(data.powerup1, "position", effects.jumping and hud_powerup_position or position_offscreen)
+    end
+    if data.powerup2 then
+        player:hud_change(data.powerup2, "position", effects.speed and hud_powerup_position or position_offscreen)
     end
 end
 
