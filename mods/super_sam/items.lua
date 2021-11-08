@@ -6,12 +6,12 @@ minetest.register_craftitem("super_sam:coin", {
 
 minetest.register_craftitem("super_sam:mushroom_1", {
     inventory_image = "super_sam_items.png^[sheet:6x5:0,2",
-    description = "Mushroom 1"
+    description = "Mushroom 1 (jump effect)"
 })
 
 minetest.register_craftitem("super_sam:mushroom_2", {
     inventory_image = "super_sam_items.png^[sheet:6x5:1,2",
-    description = "Mushroom 2"
+    description = "Mushroom 2 (speed effect)"
 })
 
 minetest.register_craftitem("super_sam:mushroom_3", {
