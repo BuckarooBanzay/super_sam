@@ -25,6 +25,7 @@ dofile(MP .. "/hud.lua")
 -- nodes, items, etc
 dofile(MP .. "/items.lua")
 dofile(MP .. "/nodes.lua")
+dofile(MP .. "/spikes.lua")
 dofile(MP .. "/itemspawner.lua")
 dofile(MP .. "/platformspawner.lua")
 dofile(MP .. "/projectilespawner.lua")

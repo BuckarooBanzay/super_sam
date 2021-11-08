@@ -17,3 +17,4 @@ Super sam base mod
 * `sounds/default_*` CC-BY SA 4.0 https://github.com/tacotexmex/snowsong
 * `textures/super_sam_heart.png` CC-BY SA 3.0 https://github.com/minetest/minetest
 * `textures/super_sam_beacon_*.png` CC-BY SA 4.0 https://github.com/mt-mods/telemosaic
+* `textures/super_sam_spike_*.png` CC0 https://github.com/starninjas/xspikes
