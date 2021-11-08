@@ -41,7 +41,13 @@ local nodes = {
         sounds = super_sam.node_sound_dirt()
     },
     ["grass"] = {
-        sounds = super_sam.node_sound_dirt()
+        sounds = super_sam.node_sound_dirt(),
+        tiles = {
+            "default_grass.png", "default_dirt.png", {
+                name = "default_dirt.png^default_grass_side.png",
+			    tileable_vertical = false
+            }
+        }
     },
     ["obsidian_block"] = {
         sounds = super_sam.node_sound_stone()
