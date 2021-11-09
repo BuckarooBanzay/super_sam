@@ -48,9 +48,22 @@ end
 function super_sam.finalize_level(player)
     -- convert coins to score
     local playername = player:get_player_name()
+    local ppos = player:get_pos()
     local coins = super_sam.get_coins(playername)
     super_sam.set_coins(playername, 0)
     super_sam.add_score(playername, coins * 100)
+    minetest.sound_play({ name = "super_sam_cash", gain = 1.5 }, { to_player = playername }, true)
+    minetest.add_particlespawner({
+        amount = coins * 50,
+        time = 1,
+        -- floor
+        minpos = vector.subtract(ppos, {x=2, y=1, z=2}),
+        maxpos = vector.subtract(ppos, {x=-2, y=1, z=-2}),
+        minvel = {x=0, y=2, z=0},
+        maxvel = {x=0, y=4, z=0},
+        minsize = 2,
+        texture = "super_sam_items.png^[sheet:6x5:4,3"
+    })
 
     -- Clear time
     super_sam.set_time(playername, nil)

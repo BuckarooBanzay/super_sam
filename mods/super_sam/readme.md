@@ -14,6 +14,7 @@ Super sam base mod
 * `models/super_sam_sphere.obj` LGPL 2.0 https://github.com/mt-mods/technic
 * `sounds/super_sam_coin.ogg` CC0 https://freesound.org/people/plasterbrain/sounds/242857/
 * `sounds/super_sam_heart.ogg` CC0 https://freesound.org/people/Phenala/sounds/478647/
+* `sounds/super_sam_cash.ogg` CC0 https://freesound.org/people/kiddpark/sounds/201159/
 * `sounds/default_*` CC-BY SA 4.0 https://github.com/tacotexmex/snowsong
 * `textures/super_sam_heart.png` CC-BY SA 3.0 https://github.com/minetest/minetest
 * `textures/super_sam_beacon_*.png` CC-BY SA 4.0 https://github.com/mt-mods/telemosaic
