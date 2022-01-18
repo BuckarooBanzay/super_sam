@@ -1,3 +1,4 @@
+local has_worldedit = minetest.get_modpath("worldedit")
 
 local editor_privs = {
     "fly", "fast", "noclip", "debug"
@@ -51,6 +52,9 @@ function super_sam.set_edit_mode(player)
     local inv = player:get_inventory()
     local main_inv = inv:get_list("main")
     main_inv[1] = "super_sam:editor"
+    if has_worldedit then
+        main_inv[2] = "worldedit:wand"
+    end
     inv:set_list("main", main_inv)
 
     -- toggle hud items
