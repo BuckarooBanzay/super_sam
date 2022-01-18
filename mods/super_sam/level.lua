@@ -16,8 +16,8 @@ function super_sam.register_level(pos)
         name = meta:get_string("name"),
         start = vector.add(pos, {x=0, y=0.5, z=0}),
         bounds = {
-            { x=meta:get_int("xminus"), y=meta:get_int("yminus"), z=meta:get_int("zminus") },
-            { x=meta:get_int("xplus"), y=meta:get_int("yplus"), z=meta:get_int("zplus") }
+            min = { x=meta:get_int("xminus"), y=meta:get_int("yminus"), z=meta:get_int("zminus") },
+            max = { x=meta:get_int("xplus"), y=meta:get_int("yplus"), z=meta:get_int("zplus") }
         }
     }
 

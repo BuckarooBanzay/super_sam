@@ -1,5 +1,10 @@
 globals = {
-	"minetest", "super_sam"
+	"minetest", "super_sam",
+	["worldedit"] = {
+		fields = {
+			"pos1", "pos2"
+		}
+	}
 }
 
 read_globals = {
@@ -13,5 +18,5 @@ read_globals = {
 	"VoxelArea",
 
 	-- mods
-	"stairsplus", "player_api"
+	"stairsplus", "player_api", "worldedit"
 }
