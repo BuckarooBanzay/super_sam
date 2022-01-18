@@ -6,8 +6,8 @@ local editor_privs = {
 -- returns true if in play mode
 function super_sam.check_play_mode(player)
     local meta = player:get_meta()
-    local mode = meta:get_string("mode")
-    return not mode or mode == "play"
+    local mode = meta:get_string("super_sam_mode")
+    return mode == "" or mode == "play"
 end
 
 -- play mode

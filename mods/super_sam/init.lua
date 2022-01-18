@@ -26,6 +26,7 @@ dofile(MP .. "/hud.lua")
 dofile(MP .. "/mode.lua")
 
 -- nodes, items, etc
+dofile(MP .. "/level_beacon.lua")
 dofile(MP .. "/items.lua")
 dofile(MP .. "/nodes.lua")
 dofile(MP .. "/lights.lua")
