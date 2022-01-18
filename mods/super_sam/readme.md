@@ -20,6 +20,7 @@ Super sam base mod
 * `sounds/super_sam_heart.ogg` CC0 https://freesound.org/people/Phenala/sounds/478647/
 * `sounds/super_sam_cash.ogg` CC0 https://freesound.org/people/kiddpark/sounds/201159/
 * `sounds/super_sam_jump.ogg` CC-BY SA 3.0 https://freesound.org/people/kwahmah_02/sounds/262893/
+* `sounds/super_sam_game_over.ogg` CC-BY SA 3.0 https://freesound.org/people/ProjectsU012/sounds/333785/
 * `sounds/default_*` CC-BY SA 4.0 https://github.com/tacotexmex/snowsong
 * `textures/super_sam_heart.png` CC-BY SA 3.0 https://github.com/minetest/minetest
 * `textures/super_sam_beacon_*.png` CC-BY SA 4.0 https://github.com/mt-mods/telemosaic

@@ -100,6 +100,8 @@ function super_sam.reset_level(player)
         return
     end
 
+    minetest.sound_play({ name = "super_sam_game_over", gain = 0.7 }, { to_player = playername }, true)
+
     super_sam.abort_level(player)
     super_sam.start_level(player, level)
 end
