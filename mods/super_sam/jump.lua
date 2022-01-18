@@ -10,7 +10,10 @@ minetest.register_globalstep(function()
         local previous_control = previous_state[playername]
         if previous_control and not previous_control.jump and control.jump then
             -- jump [off -> on]
-            minetest.sound_play({ name = "super_sam_jump", gain = 0.7 }, { to_player = playername }, true)
+            if not minetest.check_player_privs(player, "fly") then
+                -- only play if not in fly mode
+                minetest.sound_play({ name = "super_sam_jump", gain = 0.7 }, { to_player = playername }, true)
+            end
         end
         previous_state[playername] = control
     end
