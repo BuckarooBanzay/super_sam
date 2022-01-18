@@ -16,8 +16,16 @@ function super_sam.register_level(pos)
         name = meta:get_string("name"),
         start = vector.add(pos, {x=0, y=0.5, z=0}),
         bounds = {
-            min = { x=meta:get_int("xminus"), y=meta:get_int("yminus"), z=meta:get_int("zminus") },
-            max = { x=meta:get_int("xplus"), y=meta:get_int("yplus"), z=meta:get_int("zplus") }
+            min = {
+                x = pos.x - meta:get_int("xminus"),
+                y = pos.y - meta:get_int("yminus"),
+                z = pos.z - meta:get_int("zminus")
+            },
+            max = {
+                x = pos.x + meta:get_int("xplus"),
+                y = pos.y + meta:get_int("yplus"),
+                z = pos.z + meta:get_int("zplus")
+            }
         }
     }
 
@@ -152,6 +160,19 @@ local function check_current_level()
                 minetest.log("action", "[super_sam] Starting level '" .. nearest_level.name ..
                     "' for player '" .. playername .. "'")
                 super_sam.start_level(player, nearest_level)
+
+            elseif current_level then
+                -- check bounds
+                local level_def = levels[current_level]
+                local ppos = player:get_pos()
+                if ppos.x < level_def.bounds.min.x or
+                    ppos.y < level_def.bounds.min.y or
+                    ppos.z < level_def.bounds.min.z or
+                    ppos.x > level_def.bounds.max.x or
+                    ppos.y > level_def.bounds.max.y or
+                    ppos.z > level_def.bounds.max.z then
+                    super_sam.reset_level(player)
+                end
             end
             -- TODO: check boundaries
         end
