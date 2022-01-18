@@ -1,7 +1,10 @@
 Super sam base mod
 
+# Privileges
 
-# License
+* `super_sam_builder` This privilege is needed to be able to build and invoke some editing commands
+
+# Licenses
 
 * `sounds/super_sam_ambient_1.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/613914/
 * `sounds/super_sam_ambient_2.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/585917/
