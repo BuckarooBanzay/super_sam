@@ -22,7 +22,7 @@ local function check_sound(playername)
     end
 
     local sound = sounds[math.random(#sounds)]
-    local handle = minetest.sound_play({ name = sound.name, gain = 0.7 }, { to_player = playername })
+    local handle = minetest.sound_play({ name = sound.name, gain = 0.5 }, { to_player = playername })
     handles[playername] = handle
     minetest.after(sound.duration, function()
         if handles[playername] == handle then

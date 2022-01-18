@@ -73,8 +73,8 @@ function super_sam.finalize_level(player)
         amount = coins * 50,
         time = 1,
         -- floor
-        minpos = vector.subtract(ppos, {x=2, y=1, z=2}),
-        maxpos = vector.subtract(ppos, {x=-2, y=1, z=-2}),
+        minpos = vector.subtract(ppos, {x=3, y=1, z=3}),
+        maxpos = vector.subtract(ppos, {x=-3, y=1, z=-3}),
         minvel = {x=0, y=2, z=0},
         maxvel = {x=0, y=4, z=0},
         minsize = 2,
@@ -108,10 +108,28 @@ function super_sam.reset_level(player)
         return
     end
 
-    minetest.sound_play({ name = "super_sam_game_over", gain = 0.7 }, { to_player = playername }, true)
+    -- game over sound
+    minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = playername }, true)
 
+    -- clear level data
     super_sam.abort_level(player)
+
+    -- start level again
     super_sam.start_level(player, level)
+
+    -- particle rain on respawn position
+    local ppos = player:get_pos()
+    minetest.add_particlespawner({
+        amount = 350,
+        time = 1,
+        -- floor
+        minpos = vector.subtract(ppos, {x=3, y=1, z=3}),
+        maxpos = vector.subtract(ppos, {x=-3, y=1, z=-3}),
+        minvel = {x=0, y=2, z=0},
+        maxvel = {x=0, y=4, z=0},
+        minsize = 2,
+        texture = "super_sam_items.png^[sheet:6x5:4,2"
+    })
 end
 
 minetest.register_on_leaveplayer(super_sam.reset_level)
@@ -171,6 +189,7 @@ local function check_current_level()
                     ppos.x > level_def.bounds.max.x or
                     ppos.y > level_def.bounds.max.y or
                     ppos.z > level_def.bounds.max.z then
+                    minetest.chat_send_player(playername, "Outside the level-region, resetting...")
                     super_sam.reset_level(player)
                 end
             end
@@ -195,5 +214,14 @@ minetest.register_chatcommand("start", {
         local player = minetest.get_player_by_name(name)
         super_sam.start_level(player, level)
         return true, "Level '" .. levelname .. "' started"
+    end
+})
+
+minetest.register_chatcommand("killme", {
+    description = "Resets the current level",
+    func = function(name)
+        local player = minetest.get_player_by_name(name)
+        super_sam.reset_level(player)
+        return true, "Level reset!"
     end
 })
