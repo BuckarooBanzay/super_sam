@@ -3,9 +3,9 @@ Super sam base mod
 
 # License
 
-* `sounds/super_sam_ambient_1.ogg` CC0 https://freesound.org/people/BloodPixelHero/sounds/613914/
-* `sounds/super_sam_ambient_2.ogg` CC0 https://freesound.org/people/BloodPixelHero/sounds/585917/
-* `sounds/super_sam_ambient_3.ogg` CC0 https://freesound.org/people/BloodPixelHero/sounds/563801/
+* `sounds/super_sam_ambient_1.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/613914/
+* `sounds/super_sam_ambient_2.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/585917/
+* `sounds/super_sam_ambient_3.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/563801/
 * `textures/sam_mario_skin.png` CC-BY SA 3.0 ("Mario" by "Fedora P") http://minetest.fensta.bplaced.net/#!page:1,filtertype:Id,filter:684
 * `textures/default_ladder_steel.png` CC-BY SA 3.0 https://github.com/minetest/minetest_game
 * `sounds/default_metal_footstep.*` CC-BY SA 3.0 https://github.com/minetest/minetest_game
@@ -19,6 +19,7 @@ Super sam base mod
 * `sounds/super_sam_coin.ogg` CC0 https://freesound.org/people/plasterbrain/sounds/242857/
 * `sounds/super_sam_heart.ogg` CC0 https://freesound.org/people/Phenala/sounds/478647/
 * `sounds/super_sam_cash.ogg` CC0 https://freesound.org/people/kiddpark/sounds/201159/
+* `sounds/super_sam_jump.ogg` CC-BY SA 3.0 https://freesound.org/people/kwahmah_02/sounds/262893/
 * `sounds/default_*` CC-BY SA 4.0 https://github.com/tacotexmex/snowsong
 * `textures/super_sam_heart.png` CC-BY SA 3.0 https://github.com/minetest/minetest
 * `textures/super_sam_beacon_*.png` CC-BY SA 4.0 https://github.com/mt-mods/telemosaic

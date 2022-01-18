@@ -25,6 +25,7 @@ dofile(MP .. "/health.lua")
 dofile(MP .. "/effects.lua")
 dofile(MP .. "/hud.lua")
 dofile(MP .. "/mode.lua")
+dofile(MP .. "/jump.lua")
 
 -- nodes, items, etc
 dofile(MP .. "/level_beacon.lua")
