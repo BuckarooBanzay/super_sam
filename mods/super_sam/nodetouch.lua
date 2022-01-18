@@ -23,8 +23,7 @@ local function check()
 
     minetest.after(0.1, check)
 end
-
-check()
+minetest.after(0.1, check)
 
 function super_sam.register_on_nodetouch(nodename, callback)
     local list = callbacks[nodename]

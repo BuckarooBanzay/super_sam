@@ -28,8 +28,7 @@ local function check_for_pickups()
 
     minetest.after(0.1, check_for_pickups)
 end
-
-check_for_pickups()
+minetest.after(0.1, check_for_pickups)
 
 function super_sam.register_on_pickup(itemname, callback)
     local list = callbacks[itemname]

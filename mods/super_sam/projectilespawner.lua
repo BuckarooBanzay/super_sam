@@ -169,8 +169,7 @@ local function check()
     end
     minetest.after(0.1, check)
 end
-
-check()
+minetest.after(0.1, check)
 
 minetest.register_lbm({
     label = "Projectile spawner trigger",

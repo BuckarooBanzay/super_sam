@@ -182,8 +182,7 @@ local function update_hud()
     end
     minetest.after(1, update_hud)
 end
-
-update_hud()
+minetest.after(1, update_hud)
 
 minetest.register_on_joinplayer(function(player)
     setup_hud(player)

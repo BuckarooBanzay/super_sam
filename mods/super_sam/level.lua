@@ -157,7 +157,7 @@ local function check_current_level()
 
     minetest.after(0.5, check_current_level)
 end
-check_current_level()
+minetest.after(0.5, check_current_level)
 
 minetest.register_chatcommand("start", {
     params = "<levelname>",
