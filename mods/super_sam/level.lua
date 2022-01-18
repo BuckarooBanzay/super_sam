@@ -25,6 +25,10 @@ function super_sam.register_level(pos)
 end
 
 function super_sam.start_level(player, level)
+    -- store current pos in case of logout/timeout
+    local meta = player:get_meta()
+    meta:set_string("super_sam_last_startpos", minetest.pos_to_string(level.start))
+
     local playername = player:get_player_name()
 
     -- set start position
@@ -76,6 +80,7 @@ function super_sam.finalize_level(player)
     current_levels[playername] = nil
 end
 
+-- aborts the current level (used for edit mode)
 function super_sam.abort_level(player)
     local playername = player:get_player_name()
     super_sam.set_coins(playername, 0)
@@ -83,6 +88,37 @@ function super_sam.abort_level(player)
     current_levels[playername] = nil
 end
 
+-- resets the level after too much damage or timeout
+function super_sam.reset_level(player)
+    local playername = player:get_player_name()
+    local levelname = current_levels[playername]
+    if not levelname then
+        return
+    end
+    local level = levels[levelname]
+    if not level then
+        return
+    end
+
+    super_sam.abort_level(player)
+    super_sam.start_level(player, level)
+end
+
+minetest.register_on_leaveplayer(super_sam.reset_level)
+
+minetest.register_on_joinplayer(function(player)
+    if not super_sam.check_play_mode(player) then
+        -- not in play mode
+        return
+    end
+    local meta = player:get_meta()
+    local last_startpos = meta:get_string("super_sam_last_startpos")
+    if last_startpos ~= "" then
+        player:set_pos(minetest.string_to_pos(last_startpos))
+    end
+end)
+
+-- returns the nearest level within the given margin
 function super_sam.get_nearest_level(ppos, margin)
     margin = margin or 10
     for _, level in pairs(levels) do
@@ -115,6 +151,7 @@ local function check_current_level()
                     "' for player '" .. playername .. "'")
                 super_sam.start_level(player, nearest_level)
             end
+            -- TODO: check boundaries
         end
     end
 

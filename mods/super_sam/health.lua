@@ -4,8 +4,9 @@ local healths = {}
 local function check_for_death(name, health)
     if health < 0 then
         -- dead
-        minetest.chat_send_player(name, "You would have died...")
+        minetest.chat_send_player(name, "You died...")
         super_sam.set_health(name, 0)
+        super_sam.reset_level(minetest.get_player_by_name(name))
     end
 end
 

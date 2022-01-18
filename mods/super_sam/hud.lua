@@ -162,9 +162,9 @@ function super_sam.update_player_hud(player)
         local time = super_sam.get_time(playername)
         player:hud_change(data.time_text, "text", "Time: " .. (time or "-"))
         if time and time > 60 then
-            player:hud_change(data.time_text, "color", 0x00ff00)
+            player:hud_change(data.time_text, "number", 0x00ff00)
         else
-            player:hud_change(data.time_text, "color", 0xff0000)
+            player:hud_change(data.time_text, "number", 0xff0000)
         end
     end
     local effects = super_sam.get_player_effects(playername)
