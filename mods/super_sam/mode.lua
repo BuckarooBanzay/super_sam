@@ -61,6 +61,11 @@ function super_sam.set_edit_mode(player)
         minimap_radar = true
     })
 
+    -- reset time and stats
+    super_sam.set_time(playername, nil)
+    super_sam.set_coins(playername, 0)
+    super_sam.set_score(playername, 0)
+
     -- grant privs
     local privs = minetest.get_player_privs(playername)
     for _, name in pairs(editor_privs) do
