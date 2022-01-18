@@ -23,6 +23,7 @@ dofile(MP .. "/coins.lua")
 dofile(MP .. "/health.lua")
 dofile(MP .. "/effects.lua")
 dofile(MP .. "/hud.lua")
+dofile(MP .. "/mode.lua")
 
 -- nodes, items, etc
 dofile(MP .. "/items.lua")
