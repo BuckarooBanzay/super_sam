@@ -7,8 +7,14 @@ Super sam adventure PoC
 
 State: **WIP**
 
+# Commands
+
+* `/ambience [on|off]` enable or disable ambient sounds
+* `/mode [edit|play]` switch between play- and edit-mode (to edit the map)
 
 # License
 
+* Code: MIT
+* Textures: (unless otherwise noted) CC-BY SA 4.0
 * `menu/icon.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
 * Others: see the `readme.md` or `license.txt` files in the various `mods/*` folders
