@@ -3,6 +3,7 @@ Super sam base mod
 
 # License
 
+* `textures/sam_mario_skin.png` CC-BY SA 3.0 ("Mario" by "Fedora P") http://minetest.fensta.bplaced.net/#!page:1,filtertype:Id,filter:684
 * `textures/default_ladder_steel.png` CC-BY SA 3.0 https://github.com/minetest/minetest_game
 * `sounds/default_metal_footstep.*` CC-BY SA 3.0 https://github.com/minetest/minetest_game
 * `textures/default_steel_block.png` CC-BY SA 3.0 https://github.com/minetest/minetest_game

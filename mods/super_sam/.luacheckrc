@@ -13,5 +13,5 @@ read_globals = {
 	"VoxelArea",
 
 	-- mods
-	"stairsplus"
+	"stairsplus", "player_api"
 }

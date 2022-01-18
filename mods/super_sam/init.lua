@@ -16,6 +16,7 @@ dofile(MP .. "/itempickup.lua")
 dofile(MP .. "/nodetouch.lua")
 
 -- hud/player stuff
+dofile(MP .. "/player.lua")
 dofile(MP .. "/time.lua")
 dofile(MP .. "/score.lua")
 dofile(MP .. "/coins.lua")
