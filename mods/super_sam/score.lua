@@ -3,6 +3,8 @@ local scores = {}
 
 function super_sam.set_score(name, score)
     scores[name] = score
+    local player = minetest.get_player_by_name(name)
+    player:get_meta():set_int("super_sam_score", score)
 end
 
 function super_sam.get_score(name)
@@ -10,5 +12,10 @@ function super_sam.get_score(name)
 end
 
 function super_sam.add_score(name, score)
-    scores[name] = (scores[name] or 0) + score
+    super_sam.set_score(name, super_sam.get_score(name) + score)
 end
+
+minetest.register_on_joinplayer(function(player)
+    local playername = player:get_player_name()
+    scores[playername] = player:get_meta():get_int("super_sam_score")
+end)
