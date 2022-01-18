@@ -8,7 +8,7 @@ local level_position = { x = 0.6, y = 0.05 }
 local time_position = { x = 0.6, y = 0.08 }
 local score_position = { x = 0.8, y = 0.05 }
 
-local hud_powerup_position = { x = 0.2, y = 0.08 }
+local hud_powerup_position = { x = 0.5, y = 0.1 }
 
 local position_offscreen = { x = -1, y = -1 }
 
