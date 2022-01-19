@@ -1,3 +1,4 @@
+
 Super sam base mod
 
 # Privileges
@@ -5,6 +6,12 @@ Super sam base mod
 * `super_sam_builder` This privilege is needed to be able to build and invoke some editing commands
 
 # Licenses
+
+## Code
+
+* `nodes.lua` ladder code from https://gitlab.com/4w/redef GPLv3
+
+## Media
 
 * `sounds/super_sam_ambient_1.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/613914/
 * `sounds/super_sam_ambient_2.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/585917/
