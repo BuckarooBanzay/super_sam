@@ -1,6 +1,7 @@
 
 local trap_nodes = {
-    { mod = "super_sam", name = "stone" }
+    { mod = "super_sam", name = "stone" },
+    { mod = "super_sam", name = "dirt" }
 }
 
 for _, trap_node in ipairs(trap_nodes) do
