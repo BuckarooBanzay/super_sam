@@ -137,6 +137,15 @@ local function setup_hud(player)
     hud_data[player:get_player_name()] = data
 end
 
+-- http://lua-users.org/lists/lua-l/2006-01/msg00525.html
+local function format_thousand(v)
+	local s = string.format("%d", math.floor(v))
+	local pos = string.len(s) % 3
+	if pos == 0 then pos = 3 end
+	return string.sub(s, 1, pos)
+		.. string.gsub(string.sub(s, pos+1), "(...)", "'%1")
+end
+
 function super_sam.update_player_hud(player)
     local playername = player:get_player_name()
     local data = hud_data[playername]
@@ -151,8 +160,7 @@ function super_sam.update_player_hud(player)
         player:hud_change(data.health_text, "text", "x" .. super_sam.get_health(playername))
     end
     if data.score_text then
-        -- TODO: 1000-separator
-        player:hud_change(data.score_text, "text", "$ " .. super_sam.get_score(playername))
+        player:hud_change(data.score_text, "text", "$ " .. format_thousand(super_sam.get_score(playername)))
     end
     if data.level_text then
         local levelname = super_sam.get_current_level_name(player)
