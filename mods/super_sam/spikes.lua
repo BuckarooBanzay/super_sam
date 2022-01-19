@@ -13,6 +13,7 @@ for name, def in pairs(spikes) do
     def.walkable = false
     def.sunlight_propagates = true
     def.paramtype = "light"
+    def.damage_per_second = 1
 
     minetest.register_node("super_sam:" .. name, def)
 end

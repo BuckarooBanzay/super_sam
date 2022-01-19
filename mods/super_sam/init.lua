@@ -1,4 +1,6 @@
-super_sam = {}
+super_sam = {
+    max_hp = 3
+}
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
 
@@ -12,7 +14,6 @@ dofile(MP .. "/level.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
-dofile(MP .. "/nodetouch.lua")
 
 -- hud/player stuff
 dofile(MP .. "/ambience.lua")

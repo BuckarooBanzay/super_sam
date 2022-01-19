@@ -15,6 +15,13 @@ end
 function super_sam.set_play_mode(player)
     local playername = player:get_player_name()
 
+    -- make player mortal
+    player:set_armor_groups({
+        immortal = nil,
+        fall_damage_add_percent = -100
+    })
+    player:set_hp(super_sam.max_hp, "set_hp")
+
     -- clear inventory items
     local inv = player:get_inventory()
     local main_inv = inv:get_list("main")
@@ -25,6 +32,8 @@ function super_sam.set_play_mode(player)
 
     -- restrict hud
     player:hud_set_flags({
+        healthbar = false,
+        breathbar = false,
         hotbar = false,
         wielditem = false,
         minimap = false,
@@ -44,6 +53,9 @@ end
 -- editor mode
 function super_sam.set_edit_mode(player)
     local playername = player:get_player_name()
+
+    -- make player immortal
+    player:set_armor_groups({ immortal = 1 })
 
     -- abort level (if started)
     super_sam.abort_level(player)

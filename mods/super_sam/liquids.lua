@@ -128,7 +128,7 @@ minetest.register_node("super_sam:lava_source", {
 	liquid_alternative_source = "super_sam:lava_source",
 	liquid_viscosity = 7,
 	liquid_renewable = false,
-	damage_per_second = 4 * 2,
+	damage_per_second = 1,
 	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
 	groups = {lava = 3, liquid = 2, igniter = 1},
 })
@@ -174,7 +174,7 @@ minetest.register_node("super_sam:lava_flowing", {
 	liquid_alternative_source = "super_sam:lava_source",
 	liquid_viscosity = 7,
 	liquid_renewable = false,
-	damage_per_second = 4 * 2,
+	damage_per_second = 1,
 	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
 	groups = {lava = 3, liquid = 2, igniter = 1, not_in_creative_inventory = 1},
 })

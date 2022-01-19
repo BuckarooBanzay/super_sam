@@ -157,7 +157,7 @@ local function check_player(player)
 
         if not is_player and entity.name == "super_sam:projectile" then
             obj:remove()
-            super_sam.add_health(player:get_player_name(), -1)
+            player:set_hp(player:get_hp() - 1, "set_hp")
             -- TODO: boom
         end
     end

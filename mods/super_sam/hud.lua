@@ -1,4 +1,6 @@
 
+local enable_damage = minetest.settings:get("enable_damage")
+
 -- player => { name => id }
 local hud_data = {}
 
@@ -157,7 +159,12 @@ function super_sam.update_player_hud(player)
         player:hud_change(data.coins_text, "text", "x" .. super_sam.get_coins(playername))
     end
     if data.health_text then
-        player:hud_change(data.health_text, "text", "x" .. super_sam.get_health(playername))
+        local hp = player:get_hp()
+        if enable_damage ~= "true" then
+            -- no damage enabled, show dummy value
+            hp = "999"
+        end
+        player:hud_change(data.health_text, "text", "x" .. hp)
     end
     if data.score_text then
         player:hud_change(data.score_text, "text", "$ " .. format_thousand(super_sam.get_score(playername)))
