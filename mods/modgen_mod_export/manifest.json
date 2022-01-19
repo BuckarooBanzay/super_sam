@@ -1,8 +1,8 @@
 {
    "mapblock_count" : 82,
-   "metadata_count" : 34,
-   "mtime" : 1642577914,
-   "next_id" : 42,
+   "metadata_count" : 35,
+   "mtime" : 1642621179,
+   "next_id" : 44,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 17,
@@ -17,6 +17,7 @@
       "super_sam:desert_sandstone_block" : 26,
       "super_sam:desert_sandstone_brick" : 27,
       "super_sam:dirt" : 25,
+      "super_sam:dirt_trap" : 42,
       "super_sam:grass" : 3,
       "super_sam:grass_1" : 41,
       "super_sam:grass_2" : 9,
@@ -45,9 +46,10 @@
       "super_sam:stair_stone_alt_4" : 13,
       "super_sam:stone" : 1,
       "super_sam:stone_block" : 10,
-      "super_sam:stone_brick" : 12
+      "super_sam:stone_brick" : 12,
+      "super_sam:stone_trap" : 43
    },
-   "size" : 37043,
+   "size" : 37732,
    "uid" : "009d6335-36aa-4956-a509-8e918b6d29c5",
    "version" : 2
 }
