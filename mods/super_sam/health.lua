@@ -58,6 +58,12 @@ local damage_nodes = {
 }
 
 local damage_fn = function(player)
+    if not super_sam.check_play_mode(player) then
+        -- player in edit mode
+        return
+    end
+
+    -- damager player in play mode
     local playername = player:get_player_name()
     super_sam.add_health(playername, -1)
     minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = playername }, true)
