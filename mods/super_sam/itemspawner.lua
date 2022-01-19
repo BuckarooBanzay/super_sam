@@ -1,5 +1,5 @@
 
--- playername -> pos
+-- playername -> meta_as_table
 local last_placed = {}
 
 local function set_default_values(meta, playername)
@@ -12,19 +12,11 @@ local function set_default_values(meta, playername)
     inv:set_size("main", 1)
 
     -- check previous placement
-    local last_pos = last_placed[playername]
-    if not last_pos then
-        return
+    local last_meta = last_placed[playername]
+    if last_meta then
+        -- copy values from previous node
+        meta:from_table(last_meta)
     end
-
-    -- check previous node name
-    if not minetest.get_node(last_pos).name == "super_sam:item_spawner" then
-        return
-    end
-
-    -- copy values from previous node
-    local last_meta = minetest.get_meta(last_pos)
-    meta:from_table(last_meta:to_table())
 end
 
 local function add_item(pos)
@@ -99,7 +91,7 @@ minetest.register_node("super_sam:item_spawner", {
         meta:set_int("zoffset", tonumber(fields.zoffset or "0"))
 
         local playername = sender:get_player_name()
-        last_placed[playername] = pos
+        last_placed[playername] = meta:to_table()
 
         add_item(pos)
     end,
