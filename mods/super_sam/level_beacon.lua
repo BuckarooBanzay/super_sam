@@ -81,7 +81,7 @@ minetest.register_node("super_sam:level_beacon", {
             worldedit.mark_pos2(playername);
         end
 
-        super_sam.register_level(pos)
+        super_sam.register_level_beacon(pos)
         update_formspec(meta)
     end,
     on_construct = function(pos)
@@ -99,7 +99,7 @@ minetest.register_node("super_sam:level_beacon", {
         meta:set_string("name", "My level")
 
         update_formspec(meta)
-        super_sam.register_level(pos)
+        super_sam.register_level_beacon(pos)
     end,
 })
 
@@ -108,5 +108,5 @@ minetest.register_lbm({
     name = "super_sam:level_beacon",
     nodenames = "super_sam:level_beacon",
     run_at_every_load = true,
-    action = super_sam.register_level
+    action = super_sam.register_level_beacon
 })

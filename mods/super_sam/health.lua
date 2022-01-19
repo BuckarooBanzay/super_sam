@@ -21,4 +21,5 @@ minetest.register_on_player_hpchange(function(player, hp_change)
         -- damage sound
         minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = player:get_player_name() }, true)
     end
+    super_sam.update_player_hud(player)
 end)

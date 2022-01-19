@@ -1,36 +1,8 @@
 
--- name => def
-local levels = {}
-
-function super_sam.get_level(name)
-    return levels[name]
-end
+local beacon_teleport_distance = 3
 
 -- name => levelname
 local current_levels = {}
-
-function super_sam.register_level(pos)
-    local meta = minetest.get_meta(pos)
-    local level_def = {
-        time = meta:get_int("time"),
-        name = meta:get_string("name"),
-        start = vector.add(pos, {x=0, y=0.5, z=0}),
-        bounds = {
-            min = {
-                x = pos.x - meta:get_int("xminus"),
-                y = pos.y - meta:get_int("yminus"),
-                z = pos.z - meta:get_int("zminus")
-            },
-            max = {
-                x = pos.x + meta:get_int("xplus"),
-                y = pos.y + meta:get_int("yplus"),
-                z = pos.z + meta:get_int("zplus")
-            }
-        }
-    }
-
-    levels[level_def.name] = level_def
-end
 
 function super_sam.start_level(player, level)
     -- store current pos in case of logout/timeout
@@ -41,7 +13,7 @@ function super_sam.start_level(player, level)
 
     -- set start position
     local distance = vector.distance(level.start, player:get_pos())
-    if distance > 5 then
+    if distance > beacon_teleport_distance then
         -- only move player if he's too far away
         player:set_pos(level.start)
     end
@@ -103,7 +75,7 @@ function super_sam.reset_level(player)
     if not levelname then
         return
     end
-    local level = levels[levelname]
+    local level = super_sam.get_level_by_name(levelname)
     if not level then
         return
     end
@@ -143,24 +115,12 @@ minetest.register_on_joinplayer(function(player)
     end
 end)
 
--- returns the nearest level within the given margin
-function super_sam.get_nearest_level(ppos, margin)
-    margin = margin or 10
-    for _, level in pairs(levels) do
-        local distance = vector.distance(ppos, level.start)
-        if distance < margin then
-            return level
-        end
-    end
-end
-
-
 local function check_current_level()
     for _, player in ipairs(minetest.get_connected_players()) do
         local playername = player:get_player_name()
         local playmode = super_sam.check_play_mode(player)
         if playmode then
-            local nearest_level = super_sam.get_nearest_level(player:get_pos(), 3)
+            local nearest_level = super_sam.get_nearest_level(player:get_pos(), beacon_teleport_distance)
             local current_level = current_levels[playername]
 
             if current_level and nearest_level and current_level ~= nearest_level.name then
@@ -178,7 +138,7 @@ local function check_current_level()
 
             elseif current_level then
                 -- check bounds
-                local level_def = levels[current_level]
+                local level_def = super_sam.get_level_by_name(current_level)
                 local ppos = player:get_pos()
                 if ppos.x < level_def.bounds.min.x or
                     ppos.y < level_def.bounds.min.y or
@@ -190,7 +150,6 @@ local function check_current_level()
                     super_sam.reset_level(player)
                 end
             end
-            -- TODO: check boundaries
         end
     end
 
@@ -203,7 +162,7 @@ minetest.register_chatcommand("start", {
     description = "Start an arbitrary level",
     privs = { super_sam_builder=true },
     func = function(name, levelname)
-        local level = super_sam.get_level(levelname)
+        local level = super_sam.get_level_by_name(levelname)
         if not level then
             return false, "Level '" .. levelname .. "' not found"
         end

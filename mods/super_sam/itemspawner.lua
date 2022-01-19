@@ -32,6 +32,8 @@ local function add_item(pos)
         return
     end
 
+    -- print("Adding item: " .. item_name .. " at pos " .. minetest.pos_to_string(pos))
+
     local item_pos = vector.add(pos, {x=x_offset, y=y_offset, z=z_offset})
     minetest.add_entity(item_pos, "super_sam:item", minetest.serialize({
         visual = "wielditem",

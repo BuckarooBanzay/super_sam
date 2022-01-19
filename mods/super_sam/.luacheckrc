@@ -15,7 +15,7 @@ read_globals = {
 	-- Minetest
 	"vector", "ItemStack",
 	"dump", "dump2",
-	"VoxelArea",
+	"VoxelArea", "AreaStore",
 
 	-- mods
 	"stairsplus", "player_api", "worldedit"
