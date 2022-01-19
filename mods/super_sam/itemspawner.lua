@@ -1,4 +1,31 @@
 
+-- playername -> pos
+local last_placed = {}
+
+local function set_default_values(meta, playername)
+    -- default values
+    meta:set_int("xoffset", 0)
+    meta:set_int("yoffset", 2)
+    meta:set_int("zoffset", 0)
+
+    local inv = meta:get_inventory()
+    inv:set_size("main", 1)
+
+    -- check previous placement
+    local last_pos = last_placed[playername]
+    if not last_pos then
+        return
+    end
+
+    -- check previous node name
+    if not minetest.get_node(last_pos).name == "super_sam:item_spawner" then
+        return
+    end
+
+    -- copy values from previous node
+    local last_meta = minetest.get_meta(last_pos)
+    meta:from_table(last_meta:to_table())
+end
 
 local function add_item(pos)
     local meta = minetest.get_meta(pos)
@@ -71,19 +98,18 @@ minetest.register_node("super_sam:item_spawner", {
         meta:set_int("yoffset", tonumber(fields.yoffset or "2"))
         meta:set_int("zoffset", tonumber(fields.zoffset or "0"))
 
+        local playername = sender:get_player_name()
+        last_placed[playername] = pos
+
         add_item(pos)
     end,
-    on_construct = function(pos)
+    after_place_node = function(pos, placer)
+        local playername = placer:get_player_name()
+
         local meta = minetest.get_meta(pos)
+        set_default_values(meta, playername)
 
-        -- position offsets
-        meta:set_int("xoffset", 0)
-		meta:set_int("yoffset", 2)
-		meta:set_int("zoffset", 0)
-
-		local inv = meta:get_inventory()
-		inv:set_size("main", 1)
-
+        add_item(pos)
         update_formspec(meta)
     end,
     on_destruct = remove_item
