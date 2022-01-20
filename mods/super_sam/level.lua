@@ -37,9 +37,14 @@ function super_sam.finalize_level(player)
     -- convert coins to score
     local playername = player:get_player_name()
     local ppos = player:get_pos()
+
+    -- update score and highscore
     local coins = super_sam.get_coins(playername)
     super_sam.set_coins(playername, 0)
     super_sam.add_score(playername, coins * 100)
+    super_sam.update_highscore(playername, super_sam.get_score(playername), current_levels[playername])
+
+    -- effects
     minetest.sound_play({ name = "super_sam_cash", gain = 1.5 }, { to_player = playername }, true)
     minetest.add_particlespawner({
         amount = coins * 50,

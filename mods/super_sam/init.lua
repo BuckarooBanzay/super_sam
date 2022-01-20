@@ -12,6 +12,7 @@ dofile(MP .. "/skybox.lua")
 dofile(MP .. "/sounds.lua")
 dofile(MP .. "/level.lua")
 dofile(MP .. "/level_store.lua")
+dofile(MP .. "/highscore.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
