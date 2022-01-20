@@ -34,14 +34,16 @@ function super_sam.get_current_level_name(player)
 end
 
 function super_sam.finalize_level(player)
-    -- convert coins to score
     local playername = player:get_player_name()
     local ppos = player:get_pos()
 
     -- update score and highscore
     local coins = super_sam.get_coins(playername)
     super_sam.set_coins(playername, 0)
-    super_sam.add_score(playername, coins * 100)
+
+    -- convert coins and remaining time to score
+    local remaining_time = super_sam.get_time(playername)
+    super_sam.add_score(playername, (coins * 100) + (remaining_time * 10))
     super_sam.update_highscore(playername, super_sam.get_score(playername), current_levels[playername])
 
     -- effects
