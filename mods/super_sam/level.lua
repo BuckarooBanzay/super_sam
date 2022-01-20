@@ -52,8 +52,8 @@ function super_sam.finalize_level(player)
         amount = coins * 50,
         time = 1,
         -- floor
-        minpos = vector.subtract(ppos, {x=3, y=1, z=3}),
-        maxpos = vector.subtract(ppos, {x=-3, y=1, z=-3}),
+        minpos = vector.subtract(ppos, {x=5, y=1, z=5}),
+        maxpos = vector.subtract(ppos, {x=-5, y=1, z=-5}),
         minvel = {x=0, y=2, z=0},
         maxvel = {x=0, y=4, z=0},
         minsize = 2,
@@ -99,8 +99,8 @@ function super_sam.reset_level(player)
         amount = 350,
         time = 1,
         -- floor
-        minpos = vector.subtract(ppos, {x=3, y=1, z=3}),
-        maxpos = vector.subtract(ppos, {x=-3, y=1, z=-3}),
+        minpos = vector.subtract(ppos, {x=5, y=1, z=5}),
+        maxpos = vector.subtract(ppos, {x=-5, y=1, z=-5}),
         minvel = {x=0, y=2, z=0},
         maxvel = {x=0, y=4, z=0},
         minsize = 2,

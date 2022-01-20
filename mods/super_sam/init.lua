@@ -13,13 +13,14 @@ dofile(MP .. "/sounds.lua")
 dofile(MP .. "/level.lua")
 dofile(MP .. "/level_store.lua")
 dofile(MP .. "/highscore.lua")
+dofile(MP .. "/intro.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
 
 -- hud/player stuff
 dofile(MP .. "/ambience.lua")
-dofile(MP .. "/player.lua")
+dofile(MP .. "/player_setup.lua")
 dofile(MP .. "/time.lua")
 dofile(MP .. "/score.lua")
 dofile(MP .. "/coins.lua")

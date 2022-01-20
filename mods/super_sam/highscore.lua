@@ -75,12 +75,9 @@ end
 minetest.register_chatcommand("highscore", {
     description = "Shows the current highscore",
     func = function(name)
-
-
-
         minetest.show_formspec(name, "highscore", [[
             size[12,12;]
-            label[5,0.1;Highscore top 10]
+            label[0,0.1;Highscore top 10]
             button_exit[10,0;2,1;quit;Quit]
             ]] .. super_sam.get_highscore_formspec_fragment(0, 1, 11.7, 11, 10) .. [[
         ]])
