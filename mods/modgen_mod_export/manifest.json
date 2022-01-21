@@ -1,8 +1,8 @@
 {
-   "mapblock_count" : 95,
-   "metadata_count" : 43,
-   "mtime" : 1642749161,
-   "next_id" : 48,
+   "mapblock_count" : 123,
+   "metadata_count" : 52,
+   "mtime" : 1642755382,
+   "next_id" : 52,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 17,
@@ -43,8 +43,12 @@
       "super_sam:slope_clay_dark_green" : 18,
       "super_sam:slope_desert_sandstone" : 46,
       "super_sam:slope_obsidian_block" : 30,
+      "super_sam:slope_obsidian_brick" : 51,
       "super_sam:slope_stone_block_half" : 39,
+      "super_sam:slope_stone_half" : 50,
+      "super_sam:slope_stone_half_raised" : 49,
       "super_sam:stair_clay_dark_green" : 34,
+      "super_sam:stair_desert_sandstone" : 48,
       "super_sam:stair_desert_sandstone_alt_4" : 45,
       "super_sam:stair_stone" : 37,
       "super_sam:stair_stone_alt_4" : 13,
@@ -53,7 +57,7 @@
       "super_sam:stone_brick" : 12,
       "super_sam:stone_trap" : 43
    },
-   "size" : 47384,
+   "size" : 61748,
    "uid" : "009d6335-36aa-4956-a509-8e918b6d29c5",
    "version" : 2
 }
