@@ -2,7 +2,10 @@
 local sounds = {
     { name = "super_sam_ambience_1", duration = 119 },
     { name = "super_sam_ambience_2", duration = 100 },
-    { name = "super_sam_ambience_3", duration = 130 }
+    { name = "super_sam_ambience_3", duration = 130 },
+    { name = "super_sam_ambience_4", duration = 103 },
+    { name = "super_sam_ambience_5", duration = 167 },
+    { name = "super_sam_ambience_6", duration = 130 }
 }
 
 -- playername -> handle
