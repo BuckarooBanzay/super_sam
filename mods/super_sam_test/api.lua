@@ -1,11 +1,11 @@
 
 local tests = {}
 
-function integration_test.register_test(fn)
+function super_sam_test.register_test(fn)
     table.insert(tests, fn)
 end
 
-function integration_test.execute_tests()
+function super_sam_test.execute_tests()
     for _, fn in ipairs(tests) do
         -- TODO: callback/async api
         local success, msg = fn()

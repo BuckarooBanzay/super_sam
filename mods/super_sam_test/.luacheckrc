@@ -1,5 +1,5 @@
 globals = {
-	"minetest", "super_sam", "integration_test"
+	"minetest", "super_sam", "super_sam_test"
 }
 
 read_globals = {
