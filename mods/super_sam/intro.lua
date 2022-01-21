@@ -5,7 +5,7 @@ function super_sam.show_intro(playername)
         label[0,0.1;Super sam intro (get here again with the /intro command)]
         button_exit[10,0;2,1;start;Start]
 
-        label[0,1;Welcome to the super-sam adventures]
+        label[0,1;Welcome to the super-sam adventures (work in progress)]
         label[0,2;make yourself familiar with the power-ups and items before you start]
 
         image[0,3;2,2;super_sam_items.png^[sheet:6x5:4,3]
