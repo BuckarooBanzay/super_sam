@@ -1,12 +1,25 @@
 
 -- set the mario skin on join
 minetest.register_on_joinplayer(function(player, last_login)
+    -- mario skin
     player_api.set_textures(player, {"sam_mario_skin.png"})
+    -- max hp override
     player:set_properties({
         hp_max = super_sam.max_hp
     })
+    -- speed setting
     player:set_physics_override({
         speed = 1.8
+    })
+    -- skybox / clouds
+    player:set_clouds({ density=0 })
+    player:set_sky({r=0, g=0, b=0}, "skybox", {
+        "arid2_up.jpg^[transformR270",
+        "arid2_dn.jpg^[transformR90",
+        "arid2_ft.jpg",
+        "arid2_bk.jpg",
+        "arid2_lf.jpg",
+        "arid2_rt.jpg"
     })
 
     if not last_login then
