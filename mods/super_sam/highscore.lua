@@ -1,8 +1,7 @@
 
-local storage = minetest.get_mod_storage()
 local max_entries = 20
 
-local highscore = minetest.deserialize(storage:get_string("highscore")) or {}
+local highscore = minetest.deserialize(super_sam.storage:get_string("highscore")) or {}
 
 function super_sam.update_highscore(playername, score, level)
 
@@ -38,7 +37,7 @@ function super_sam.update_highscore(playername, score, level)
         table.remove(highscore, #highscore)
     end
 
-    storage:set_string("highscore", minetest.serialize(highscore))
+    super_sam.storage:set_string("highscore", minetest.serialize(highscore))
 end
 
 function super_sam.get_highscore_formspec_fragment(x, y, size_x, size_y, entries)

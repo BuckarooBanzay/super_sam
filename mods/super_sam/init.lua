@@ -1,5 +1,6 @@
 super_sam = {
-    max_hp = 3
+    max_hp = 3,
+    storage = minetest.get_mod_storage()
 }
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
@@ -14,6 +15,7 @@ dofile(MP .. "/level.lua")
 dofile(MP .. "/level_store.lua")
 dofile(MP .. "/highscore.lua")
 dofile(MP .. "/intro.lua")
+dofile(MP .. "/update_check.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
