@@ -1,8 +1,8 @@
 {
-   "mapblock_count" : 123,
+   "mapblock_count" : 155,
    "metadata_count" : 52,
-   "mtime" : 1643011318,
-   "next_id" : 53,
+   "mtime" : 1643016927,
+   "next_id" : 54,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 17,
@@ -21,6 +21,7 @@
       "super_sam:dirt" : 25,
       "super_sam:dirt_trap" : 42,
       "super_sam:flame" : 52,
+      "super_sam:glass" : 53,
       "super_sam:grass" : 3,
       "super_sam:grass_1" : 41,
       "super_sam:grass_2" : 9,
@@ -58,7 +59,7 @@
       "super_sam:stone_brick" : 12,
       "super_sam:stone_trap" : 43
    },
-   "size" : 61737,
+   "size" : 67667,
    "uid" : "009d6335-36aa-4956-a509-8e918b6d29c5",
    "version" : 2
 }
