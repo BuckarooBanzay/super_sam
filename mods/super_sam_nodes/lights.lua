@@ -1,6 +1,6 @@
 
 
-minetest.register_node("super_sam:lights_block", {
+minetest.register_node(":super_sam:lights_block", {
     description = "Light Block",
     tiles = {"super_sam_lights_block_glass.png^super_sam_lights_block_frame.png"},
     paramtype = "light",
@@ -8,7 +8,7 @@ minetest.register_node("super_sam:lights_block", {
     groups = {cracky = 1},
 })
 
-minetest.register_node("super_sam:lights_smallblock", {
+minetest.register_node(":super_sam:lights_smallblock", {
     description = "Light Block (small)",
     drawtype = "nodebox",
     node_box = {
@@ -29,7 +29,7 @@ minetest.register_node("super_sam:lights_smallblock", {
     groups = {cracky = 1}
 })
 
-minetest.register_node("super_sam:lights_lantern_f", {
+minetest.register_node(":super_sam:lights_lantern_f", {
     description = "Lantern floor",
     drawtype = "mesh",
     mesh = "super_sam_lights_lantern_f.obj",
@@ -53,7 +53,7 @@ minetest.register_node("super_sam:lights_lantern_f", {
     groups = {cracky = 1}
 })
 
-minetest.register_node("super_sam:lights_lantern_c", {
+minetest.register_node(":super_sam:lights_lantern_c", {
     description = "Lantern ceiling",
     drawtype = "mesh",
     mesh = "super_sam_lights_lantern_c.obj",
@@ -77,7 +77,7 @@ minetest.register_node("super_sam:lights_lantern_c", {
     groups = {cracky = 1},
 })
 
-minetest.register_node("super_sam:lights_lantern_w", {
+minetest.register_node(":super_sam:lights_lantern_w", {
     description = "Lantern wall",
     drawtype = "mesh",
     mesh = "super_sam_lights_lantern_w.obj",
@@ -103,7 +103,7 @@ minetest.register_node("super_sam:lights_lantern_w", {
 })
 
 
-minetest.register_node("super_sam:lights_oillamp", {
+minetest.register_node(":super_sam:lights_oillamp", {
     description = "Vintage Oil Lamp",
     drawtype = "mesh",
     mesh = "super_sam_lights_oillamp.obj",

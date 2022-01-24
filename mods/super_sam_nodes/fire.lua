@@ -1,6 +1,6 @@
 
 -- https://github.com/minetest/minetest_game/blob/master/mods/fire/init.lua
-minetest.register_node("super_sam:flame", {
+minetest.register_node(":super_sam:flame", {
     description = "Super sam 'fire' node",
 	drawtype = "firelike",
 	tiles = {{

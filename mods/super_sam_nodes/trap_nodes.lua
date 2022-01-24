@@ -16,5 +16,5 @@ for _, trap_node in ipairs(trap_nodes) do
         def.tiles[i] = tile .. "^moreblocks_trap_box.png"
     end
 
-    minetest.register_node("super_sam:" .. trap_node.name .. "_trap", def)
+    minetest.register_node(":super_sam:" .. trap_node.name .. "_trap", def)
 end

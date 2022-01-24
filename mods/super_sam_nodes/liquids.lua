@@ -1,5 +1,5 @@
 
-minetest.register_node("super_sam:water_source", {
+minetest.register_node(":super_sam:water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
 	waving = 3,
@@ -42,7 +42,7 @@ minetest.register_node("super_sam:water_source", {
 	groups = {water = 3, liquid = 3, cools_lava = 1}
 })
 
-minetest.register_node("super_sam:water_flowing", {
+minetest.register_node(":super_sam:water_flowing", {
 	description = "Flowing Water",
 	drawtype = "flowingliquid",
 	waving = 3,
@@ -89,7 +89,7 @@ minetest.register_node("super_sam:water_flowing", {
 
 
 
-minetest.register_node("super_sam:lava_source", {
+minetest.register_node(":super_sam:lava_source", {
 	description = "Lava Source",
 	drawtype = "liquid",
 	tiles = {
@@ -133,7 +133,7 @@ minetest.register_node("super_sam:lava_source", {
 	groups = {lava = 3, liquid = 2, igniter = 1},
 })
 
-minetest.register_node("super_sam:lava_flowing", {
+minetest.register_node(":super_sam:lava_flowing", {
 	description = "Flowing Lava",
 	drawtype = "flowingliquid",
 	tiles = {"default_lava.png"},

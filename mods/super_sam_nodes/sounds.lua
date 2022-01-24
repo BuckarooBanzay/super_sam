@@ -1,29 +1,29 @@
 
-function super_sam.node_sound_stone()
+function super_sam_nodes.node_sound_stone()
     return {
         footstep = {name = "default_hard_footstep", gain = 0.3}
     }
 end
 
-function super_sam.node_sound_wood()
+function super_sam_nodes.node_sound_wood()
     return {
         footstep = {name = "default_wood_footstep", gain = 0.3}
     }
 end
 
-function super_sam.node_sound_dirt()
+function super_sam_nodes.node_sound_dirt()
     return {
         footstep = {name = "default_grass_footstep", gain = 0.3}
     }
 end
 
-function super_sam.node_sound_gravel()
+function super_sam_nodes.node_sound_gravel()
     return {
         footstep = {name = "default_gravel_footstep", gain = 0.3}
     }
 end
 
-function super_sam.node_sound_metal()
+function super_sam_nodes.node_sound_metal()
     return {
         footstep = {name = "default_metal_footstep", gain = 0.3}
     }

@@ -23,5 +23,5 @@ for name, def in pairs(plants) do
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
 	}
 
-    minetest.register_node("super_sam:" .. name, def)
+    minetest.register_node(":super_sam:" .. name, def)
 end

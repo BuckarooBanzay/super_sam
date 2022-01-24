@@ -8,40 +8,40 @@ local nodes = {
         }
     },
     ["cobble"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["stone"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["stone_block"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["stone_brick"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["desert_sandstone"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["desert_sandstone_block"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["desert_sandstone_brick"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["desert_stone"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["desert_stone_block"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["desert_stone_brick"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["dirt"] = {
-        sounds = super_sam.node_sound_dirt()
+        sounds = super_sam_nodes.node_sound_dirt()
     },
     ["grass"] = {
-        sounds = super_sam.node_sound_dirt(),
+        sounds = super_sam_nodes.node_sound_dirt(),
         tiles = {
             "default_grass.png", "default_dirt.png", {
                 name = "default_dirt.png^default_grass_side.png",
@@ -50,10 +50,10 @@ local nodes = {
         }
     },
     ["obsidian_block"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["obsidian_brick"] = {
-        sounds = super_sam.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["ice"] = {groups={slippery=3, cracky=1}},
     ["snow"] = {},
@@ -71,7 +71,7 @@ for name, def in pairs(nodes) do
     def.tiles = def.tiles or {"default_" .. name .. ".png"}
     def.groups = def.groups or { cracky = 1 }
 
-    minetest.register_node("super_sam:" .. name, def)
+    minetest.register_node(":super_sam:" .. name, def)
 
     local stairsdef = table.copy(def)
     if #stairsdef.tiles > 1 and stairsdef.drawtype and stairsdef.drawtype:find("glass") then
@@ -84,7 +84,7 @@ end
 
 -- special nodes
 
-minetest.register_node("super_sam:border", {
+minetest.register_node(":super_sam:border", {
 	description = "Border node",
 	drawtype = "airlike",
 	paramtype = "light",
@@ -95,7 +95,7 @@ minetest.register_node("super_sam:border", {
 
 -- ladder
 
-minetest.register_node("super_sam:ladder_steel", {
+minetest.register_node(":super_sam:ladder_steel", {
 	description = "Steel Ladder",
 	drawtype = "nodebox",
 	tiles = {
@@ -133,5 +133,5 @@ minetest.register_node("super_sam:ladder_steel", {
 	groups = {
         cracky = 1
     },
-	sounds = super_sam.node_sound_metal()
+	sounds = super_sam_nodes.node_sound_metal()
 })

@@ -39,9 +39,9 @@ for name, def in pairs(bakedclay) do
     def.tiles = def.tiles or {"baked_clay_" .. name .. ".png"}
     def.groups = def.groups or { cracky = 1 }
     def.paramtype2 = "facedir"
-    def.sounds = def.sounds or super_sam.node_sound_stone()
+    def.sounds = def.sounds or super_sam_nodes.node_sound_stone()
 
-    minetest.register_node("super_sam:clay_" .. name, def)
+    minetest.register_node(":super_sam:clay_" .. name, def)
 
     stairsplus:register_all("super_sam", "clay_" .. name, "super_sam:clay_" .. name, def)
 end
