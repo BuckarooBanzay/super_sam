@@ -13,6 +13,8 @@ Super sam base mod
 
 ## Media
 
+* `textures/super_sam_flame_animated.png` CC-BY SA 3.0 Muadtralk https://github.com/minetest/minetest_game/tree/master/mods/fire
+* `textures/super_sam_flame.png` CC-BY SA 3.0 Muadtralk https://github.com/minetest/minetest_game/tree/master/mods/fire
 * `sounds/super_sam_ambient_1.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/613914/
 * `sounds/super_sam_ambient_2.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/585917/
 * `sounds/super_sam_ambient_3.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/563801/
