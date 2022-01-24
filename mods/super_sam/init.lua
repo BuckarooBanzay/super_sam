@@ -21,7 +21,6 @@ dofile(MP .. "/update_check.lua")
 dofile(MP .. "/itempickup.lua")
 
 -- hud/player stuff
-dofile(MP .. "/ambience.lua")
 dofile(MP .. "/player_setup.lua")
 dofile(MP .. "/time.lua")
 dofile(MP .. "/score.lua")
