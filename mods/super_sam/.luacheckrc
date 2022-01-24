@@ -18,5 +18,5 @@ read_globals = {
 	"VoxelArea", "AreaStore",
 
 	-- mods
-	"stairsplus", "player_api", "worldedit"
+	"stairsplus", "player_api", "worldedit", "modgen"
 }
