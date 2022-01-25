@@ -1,4 +1,6 @@
 
+-- playername -> meta_as_table
+local last_placed = {}
 
 local function update_formspec(meta)
     meta:set_string("formspec", [[
@@ -50,9 +52,11 @@ minetest.register_node("super_sam:platform_spawner", {
         meta:set_string("zsize", fields.zsize or "1")
         meta:set_string("interval", fields.interval or "5")
 
+        last_placed[sender:get_player_name()] = meta:to_table()
+
         activate_spawner(pos)
     end,
-    on_construct = function(pos)
+    after_place_node = function(pos, placer)
         local meta = minetest.get_meta(pos)
 
         -- position offsets
@@ -69,6 +73,13 @@ minetest.register_node("super_sam:platform_spawner", {
 
 		local inv = meta:get_inventory()
 		inv:set_size("main", 1)
+
+        -- check previous placement
+        local last_meta = last_placed[placer:get_player_name()]
+        if last_meta then
+            -- copy values from previous node
+            meta:from_table(last_meta)
+        end
 
         update_formspec(meta)
     end,
