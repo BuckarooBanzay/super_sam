@@ -1,8 +1,8 @@
 {
    "mapblock_count" : 167,
    "metadata_count" : 56,
-   "mtime" : 1643100817,
-   "next_id" : 54,
+   "mtime" : 1643104918,
+   "next_id" : 56,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 17,
@@ -38,6 +38,7 @@
       "super_sam:lights_oillamp" : 36,
       "super_sam:obsidian_block" : 21,
       "super_sam:obsidian_brick" : 28,
+      "super_sam:panel_stone_block" : 55,
       "super_sam:platform_spawner" : 15,
       "super_sam:projectile_spawner" : 33,
       "super_sam:punji" : 29,
@@ -54,12 +55,13 @@
       "super_sam:stair_desert_sandstone_alt_4" : 45,
       "super_sam:stair_stone" : 37,
       "super_sam:stair_stone_alt_4" : 13,
+      "super_sam:stair_stone_brick" : 54,
       "super_sam:stone" : 1,
       "super_sam:stone_block" : 10,
       "super_sam:stone_brick" : 12,
       "super_sam:stone_trap" : 43
    },
-   "size" : 74562,
+   "size" : 75110,
    "uid" : "009d6335-36aa-4956-a509-8e918b6d29c5",
    "version" : 2
 }
