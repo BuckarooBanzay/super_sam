@@ -20,6 +20,11 @@ Built with [modgen](https://github.com/Buckaroobanzay/modgen)
 
 Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
 
+## Important coordinates
+
+* `0,0,0` Intro level
+* `0,0,1000` Castle level
+
 # License
 
 * Code: MIT

@@ -1,7 +1,7 @@
 {
    "mapblock_count" : 167,
-   "metadata_count" : 56,
-   "mtime" : 1643104918,
+   "metadata_count" : 64,
+   "mtime" : 1643116062,
    "next_id" : 56,
    "node_mapping" : {
       "air" : 0,
@@ -61,7 +61,7 @@
       "super_sam:stone_brick" : 12,
       "super_sam:stone_trap" : 43
    },
-   "size" : 75110,
+   "size" : 78827,
    "uid" : "009d6335-36aa-4956-a509-8e918b6d29c5",
    "version" : 2
 }
