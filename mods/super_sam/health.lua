@@ -17,9 +17,15 @@ minetest.register_on_dieplayer(function(player)
 end)
 
 minetest.register_on_player_hpchange(function(player, hp_change)
-    if hp_change < 0 then
-        -- damage sound
-        minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = player:get_player_name() }, true)
-    end
+    local playername = player:get_player_name()
+    minetest.log("action", "[super_sam] hp_change for player '" .. playername .. "' with change: " .. hp_change)
     super_sam.update_player_hud(player)
+
+    if hp_change == (-20 + super_sam.max_hp) then
+        -- special case: initial join and set_hp call for default hp, ignore
+        return
+    elseif hp_change < 0 then
+        -- damage sound
+        minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = playername }, true)
+    end
 end)

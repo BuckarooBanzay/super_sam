@@ -10,6 +10,7 @@ function super_sam.start_level(player, level)
     meta:set_string("super_sam_last_startpos", minetest.pos_to_string(level.start))
 
     local playername = player:get_player_name()
+    minetest.log("action", "[super_sam] starting level '" .. level.name .. "' for player '" .. playername .. "'")
 
     -- set start position
     local distance = vector.distance(level.start, player:get_pos())
@@ -36,6 +37,8 @@ end
 function super_sam.finalize_level(player)
     local playername = player:get_player_name()
     local ppos = player:get_pos()
+
+    minetest.log("action", "[super_sam] finalizing current level for player '" .. playername .. "'")
 
     -- update score and highscore
     local coins = super_sam.get_coins(playername)
@@ -70,6 +73,8 @@ end
 -- aborts the current level (used for edit mode)
 function super_sam.abort_level(player)
     local playername = player:get_player_name()
+    minetest.log("action", "[super_sam] aborting level for player '" .. playername .. "'")
+
     super_sam.set_coins(playername, 0)
 
     current_levels[playername] = nil
@@ -86,6 +91,8 @@ function super_sam.reset_level(player)
     if not level then
         return
     end
+
+    minetest.log("action", "[super_sam] resetting level for player '" .. playername .. "'")
 
     -- clear level data
     super_sam.abort_level(player)
@@ -132,15 +139,11 @@ local function check_current_level()
 
             if current_level and nearest_level and current_level ~= nearest_level.name then
                 -- shift to next level
-                minetest.log("action", "[super_sam] Shifting player '" .. playername ..
-                    "' to level '" .. nearest_level.name .. "'")
                 super_sam.finalize_level(player)
                 super_sam.start_level(player, nearest_level)
 
             elseif not current_level and nearest_level then
                 -- not in a level and regular player
-                minetest.log("action", "[super_sam] Starting level '" .. nearest_level.name ..
-                    "' for player '" .. playername .. "'")
                 super_sam.start_level(player, nearest_level)
 
             elseif current_level then
