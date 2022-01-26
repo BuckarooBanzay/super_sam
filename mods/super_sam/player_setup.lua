@@ -27,5 +27,6 @@ minetest.register_on_joinplayer(function(player, last_login)
         super_sam.show_intro(player:get_player_name())
         -- move to first level
         player:set_pos({ x=23, y=9.5, z=20 })
+        player:set_look_horizontal(math.pi * 1.5)
     end
 end)
