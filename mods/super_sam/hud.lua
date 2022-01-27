@@ -136,6 +136,15 @@ local function setup_hud(player)
         scale = {x = 2, y = 2}
     })
 
+    data.powerup4 = player:hud_add({
+        hud_elem_type = "image",
+        position = position_offscreen,
+        text = "super_sam_flower_1.png",
+        offset = {x = 64,   y = 0},
+        alignment = { x = 0, y = 0},
+        scale = {x = 2, y = 2}
+    })
+
     hud_data[player:get_player_name()] = data
 end
 
@@ -182,6 +191,9 @@ function super_sam.update_player_hud(player)
     end
     if data.powerup3 then
         player:hud_change(data.powerup3, "position", effects.shrink and hud_powerup_position or position_offscreen)
+    end
+    if data.powerup4 then
+        player:hud_change(data.powerup4, "position", effects.shoot and hud_powerup_position or position_offscreen)
     end
 end
 

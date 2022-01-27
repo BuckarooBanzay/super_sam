@@ -105,3 +105,7 @@ register_effect("super_sam:mushroom_3", "shrink", {
     },
     time = 10
 })
+
+register_effect("super_sam:flower_1", "shoot", {
+    time = 20
+})
