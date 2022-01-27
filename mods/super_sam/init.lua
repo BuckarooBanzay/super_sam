@@ -8,6 +8,7 @@ local MP = minetest.get_modpath(minetest.get_current_modname())
 -- basic functions
 dofile(MP .. "/protection.lua")
 dofile(MP .. "/spawn.lua")
+dofile(MP .. "/controls.lua")
 dofile(MP .. "/privs.lua")
 dofile(MP .. "/level.lua")
 dofile(MP .. "/level_formspec.lua")

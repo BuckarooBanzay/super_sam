@@ -1,24 +1,16 @@
 -- jump sound effect
 
--- playername -> bits
-local previous_state = {}
-
-minetest.register_globalstep(function()
-    for _, player in ipairs(minetest.get_connected_players()) do
-        local playername = player:get_player_name()
-        local control = player:get_player_control()
-        local previous_control = previous_state[playername]
-        if previous_control and not previous_control.jump and control.jump then
-            -- jump [off -> on]
-            if not minetest.check_player_privs(player, "fly") then
-                -- only play if not in fly mode
-                minetest.sound_play({ name = "super_sam_jump", gain = 0.7 }, { to_player = playername }, true)
-            end
-        end
-        previous_state[playername] = control
+super_sam.register_control("jump", function(player, state)
+    if minetest.check_player_privs(player, "fly") then
+        -- only play if not in fly mode
+        return
     end
-end)
 
-minetest.register_on_leaveplayer(function(player)
-    previous_state[player:get_player_name()] = nil
+    if not state then
+        -- true -> false
+        return
+    end
+
+    local playername = player:get_player_name()
+    minetest.sound_play({ name = "super_sam_jump", gain = 0.7 }, { to_player = playername }, true)
 end)
