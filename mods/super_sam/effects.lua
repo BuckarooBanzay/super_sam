@@ -55,9 +55,9 @@ local function register_effect(itemname, name, options)
             if options.physics then
                 -- physics-override
                 local physics_override = player:get_physics_override()
-                for key, value in pairs(options.physics) do
+                for key in pairs(options.physics) do
                     -- restore physics values
-                    physics_override[key] = previous_physics[value]
+                    physics_override[key] = previous_physics[key]
                 end
                 player:set_physics_override(physics_override)
             end
