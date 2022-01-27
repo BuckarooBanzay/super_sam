@@ -1,5 +1,8 @@
 local has_worldedit = minetest.get_modpath("worldedit")
 
+-- player -> inv-formspecs
+local old_inv_formspecs = {}
+
 local editor_privs = {
     "fly", "fast", "noclip", "debug"
 }
@@ -30,6 +33,10 @@ function super_sam.set_play_mode(player)
     end
     inv:set_list("main", main_inv)
 
+    -- disable inventory
+    old_inv_formspecs[playername] = player:get_inventory_formspec()
+    player:set_inventory_formspec("")
+
     -- restrict hud
     player:hud_set_flags({
         healthbar = false,
@@ -59,6 +66,11 @@ function super_sam.set_edit_mode(player)
 
     -- abort level (if started)
     super_sam.abort_level(player)
+
+    -- restore inventory formspec
+    if old_inv_formspecs[playername] then
+        player:set_inventory_formspec(old_inv_formspecs[playername])
+    end
 
     -- add editor items to inv
     local inv = player:get_inventory()
