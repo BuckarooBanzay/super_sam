@@ -180,6 +180,9 @@ function super_sam.update_player_hud(player)
     if data.powerup2 then
         player:hud_change(data.powerup2, "position", effects.speed and hud_powerup_position or position_offscreen)
     end
+    if data.powerup3 then
+        player:hud_change(data.powerup3, "position", effects.shrink and hud_powerup_position or position_offscreen)
+    end
 end
 
 local function update_hud()
