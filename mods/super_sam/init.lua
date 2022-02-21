@@ -15,7 +15,7 @@ dofile(MP .. "/level_formspec.lua")
 dofile(MP .. "/level_store.lua")
 dofile(MP .. "/highscore.lua")
 dofile(MP .. "/intro.lua")
-dofile(MP .. "/update_check.lua")
+-- dofile(MP .. "/update_check.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
