@@ -24,6 +24,7 @@ Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
 
 * `0,0,0` Intro level
 * `0,0,1000` Castle level
+* `0,0,2000` Lounge
 
 # License
 
