@@ -1,7 +1,7 @@
 {
    "chunks" : 15,
-   "mtime" : 1646638925,
-   "next_id" : 54,
+   "mtime" : 1646767035,
+   "next_id" : 55,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -45,6 +45,7 @@
       "super_sam:slope_obsidian_block" : 31,
       "super_sam:slope_obsidian_brick" : 46,
       "super_sam:slope_stone_block_half" : 39,
+      "super_sam:slope_stone_brick" : 54,
       "super_sam:slope_stone_half" : 49,
       "super_sam:slope_stone_half_raised" : 48,
       "super_sam:stair_clay_dark_green" : 34,
@@ -58,7 +59,7 @@
       "super_sam:stone_brick" : 1,
       "super_sam:stone_trap" : 24
    },
-   "size" : 125494,
+   "size" : 131233,
    "uid" : "970683",
    "version" : 3
 }
