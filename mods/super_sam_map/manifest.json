@@ -1,7 +1,7 @@
 {
    "chunks" : 15,
-   "mtime" : 1649081697,
-   "next_id" : 59,
+   "mtime" : 1649094302,
+   "next_id" : 63,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -40,6 +40,7 @@
       "super_sam:projectile_spawner" : 50,
       "super_sam:punji" : 26,
       "super_sam:slab_stone_2" : 56,
+      "super_sam:slab_stone_block_three_quarter" : 62,
       "super_sam:slab_stone_quarter" : 57,
       "super_sam:slope_clay_black" : 36,
       "super_sam:slope_clay_dark_green" : 35,
@@ -47,6 +48,9 @@
       "super_sam:slope_obsidian_block" : 31,
       "super_sam:slope_obsidian_brick" : 46,
       "super_sam:slope_stone_block_half" : 39,
+      "super_sam:slope_stone_block_half_raised" : 59,
+      "super_sam:slope_stone_block_inner_half_raised" : 60,
+      "super_sam:slope_stone_block_outer_half_raised" : 61,
       "super_sam:slope_stone_brick" : 54,
       "super_sam:slope_stone_half" : 49,
       "super_sam:slope_stone_half_raised" : 48,
@@ -63,7 +67,7 @@
       "super_sam:water_flowing" : 58,
       "super_sam:water_source" : 55
    },
-   "size" : 144559,
+   "size" : 151036,
    "uid" : "970683",
    "version" : 3
 }
