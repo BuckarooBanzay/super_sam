@@ -38,3 +38,15 @@ minetest.register_craftitem("super_sam:flower_1", {
     inventory_image = "super_sam_flower_1.png",
     description = "Flower 1"
 })
+
+if minetest.get_modpath("i3") then
+    i3.compress("super_sam:mushroom_1", {
+        replace = "_1",
+        by = {"_2", "_3"}
+    })
+
+    i3.compress("super_sam:star_1", {
+        replace = "_1",
+        by = {"_2"}
+    })
+end

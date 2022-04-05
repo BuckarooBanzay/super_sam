@@ -17,3 +17,16 @@ for name, def in pairs(spikes) do
 
     minetest.register_node(":super_sam:spike_" .. name, def)
 end
+
+if minetest.get_modpath("i3") then
+    local by = {}
+    for k in pairs(spikes) do
+        if k ~= "punji" then
+            table.insert(by, k)
+        end
+    end
+    i3.compress("super_sam:spike_punji", {
+        replace = "punji",
+        by = by
+    })
+end
