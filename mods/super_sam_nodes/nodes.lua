@@ -72,7 +72,8 @@ local nodes = {
     },
     ["tree"] = {
         tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
-        sounds = super_sam_nodes.node_sound_wood()
+        sounds = super_sam_nodes.node_sound_wood(),
+        paramtype2 = "facedir"
     },
     ["wood"] = {
         sounds = super_sam_nodes.node_sound_wood()
