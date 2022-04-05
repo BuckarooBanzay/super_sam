@@ -1,7 +1,7 @@
 {
    "chunks" : 17,
-   "mtime" : 1649158643,
-   "next_id" : 69,
+   "mtime" : 1649161426,
+   "next_id" : 70,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -32,6 +32,7 @@
       "super_sam:lava_source" : 6,
       "super_sam:leaves" : 68,
       "super_sam:level_beacon" : 22,
+      "super_sam:lights_block" : 69,
       "super_sam:lights_lantern_c" : 38,
       "super_sam:lights_lantern_w" : 10,
       "super_sam:obsidian_block" : 21,
@@ -73,7 +74,7 @@
       "super_sam:water_source" : 55,
       "super_sam:wood" : 67
    },
-   "size" : 165043,
+   "size" : 170895,
    "uid" : "970683",
    "version" : 3
 }
