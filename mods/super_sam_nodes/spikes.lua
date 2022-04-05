@@ -15,5 +15,5 @@ for name, def in pairs(spikes) do
     def.paramtype = "light"
     def.damage_per_second = 1
 
-    minetest.register_node(":super_sam:" .. name, def)
+    minetest.register_node(":super_sam:spike_" .. name, def)
 end
