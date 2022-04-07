@@ -1,3 +1,7 @@
+globals = {
+	"super_sam_ambience"
+}
+
 read_globals = {
 	-- Stdlib
 	string = {fields = {"split", "trim"}},
