@@ -8,6 +8,8 @@ local sounds = {
     { name = "super_sam_ambience_6", duration = 130 }
 }
 
+-- super_sam_ambience_relax_1.ogg, duration = 67
+
 -- playername -> handle
 local handles = {}
 
