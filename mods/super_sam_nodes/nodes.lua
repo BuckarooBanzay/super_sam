@@ -131,6 +131,7 @@ minetest.register_node(":super_sam:ladder_steel", {
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
+    use_texture_alpha = "clip",
 	walkable = false,
 	climbable = true,
     node_box = {
