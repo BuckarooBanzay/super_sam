@@ -1,4 +1,3 @@
-local player_offset = {x=0, y=0.5, z=0}
 
 local function can_start_level(player, beacon_pos)
     local meta = minetest.get_meta(beacon_pos)
@@ -16,7 +15,7 @@ local function execute_teleport(player, beacon_pos)
     }
 
     if can_start_level(player, beacon_pos) or minetest.check_player_privs(playername, "super_sam_builder") then
-        player:set_pos(vector.add(target_pos, player_offset))
+        player:set_pos(vector.add(target_pos, super_sam.player_offset))
     else
         local required_lvl = meta:get_string("required_lvl")
         minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = playername }, true)

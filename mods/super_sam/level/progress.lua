@@ -5,8 +5,6 @@ local beacon_teleport_distance = 3
 local current_levels = {}
 
 -- coords
-local player_offset = {x=0, y=0.5, z=0}
-local zero_pos = {x=0, y=0, z=0}
 
 -- constants
 local META_STARTPOS = "super_sam_last_startpos"
@@ -15,11 +13,11 @@ function super_sam.start_level(player, level)
     local meta = player:get_meta()
     local playername = player:get_player_name()
 
-    if not vector.equals(level.teleport, zero_pos) then
+    if not vector.equals(level.teleport, super_sam.zero_pos) then
         -- teleport coords set, "transfer" level
 
         -- just move player there and persist startpos
-        local target = vector.add(level.teleport, player_offset)
+        local target = vector.add(level.teleport, super_sam.player_offset)
         meta:set_string(META_STARTPOS, minetest.pos_to_string(target))
         player:set_pos(target)
 
@@ -29,7 +27,7 @@ function super_sam.start_level(player, level)
         return
     end
 
-    local start_pos = vector.add(level.start, player_offset)
+    local start_pos = vector.add(level.start, super_sam.player_offset)
 
     -- store current pos in case of logout/timeout
     meta:set_string(META_STARTPOS, minetest.pos_to_string(start_pos))

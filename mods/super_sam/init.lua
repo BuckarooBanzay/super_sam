@@ -1,6 +1,8 @@
 super_sam = {
     max_hp = 3,
-    storage = minetest.get_mod_storage()
+    storage = minetest.get_mod_storage(),
+    player_offset = {x=0, y=0.5, z=0},
+    zero_pos = {x=0, y=0, z=0}
 }
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
