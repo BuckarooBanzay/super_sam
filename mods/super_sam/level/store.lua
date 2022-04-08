@@ -10,7 +10,12 @@ function super_sam.register_level_beacon(pos)
     local level_def = {
         time = meta:get_int("time"),
         name = meta:get_string("name"),
-        start = vector.add(pos, {x=0, y=0.5, z=0}),
+        start = pos,
+        teleport = {
+            x = meta:get_int("tpx"),
+            y = meta:get_int("tpy"),
+            z = meta:get_int("tpz")
+        },
         bounds = {
             min = {
                 x = pos.x - meta:get_int("xminus"),

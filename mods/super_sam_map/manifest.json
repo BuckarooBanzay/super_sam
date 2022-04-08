@@ -1,7 +1,7 @@
 {
    "chunks" : 17,
-   "mtime" : 1649409861,
-   "next_id" : 77,
+   "mtime" : 1649418703,
+   "next_id" : 78,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -32,6 +32,7 @@
       "super_sam:lava_source" : 6,
       "super_sam:leaves" : 68,
       "super_sam:level_beacon" : 22,
+      "super_sam:level_start_beacon" : 77,
       "super_sam:lights_block" : 69,
       "super_sam:lights_lantern_c" : 38,
       "super_sam:lights_lantern_w" : 10,

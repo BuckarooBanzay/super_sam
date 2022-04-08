@@ -11,7 +11,7 @@ function super_sam.show_level_formspec(pos, playername)
     local meta = minetest.get_meta(pos)
 
     local formspec = [[
-        size[6,4.5;]
+        size[6,5.5;]
         field[0.2,0.5;3,1;name;Name;]] .. meta:get_string("name") .. [[]
         field[3.2,0.5;3,1;time;Time;]] .. meta:get_string("time") .. [[]
 
@@ -23,7 +23,11 @@ function super_sam.show_level_formspec(pos, playername)
         field[1.2,2.5;1,1;yminus;Y-;]] .. meta:get_int("yminus") .. [[]
         field[2.2,2.5;1,1;zminus;Z-;]] .. meta:get_int("zminus") .. [[]
 
-        button_exit[0,3.5;6,1;save;Save]
+        field[0.2,3.5;1,1;tpx;Teleport;]] .. meta:get_int("tpx") .. [[]
+        field[1.2,3.5;1,1;tpy;;]] .. meta:get_int("tpy") .. [[]
+        field[2.2,3.5;1,1;tpz;;]] .. meta:get_int("tpz") .. [[]
+
+        button_exit[0,4.5;6,1;save;Save]
     ]]
 
     if has_worldedit then
@@ -73,6 +77,9 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
         meta:set_int("xminus", tonumber(fields.xminus) or 0)
         meta:set_int("yminus", tonumber(fields.yminus) or 0)
         meta:set_int("zminus", tonumber(fields.zminus) or 0)
+        meta:set_int("tpx", tonumber(fields.tpx) or 0)
+        meta:set_int("tpy", tonumber(fields.tpy) or 0)
+        meta:set_int("tpz", tonumber(fields.tpz) or 0)
 
         meta:set_int("time", tonumber(fields.time) or 120)
         meta:set_string("name", fields.name or "<unknown>")

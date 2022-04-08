@@ -4,10 +4,29 @@ local beacon_teleport_distance = 3
 -- name => levelname
 local current_levels = {}
 
+-- coords
+local player_offset = {x=0, y=0.5, z=0}
+local zero_pos = {x=0, y=0, z=0}
+
+-- constants
+local META_STARTPOS = "super_sam_last_startpos"
+
 function super_sam.start_level(player, level)
-    -- store current pos in case of logout/timeout
     local meta = player:get_meta()
-    meta:set_string("super_sam_last_startpos", minetest.pos_to_string(level.start))
+
+    if not vector.equals(level.teleport, zero_pos) then
+        -- teleport coords set, "transfer" level
+        -- just move player there and persist startpos
+        local target = vector.add(level.teleport, player_offset)
+        meta:set_string(META_STARTPOS, minetest.pos_to_string(target))
+        player:set_pos(target)
+        return
+    end
+
+    local start_pos = vector.add(level.start, player_offset)
+
+    -- store current pos in case of logout/timeout
+    meta:set_string(META_STARTPOS, minetest.pos_to_string(start_pos))
 
     local playername = player:get_player_name()
     minetest.log("action", "[super_sam] starting level '" .. level.name .. "' for player '" .. playername .. "'")
@@ -16,7 +35,7 @@ function super_sam.start_level(player, level)
     local distance = vector.distance(level.start, player:get_pos())
     if distance > beacon_teleport_distance then
         -- only move player if he's too far away
-        player:set_pos(level.start)
+        player:set_pos(start_pos)
     end
 
     -- set timer
