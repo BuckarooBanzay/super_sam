@@ -16,3 +16,4 @@ Super sam ambience mod
 * `sounds/super_sam_ambient_5.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/565048/
 * `sounds/super_sam_ambient_6.ogg` CC-BY SA 3.0 https://freesound.org/people/BloodPixelHero/sounds/614800/
 * `sounds/super_sam_ambience_relax_1.ogg` CC-BY SA 4.0 https://freesound.org/people/LagMusics/sounds/582027/
+* `textures/super_sam_ambience_node.png` DWYWPL https://github.com/minetest-mods/mysoundblocks
