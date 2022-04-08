@@ -19,6 +19,11 @@ local function register_effect(itemname, name, options)
         local previous_player_props = player:get_properties()
 
         local effects = super_sam.get_player_effects(playername)
+        if effects[name] then
+            -- already active, don't pick up item
+            return { remove = false }
+        end
+
         effects[name] = true
 
         minetest.sound_play({ name = "super_sam_effect_on", gain = 0.7 }, { to_player = playername }, true)

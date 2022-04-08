@@ -14,8 +14,16 @@ local function check_player_for_pickups(player)
             local itemname = entity.data.wield_item
             local list = callbacks[itemname] or {}
             for _, callback in ipairs(list) do
-                callback(player, itemname)
-                obj:remove()
+                local result = callback(player, itemname)
+                if result then
+                    -- check result table
+                    if result.remove then
+                        obj:remove()
+                    end
+                else
+                    -- default: remove item
+                    obj:remove()
+                end
             end
         end
     end
