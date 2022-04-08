@@ -2,7 +2,8 @@ super_sam = {
     max_hp = 3,
     storage = minetest.get_mod_storage(),
     player_offset = {x=0, y=0.5, z=0},
-    zero_pos = {x=0, y=0, z=0}
+    zero_pos = {x=0, y=0, z=0},
+    spawn_pos = { x=22.5, y=9.5, z=19.5 }
 }
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
@@ -24,6 +25,7 @@ dofile(MP .. "/level/start_formspec.lua")
 dofile(MP .. "/level/progress.lua")
 dofile(MP .. "/level/beacon.lua")
 dofile(MP .. "/level/start.lua")
+dofile(MP .. "/teleport_back.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
