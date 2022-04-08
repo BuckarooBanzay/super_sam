@@ -2,7 +2,7 @@
 -- area store for lookup
 local store = AreaStore()
 
-function super_sam_ambience.register_ambience_node(pos)
+function super_sam_ambience.register_node(pos)
     local meta = minetest.get_meta(pos)
     local ambience_def = {
         theme = meta:get_string("theme"),

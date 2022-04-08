@@ -1,7 +1,7 @@
 {
    "chunks" : 17,
-   "mtime" : 1649354070,
-   "next_id" : 74,
+   "mtime" : 1649405135,
+   "next_id" : 75,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -76,7 +76,8 @@
       "super_sam:tree" : 66,
       "super_sam:water_flowing" : 58,
       "super_sam:water_source" : 55,
-      "super_sam:wood" : 67
+      "super_sam:wood" : 67,
+      "super_sam_ambience:sound_beacon" : 74
    },
    "size" : 179903,
    "uid" : "970683",
