@@ -13,13 +13,19 @@ local META_STARTPOS = "super_sam_last_startpos"
 
 function super_sam.start_level(player, level)
     local meta = player:get_meta()
+    local playername = player:get_player_name()
 
     if not vector.equals(level.teleport, zero_pos) then
         -- teleport coords set, "transfer" level
+
         -- just move player there and persist startpos
         local target = vector.add(level.teleport, player_offset)
         meta:set_string(META_STARTPOS, minetest.pos_to_string(target))
         player:set_pos(target)
+
+        -- register as finished
+        super_sam.add_finished_level(player, level.name)
+
         return
     end
 
@@ -28,7 +34,6 @@ function super_sam.start_level(player, level)
     -- store current pos in case of logout/timeout
     meta:set_string(META_STARTPOS, minetest.pos_to_string(start_pos))
 
-    local playername = player:get_player_name()
     minetest.log("action", "[super_sam] starting level '" .. level.name .. "' for player '" .. playername .. "'")
 
     -- set start position
@@ -56,6 +61,9 @@ end
 function super_sam.finalize_level(player)
     local playername = player:get_player_name()
     local ppos = player:get_pos()
+
+    -- register as finished
+    super_sam.add_finished_level(player, current_levels[playername])
 
     minetest.log("action", "[super_sam] finalizing current level for player '" .. playername .. "'")
 
