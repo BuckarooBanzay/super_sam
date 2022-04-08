@@ -1,8 +1,9 @@
 
+-- level player-capture and shift-to-next
 minetest.register_node("super_sam:level_beacon", {
     description = "Level beacon",
     tiles = {
-        "super_sam_beacon_top.png",
+        "super_sam_beacon_grey.png",
         "super_sam_beacon_side.png"
     },
     groups = { cracky = 1 },

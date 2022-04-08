@@ -10,12 +10,16 @@ dofile(MP .. "/protection.lua")
 dofile(MP .. "/spawn.lua")
 dofile(MP .. "/controls.lua")
 dofile(MP .. "/privs.lua")
-dofile(MP .. "/level.lua")
-dofile(MP .. "/level_formspec.lua")
-dofile(MP .. "/level_store.lua")
 dofile(MP .. "/highscore.lua")
 dofile(MP .. "/intro.lua")
 dofile(MP .. "/update_check.lua")
+
+-- level stuff
+dofile(MP .. "/level/store.lua")
+dofile(MP .. "/level/formspec.lua")
+dofile(MP .. "/level/progress.lua")
+dofile(MP .. "/level/beacon.lua")
+dofile(MP .. "/level/start.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
@@ -33,7 +37,6 @@ dofile(MP .. "/jump.lua")
 dofile(MP .. "/shoot.lua")
 
 -- nodes, items, etc
-dofile(MP .. "/level_beacon.lua")
 dofile(MP .. "/items.lua")
 dofile(MP .. "/itemspawner.lua")
 dofile(MP .. "/platformspawner.lua")
