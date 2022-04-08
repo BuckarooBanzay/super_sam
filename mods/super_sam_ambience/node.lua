@@ -27,8 +27,8 @@ minetest.register_node("super_sam_ambience:sound_beacon", {
 
 minetest.register_lbm({
     label = "Ambience beacon register",
-    name = "super_sam_ambience:beacon",
-    nodenames = "super_sam_ambience:beacon",
+    name = "super_sam_ambience:sound_beacon",
+    nodenames = "super_sam_ambience:sound_beacon",
     run_at_every_load = true,
     action = super_sam_ambience.register_node
 })
