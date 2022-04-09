@@ -1,7 +1,7 @@
 {
    "chunks" : 17,
-   "mtime" : 1649448085,
-   "next_id" : 78,
+   "mtime" : 1649507432,
+   "next_id" : 79,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -63,6 +63,7 @@
       "super_sam:slope_stone_half" : 49,
       "super_sam:slope_stone_half_raised" : 48,
       "super_sam:spike_punji" : 26,
+      "super_sam:spike_steel" : 78,
       "super_sam:stair_clay_dark_green" : 34,
       "super_sam:stair_desert_sandstone" : 47,
       "super_sam:stair_desert_sandstone_alt_4" : 41,
@@ -82,7 +83,7 @@
       "super_sam:wood" : 67,
       "super_sam_ambience:sound_beacon" : 74
    },
-   "size" : 183786,
+   "size" : 183894,
    "uid" : "970683",
    "version" : 3
 }
