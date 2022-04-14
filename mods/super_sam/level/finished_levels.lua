@@ -50,3 +50,27 @@ function super_sam.has_finished_level(player, levelname)
     local levels = load(player)
     return levels[levelname]
 end
+
+minetest.register_chatcommand("levels", {
+    description = "Lists the finished levels",
+    privs = { super_sam_builder=true },
+    func = function(name)
+        local player = minetest.get_player_by_name(name)
+        local levels = load(player)
+        local msg = "Finished levels: "
+        for k in pairs(levels) do
+            msg = msg .. k .. " "
+        end
+        return true, msg
+    end
+})
+
+minetest.register_chatcommand("levels_clear", {
+    description = "Clears the list of finished levels",
+    privs = { super_sam_builder=true },
+    func = function(name)
+        local player = minetest.get_player_by_name(name)
+        super_sam.clear_finished_levels(player)
+        return true, "Cleared all finished levels"
+    end
+})

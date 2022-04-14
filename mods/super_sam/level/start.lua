@@ -2,7 +2,17 @@
 local function can_start_level(player, beacon_pos)
     local meta = minetest.get_meta(beacon_pos)
     local required_lvl = meta:get_string("required_lvl")
-    return required_lvl == "" or super_sam.has_finished_level(player, required_lvl)
+    if required_lvl ~= "" and not super_sam.has_finished_level(player, required_lvl) then
+        -- player did not finish the required level
+        return false, "You haven't finished the required level for this yet: '" .. required_lvl .. "'"
+    end
+    local absent_lvl = meta:get_string("absent_lvl")
+    if absent_lvl ~= "" and super_sam.has_finished_level(player, absent_lvl) then
+        -- player finished the must-absent level (lockout-level or whatever you want to call it)
+        return false, "You have already finished the level: '" .. absent_lvl .. "'"
+    end
+    -- all conditions met
+    return true
 end
 
 local function execute_teleport(player, beacon_pos)
@@ -14,15 +24,14 @@ local function execute_teleport(player, beacon_pos)
         z = meta:get_int("tpz")
     }
 
-    if can_start_level(player, beacon_pos) or minetest.check_player_privs(playername, "super_sam_builder") then
+    local ok, err_msg = can_start_level(player, beacon_pos)
+    if ok or not super_sam.check_play_mode(player) then
+        -- either the level-requirements are met or the player is in edit-mode
         player:set_pos(vector.add(target_pos, super_sam.player_offset))
     else
-        local required_lvl = meta:get_string("required_lvl")
+        -- not allowed
         minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = playername }, true)
-        minetest.chat_send_player(
-            playername,
-            "You haven't finished the required level for this yet: '" .. required_lvl .. "'"
-        )
+        minetest.chat_send_player( playername, err_msg)
     end
 end
 
