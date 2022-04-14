@@ -1,7 +1,7 @@
 {
    "chunks" : 17,
-   "mtime" : 1649943631,
-   "next_id" : 79,
+   "mtime" : 1649944694,
+   "next_id" : 80,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -40,6 +40,7 @@
       "super_sam:obsidian_brick" : 44,
       "super_sam:panel_clay_red" : 53,
       "super_sam:panel_stone_block" : 13,
+      "super_sam:panel_stone_brick" : 79,
       "super_sam:platform_spawner" : 8,
       "super_sam:projectile_spawner" : 50,
       "super_sam:slab_stone_2" : 56,
@@ -83,7 +84,7 @@
       "super_sam:wood" : 67,
       "super_sam_ambience:sound_beacon" : 74
    },
-   "size" : 184437,
+   "size" : 184838,
    "uid" : "970683",
    "version" : 3
 }
