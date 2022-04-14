@@ -8,7 +8,8 @@ local function execute_teleport(player, beacon_pos)
         z = meta:get_int("tpz")
     }
 
-    if not vector.equals(target_pos, super_sam.zero_pos) and minetest.check_player_privs(playername, "super_sam_builder") then
+    if not vector.equals(target_pos, super_sam.zero_pos) and
+        minetest.check_player_privs(playername, "super_sam_builder") then
         -- move the editor to the target coords
         player:set_pos(vector.add(target_pos, super_sam.player_offset))
     end
