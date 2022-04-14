@@ -1,7 +1,7 @@
 {
    "chunks" : 17,
-   "mtime" : 1649944694,
-   "next_id" : 80,
+   "mtime" : 1649945735,
+   "next_id" : 81,
    "node_mapping" : {
       "air" : 0,
       "moreblocks:circular_saw" : 52,
@@ -27,6 +27,7 @@
       "super_sam:grass_4" : 18,
       "super_sam:grass_5" : 16,
       "super_sam:item_spawner" : 7,
+      "super_sam:item_spawner_hidden" : 80,
       "super_sam:ladder_steel" : 29,
       "super_sam:lava_flowing" : 43,
       "super_sam:lava_source" : 6,
@@ -84,7 +85,7 @@
       "super_sam:wood" : 67,
       "super_sam_ambience:sound_beacon" : 74
    },
-   "size" : 184838,
+   "size" : 184481,
    "uid" : "970683",
    "version" : 3
 }

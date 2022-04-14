@@ -16,6 +16,7 @@ dofile(MP .. "/privs.lua")
 dofile(MP .. "/highscore.lua")
 dofile(MP .. "/intro.lua")
 dofile(MP .. "/update_check.lua")
+dofile(MP .. "/register_hidden.lua")
 
 -- level stuff
 dofile(MP .. "/level/store.lua")
