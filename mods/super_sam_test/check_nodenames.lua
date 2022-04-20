@@ -1,5 +1,5 @@
 
-super_sam_test.register_test(function()
+super_sam_test.register_test(function(callback)
     minetest.log("warning", "[super_sam_test] checking nodenames")
 
     local assert_nodes = {}
@@ -27,14 +27,13 @@ super_sam_test.register_test(function()
         if not minetest.registered_nodes[nodename]
             and not minetest.registered_aliases[nodename]
             and not lbm_nodes[nodename] then
-                all_nodes_present = false
-                minetest.log("error", "Node not present and not available in an alias/lbm: " .. nodename)
+                error("Node not present and not available in an alias/lbm: " .. nodename)
         end
     end
 
     if not all_nodes_present then
-        return false, "some of the required nodes are not present and not aliased!"
+        error("some of the required nodes are not present and not aliased!")
     end
 
-    return true
+    callback()
 end)

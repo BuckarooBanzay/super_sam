@@ -5,15 +5,17 @@ function super_sam_test.register_test(fn)
     table.insert(tests, fn)
 end
 
+local i = 0
 function super_sam_test.execute_tests()
-    for _, fn in ipairs(tests) do
-        -- TODO: callback/async api
-        local success, msg = fn()
-        if not success then
-            error(msg)
-        end
+    i = i + 1
+    local fn = tests[i]
+    if not fn then
+        -- everything ok
+        minetest.request_shutdown("success")
+        return
     end
 
-    -- everything ok
-    minetest.request_shutdown("success")
+    fn(function()
+        minetest.after(0.1, super_sam_test.execute_tests)
+    end)
 end

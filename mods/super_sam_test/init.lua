@@ -8,6 +8,7 @@ super_sam_test = {}
 
 local MP = minetest.get_modpath("super_sam_test")
 dofile(MP.."/api.lua")
+dofile(MP.."/emerge.lua")
 dofile(MP.."/export_nodenames.lua")
 dofile(MP.."/check_nodenames.lua")
 
