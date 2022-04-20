@@ -1,6 +1,11 @@
+local MAP_MOD_PATH = minetest.get_modpath("super_sam_map")
+if not MAP_MOD_PATH then
+    minetest.log("error", "[super_sam] 'super_sam_map' mod not found!")
+    return
+end
 
 local function read_manifest()
-	local infile = io.open(minetest.get_modpath("super_sam_map") .. "/manifest.json", "r")
+	local infile = io.open(MAP_MOD_PATH .. "/manifest.json", "r")
 	local instr = infile:read("*a")
 	infile:close()
 
