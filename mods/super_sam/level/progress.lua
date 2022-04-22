@@ -20,6 +20,8 @@ function super_sam.start_level(player, level)
         local target = vector.add(level.teleport, super_sam.player_offset)
         meta:set_string(META_STARTPOS, minetest.pos_to_string(target))
         player:set_pos(target)
+        minetest.log("action", "[super_sam] teleporting player '" ..
+            playername .. "' to " .. minetest.pos_to_string(target))
 
         -- register as finished
         super_sam.add_finished_level(player, level.name)

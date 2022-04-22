@@ -1,18 +1,18 @@
 {
    "bounds" : {
       "max" : {
-         "x" : 2,
+         "x" : 5,
          "y" : 1,
          "z" : 26
       },
       "min" : {
          "x" : -1,
          "y" : -1,
-         "z" : 11
+         "z" : 0
       }
    },
    "chunks" : 17,
-   "mtime" : 1650649773,
+   "mtime" : 1650657429,
    "next_id" : 77,
    "node_mapping" : {
       "air" : 0,
@@ -93,7 +93,7 @@
       "super_sam:wood" : 69,
       "super_sam_ambience:sound_beacon" : 19
    },
-   "size" : 124574,
+   "size" : 124578,
    "uid" : "970683",
    "version" : 4
 }

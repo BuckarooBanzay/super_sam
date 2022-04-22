@@ -7,6 +7,11 @@ local store = AreaStore()
 
 function super_sam.register_level_beacon(pos)
     local meta = minetest.get_meta(pos)
+    local node = minetest.get_node(pos)
+    if node.name ~= "super_sam:level_beacon" then
+        -- not a level beacon, ignore silently
+        return
+    end
     local level_def = {
         time = meta:get_int("time"),
         name = meta:get_string("name"),
@@ -39,6 +44,21 @@ function super_sam.register_level_beacon(pos)
     local id = store:insert_area(level_def.bounds.min, level_def.bounds.max, level_def.name)
     level_def.area_id = id
     levels[level_def.name] = level_def
+end
+
+-- re-register levels in removed/recreated chunks
+local old_delete_area = minetest.delete_area
+function minetest.delete_area(pos1, pos2)
+    -- execute delete
+    old_delete_area(pos1, pos2)
+    minetest.after(1, function()
+        -- search for level beacons in the deleted area and re-register them
+        local list = store:get_areas_in_area(pos1, pos2, true, true, true)
+        for _, entry in pairs(list) do
+            local level_def = levels[entry.data]
+            super_sam.register_level_beacon(level_def.start)
+        end
+    end)
 end
 
 function super_sam.get_level_by_name(name)

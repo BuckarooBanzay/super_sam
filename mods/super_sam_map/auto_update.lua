@@ -44,14 +44,6 @@ local function check_player_pos(player)
 	local min = import_mod.get_mapblock_bounds_from_mapblock(mapblock_min)
 	local _, max = import_mod.get_mapblock_bounds_from_mapblock(mapblock_max)
 
-    print("updating chunk: ", dump({
-        chunk_pos = chunk_pos,
-        mapblock_min = mapblock_min,
-        mapblock_max = mapblock_max,
-        min = min,
-        max = max
-    }))
-
     minetest.delete_area(min, max)
 end
 
