@@ -3,16 +3,16 @@
       "max" : {
          "x" : 2,
          "y" : 1,
-         "z" : 25
+         "z" : 26
       },
       "min" : {
-         "x" : 0,
-         "y" : 0,
-         "z" : 15
+         "x" : -1,
+         "y" : -1,
+         "z" : 11
       }
    },
    "chunks" : 17,
-   "mtime" : 1650476604,
+   "mtime" : 1650649773,
    "next_id" : 77,
    "node_mapping" : {
       "air" : 0,
@@ -93,7 +93,7 @@
       "super_sam:wood" : 69,
       "super_sam_ambience:sound_beacon" : 19
    },
-   "size" : 122870,
+   "size" : 124574,
    "uid" : "65912",
    "version" : 4
 }
