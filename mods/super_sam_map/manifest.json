@@ -12,8 +12,8 @@
       }
    },
    "chunks" : 21,
-   "mtime" : 1650731043,
-   "next_id" : 77,
+   "mtime" : 1650732482,
+   "next_id" : 78,
    "node_mapping" : {
       "air" : 0,
       "super_sam:border" : 16,
@@ -44,6 +44,7 @@
       "super_sam:lava_source" : 11,
       "super_sam:leaves" : 50,
       "super_sam:level_beacon" : 10,
+      "super_sam:level_end_beacon" : 77,
       "super_sam:level_start_beacon" : 55,
       "super_sam:lights_block" : 70,
       "super_sam:lights_lantern_c" : 15,
@@ -93,7 +94,7 @@
       "super_sam:wood" : 69,
       "super_sam_ambience:sound_beacon" : 19
    },
-   "size" : 126749,
+   "size" : 126717,
    "uid" : "970683",
    "version" : 4
 }

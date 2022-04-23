@@ -22,9 +22,11 @@ dofile(MP .. "/level/store.lua")
 dofile(MP .. "/level/finished_levels.lua")
 dofile(MP .. "/level/formspec.lua")
 dofile(MP .. "/level/start_formspec.lua")
+dofile(MP .. "/level/end_formspec.lua")
 dofile(MP .. "/level/progress.lua")
 dofile(MP .. "/level/beacon.lua")
 dofile(MP .. "/level/start.lua")
+dofile(MP .. "/level/end.lua")
 dofile(MP .. "/teleport_back.lua")
 
 -- item/node callbacks
