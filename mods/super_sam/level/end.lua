@@ -1,10 +1,4 @@
 local function execute_teleport(player, beacon_pos)
-    local control = player:get_player_control()
-    if control.sneak then
-        -- don't do anything if sneak is pressed
-        return
-    end
-
     local meta = minetest.get_meta(beacon_pos)
     local target_pos = {
         x = meta:get_int("tpx"),
@@ -12,10 +6,7 @@ local function execute_teleport(player, beacon_pos)
         z = meta:get_int("tpz")
     }
 
-    if not super_sam.check_play_mode(player) then
-        -- either the level-requirements are met or the player is in edit-mode
-        player:set_pos(vector.add(target_pos, super_sam.player_offset))
-    end
+    player:set_pos(vector.add(target_pos, super_sam.player_offset))
 end
 
 -- level end beacon
@@ -27,11 +18,40 @@ minetest.register_node("super_sam:level_end_beacon", {
     },
     groups = { cracky = 1 },
     on_punch = function(pos, _, player)
-        execute_teleport(player, pos)
+        local control = player:get_player_control()
+        local is_builder = minetest.check_player_privs(player:get_player_name(), "super_sam_builder")
+        if not control.sneak and is_builder then
+            -- only teleport if sneak _not_ pressed and in builder/edit mode
+            execute_teleport(player, pos)
+        end
     end,
     on_rightclick = function(pos, _, player)
         if minetest.check_player_privs(player:get_player_name(), "super_sam_builder") then
             super_sam.show_level_end_formspec(pos, player:get_player_name())
+        end
+    end
+})
+
+local function finish_level(player, beacon_pos)
+    if not super_sam.get_current_level(player) then
+        -- not in a level
+        return
+    end
+    super_sam.finalize_level(player)
+    execute_teleport(player, beacon_pos)
+end
+
+minetest.register_abm({
+    label = "Level end beacon",
+    nodenames = "super_sam:level_end_beacon",
+    interval = 1,
+    chance = 1,
+    action = function(beacon_pos)
+        for _, player in ipairs(minetest.get_connected_players()) do
+            local distance = vector.distance(player:get_pos(), beacon_pos)
+            if distance <= super_sam.beacon_teleport_distance then
+                finish_level(player, beacon_pos)
+            end
         end
     end
 })

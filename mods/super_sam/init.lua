@@ -1,6 +1,7 @@
 super_sam = {
     max_hp = 3,
     storage = minetest.get_mod_storage(),
+    beacon_teleport_distance = 3,
     player_offset = {x=0, y=0.5, z=0},
     zero_pos = {x=0, y=0, z=0},
     spawn_pos = { x=22.5, y=9.5, z=19.5 }
@@ -18,12 +19,12 @@ dofile(MP .. "/intro.lua")
 dofile(MP .. "/register_hidden.lua")
 
 -- level stuff
-dofile(MP .. "/level/store.lua")
 dofile(MP .. "/level/finished_levels.lua")
 dofile(MP .. "/level/formspec.lua")
 dofile(MP .. "/level/start_formspec.lua")
 dofile(MP .. "/level/end_formspec.lua")
-dofile(MP .. "/level/progress.lua")
+dofile(MP .. "/level/level.lua")
+dofile(MP .. "/level/level_check.lua")
 dofile(MP .. "/level/beacon.lua")
 dofile(MP .. "/level/start.lua")
 dofile(MP .. "/level/end.lua")

@@ -1,7 +1,5 @@
 
-local beacon_teleport_distance = 3
-
--- name => levelname
+-- name => level
 local current_levels = {}
 
 -- coords
@@ -9,25 +7,16 @@ local current_levels = {}
 -- constants
 local META_STARTPOS = "super_sam_last_startpos"
 
+local lookdir_to_rad = {
+    ["+x"] = math.pi / 2 * 3,
+    ["-x"] = math.pi / 2,
+    ["-z"] = math.pi,
+    ["+z"] = 0
+}
+
 function super_sam.start_level(player, level)
     local meta = player:get_meta()
     local playername = player:get_player_name()
-
-    if not vector.equals(level.teleport, super_sam.zero_pos) then
-        -- teleport coords set, "transfer" level
-
-        -- just move player there and persist startpos
-        local target = vector.add(level.teleport, super_sam.player_offset)
-        meta:set_string(META_STARTPOS, minetest.pos_to_string(target))
-        player:set_pos(target)
-        minetest.log("action", "[super_sam] teleporting player '" ..
-            playername .. "' to " .. minetest.pos_to_string(target))
-
-        -- register as finished
-        super_sam.add_finished_level(player, level.name)
-
-        return
-    end
 
     local start_pos = vector.add(level.start, super_sam.player_offset)
 
@@ -38,32 +27,48 @@ function super_sam.start_level(player, level)
 
     -- set start position
     local distance = vector.distance(level.start, player:get_pos())
-    if distance > beacon_teleport_distance then
+    if distance > super_sam.beacon_teleport_distance then
         -- only move player if he's too far away
         player:set_pos(start_pos)
+    end
+
+    -- set look dir, if set
+    if level.lookdir ~= "" then
+        -- center vertical look
+        player:set_look_vertical(0)
+        local rad = lookdir_to_rad[level.lookdir]
+        if rad then
+            player:set_look_horizontal(rad)
+        end
     end
 
     -- set timer
     super_sam.set_time(playername, level.time)
 
     -- store current level
-    current_levels[playername] = level.name
+    current_levels[playername] = level
 
     -- update hud
     super_sam.update_player_hud(player)
 end
 
-function super_sam.get_current_level_name(player)
+function super_sam.get_current_level(player)
     local playername = player:get_player_name()
     return current_levels[playername]
 end
 
 function super_sam.finalize_level(player)
+    local finished_level = super_sam.get_current_level(player)
+    if not finished_level then
+        -- nothing started, ignore
+        return
+    end
+
     local playername = player:get_player_name()
     local ppos = player:get_pos()
 
     -- register as finished
-    super_sam.add_finished_level(player, current_levels[playername])
+    super_sam.add_finished_level(player, finished_level.name)
 
     minetest.log("action", "[super_sam] finalizing current level for player '" .. playername .. "'")
 
@@ -110,11 +115,7 @@ end
 -- resets the level after too much damage or timeout
 function super_sam.reset_level(player)
     local playername = player:get_player_name()
-    local levelname = current_levels[playername]
-    if not levelname then
-        return
-    end
-    local level = super_sam.get_level_by_name(levelname)
+    local level = current_levels[playername]
     if not level then
         return
     end
@@ -155,60 +156,6 @@ minetest.register_on_joinplayer(function(player)
         player:set_pos(minetest.string_to_pos(last_startpos))
     end
 end)
-
-local function check_current_level()
-    for _, player in ipairs(minetest.get_connected_players()) do
-        local playername = player:get_player_name()
-        local playmode = super_sam.check_play_mode(player)
-        if playmode then
-            local nearest_level = super_sam.get_nearest_level(player:get_pos(), beacon_teleport_distance)
-            local current_level = current_levels[playername]
-
-            if current_level and nearest_level and current_level ~= nearest_level.name then
-                -- shift to next level
-                super_sam.finalize_level(player)
-                super_sam.start_level(player, nearest_level)
-
-            elseif not current_level and nearest_level then
-                -- not in a level and regular player
-                super_sam.start_level(player, nearest_level)
-
-            elseif current_level then
-                -- check bounds
-                local level_def = super_sam.get_level_by_name(current_level)
-                local ppos = player:get_pos()
-                if ppos.x < level_def.bounds.min.x or
-                    ppos.y < level_def.bounds.min.y or
-                    ppos.z < level_def.bounds.min.z or
-                    ppos.x > level_def.bounds.max.x or
-                    ppos.y > level_def.bounds.max.y or
-                    ppos.z > level_def.bounds.max.z then
-                    minetest.chat_send_player(playername, "Outside the level-region, resetting...")
-                    super_sam.reset_level(player)
-                end
-            end
-        end
-    end
-
-    minetest.after(0.5, check_current_level)
-end
-minetest.after(0.5, check_current_level)
-
-minetest.register_chatcommand("start", {
-    params = "<levelname>",
-    description = "Start an arbitrary level",
-    privs = { super_sam_builder=true },
-    func = function(name, levelname)
-        local level = super_sam.get_level_by_name(levelname)
-        if not level then
-            return false, "Level '" .. levelname .. "' not found"
-        end
-
-        local player = minetest.get_player_by_name(name)
-        super_sam.start_level(player, level)
-        return true, "Level '" .. levelname .. "' started"
-    end
-})
 
 minetest.register_chatcommand("killme", {
     description = "Resets the current level",

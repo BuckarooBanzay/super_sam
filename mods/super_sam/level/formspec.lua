@@ -23,9 +23,7 @@ function super_sam.show_level_formspec(pos, playername)
         field[1.2,2.5;1,1;yminus;Y-;]] .. meta:get_int("yminus") .. [[]
         field[2.2,2.5;1,1;zminus;Z-;]] .. meta:get_int("zminus") .. [[]
 
-        field[0.2,3.5;1,1;tpx;Teleport;]] .. meta:get_int("tpx") .. [[]
-        field[1.2,3.5;1,1;tpy;;]] .. meta:get_int("tpy") .. [[]
-        field[2.2,3.5;1,1;tpz;;]] .. meta:get_int("tpz") .. [[]
+        field[0.2,3.5;2,1;lookdir;Look dir: +x/-x/+z/-z;]] .. meta:get_string("lookdir") .. [[]
 
         button_exit[0,4.5;6,1;save;Save]
     ]]
@@ -77,9 +75,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
         meta:set_int("xminus", tonumber(fields.xminus) or 0)
         meta:set_int("yminus", tonumber(fields.yminus) or 0)
         meta:set_int("zminus", tonumber(fields.zminus) or 0)
-        meta:set_int("tpx", tonumber(fields.tpx) or 0)
-        meta:set_int("tpy", tonumber(fields.tpy) or 0)
-        meta:set_int("tpz", tonumber(fields.tpz) or 0)
+        meta:set_string("lookdir", fields.lookdir or "")
 
         meta:set_int("time", tonumber(fields.time) or 120)
         meta:set_string("name", fields.name or "<unknown>")
@@ -108,6 +104,4 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
         worldedit.mark_pos1(playername)
         worldedit.mark_pos2(playername);
     end
-
-    super_sam.register_level_beacon(pos)
 end)
