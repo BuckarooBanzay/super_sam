@@ -56,7 +56,7 @@ local function remove_item(pos)
     local objects = minetest.get_objects_in_area(pos1, pos2)
     for _, object in ipairs(objects) do
         local entity = object:get_luaentity()
-        if entity.name == "super_sam:item" then
+        if entity and entity.name == "super_sam:item" then
             object:remove()
         end
     end
