@@ -16,6 +16,12 @@ local function can_start_level(player, beacon_pos)
 end
 
 local function execute_teleport(player, beacon_pos)
+    local control = player:get_player_control()
+    if control.sneak then
+        -- don't do anything if sneak is pressed
+        return
+    end
+
     local playername = player:get_player_name()
     local meta = minetest.get_meta(beacon_pos)
     local target_pos = {
