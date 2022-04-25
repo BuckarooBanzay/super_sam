@@ -86,6 +86,14 @@ function super_sam.finalize_level(player, highscore_name)
         local score = super_sam.get_score(playername)
         super_sam.set_score(playername, 0)
         super_sam_highscore.update_highscore(playername, score, highscore_name)
+
+        local rank = super_sam_highscore.get_highscore_rank(playername, highscore_name)
+        if rank then
+            minetest.chat_send_player(
+                playername,
+                "Highscore rank for level '" .. highscore_name .. "': " .. minetest.colorize("#00FF00", rank)
+            )
+        end
     end
 
     -- effects

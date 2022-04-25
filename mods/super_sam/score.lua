@@ -10,5 +10,5 @@ function super_sam.set_score(name, score)
 end
 
 function super_sam.add_score(name, score)
-    super_sam.set_score(name, super_sam_highscore.format_score(name) + score)
+    super_sam.set_score(name, super_sam.get_score(name) + score)
 end
