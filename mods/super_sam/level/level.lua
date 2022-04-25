@@ -57,7 +57,7 @@ function super_sam.get_current_level(player)
     return current_levels[playername]
 end
 
-function super_sam.finalize_level(player)
+function super_sam.finalize_level(player, highscore_name)
     local finished_level = super_sam.get_current_level(player)
     if not finished_level then
         -- nothing started, ignore
@@ -79,7 +79,14 @@ function super_sam.finalize_level(player)
     -- convert coins and remaining time to score
     local remaining_time = super_sam.get_time(playername)
     super_sam.add_score(playername, (coins * 100) + (remaining_time * 10))
-    super_sam.update_highscore(playername, super_sam.get_score(playername), current_levels[playername])
+
+    if highscore_name and highscore_name ~= nil then
+        -- level collection done
+        -- update highscore and reset player score
+        local score = super_sam.get_score(playername)
+        super_sam.set_score(playername, 0)
+        super_sam_highscore.update_highscore(playername, score, highscore_name)
+    end
 
     -- effects
     minetest.sound_play({ name = "super_sam_cash", gain = 1.5 }, { to_player = playername }, true)

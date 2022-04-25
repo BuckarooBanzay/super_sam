@@ -6,11 +6,6 @@ local function can_start_level(player, beacon_pos)
         -- player did not finish the required level
         return false, "You haven't finished the required level for this yet: '" .. required_lvl .. "'"
     end
-    local absent_lvl = meta:get_string("absent_lvl")
-    if absent_lvl ~= "" and super_sam.has_finished_level(player, absent_lvl) then
-        -- player finished the must-absent level (lockout-level or whatever you want to call it)
-        return false, "You have already finished the level: '" .. absent_lvl .. "'"
-    end
     -- all conditions met
     return true
 end

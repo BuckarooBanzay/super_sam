@@ -37,7 +37,9 @@ local function finish_level(player, beacon_pos)
         -- not in a level
         return
     end
-    super_sam.finalize_level(player)
+    local meta = minetest.get_meta(beacon_pos)
+    local highscore_name = meta:get_string("highscore_name")
+    super_sam.finalize_level(player, highscore_name)
     execute_teleport(player, beacon_pos)
 end
 

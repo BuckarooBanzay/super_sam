@@ -10,15 +10,14 @@ function super_sam.show_level_start_formspec(pos, playername)
     local meta = minetest.get_meta(pos)
 
     local formspec = [[
-        size[6,4.5;]
+        size[6,3.5;]
         field[0.2,0.5;6,1;required_lvl;Required level;]] .. meta:get_string("required_lvl") .. [[]
-        field[0.2,1.5;6,1;absent_lvl;Absent level;]] .. meta:get_string("absent_lvl") .. [[]
 
-        field[0.2,2.5;1,1;tpx;Teleport;]] .. meta:get_int("tpx") .. [[]
-        field[1.2,2.5;1,1;tpy;;]] .. meta:get_int("tpy") .. [[]
-        field[2.2,2.5;1,1;tpz;;]] .. meta:get_int("tpz") .. [[]
+        field[0.2,1.5;1,1;tpx;Teleport;]] .. meta:get_int("tpx") .. [[]
+        field[1.2,1.5;1,1;tpy;;]] .. meta:get_int("tpy") .. [[]
+        field[2.2,1.5;1,1;tpz;;]] .. meta:get_int("tpz") .. [[]
 
-        button_exit[0,3.5;6,1;save;Save]
+        button_exit[0,2.5;6,1;save;Save]
     ]]
 
 	minetest.show_formspec(playername,
@@ -47,7 +46,6 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
         meta:set_int("tpy", tonumber(fields.tpy) or 0)
         meta:set_int("tpz", tonumber(fields.tpz) or 0)
         meta:set_string("required_lvl", fields.required_lvl or "")
-        meta:set_string("absent_lvl", fields.absent_lvl or "")
 
         if has_modgen then
             -- dispatch changes

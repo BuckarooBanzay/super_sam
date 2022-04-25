@@ -14,7 +14,6 @@ dofile(MP .. "/protection.lua")
 dofile(MP .. "/spawn.lua")
 dofile(MP .. "/controls.lua")
 dofile(MP .. "/privs.lua")
-dofile(MP .. "/highscore.lua")
 dofile(MP .. "/intro.lua")
 dofile(MP .. "/register_hidden.lua")
 

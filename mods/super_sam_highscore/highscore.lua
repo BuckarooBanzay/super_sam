@@ -1,23 +1,32 @@
 
-local max_entries = 20
+local max_entries = 10
 
-local highscore = minetest.deserialize(super_sam.storage:get_string("highscore")) or {}
+function super_sam_highscore.get_level_highscore(levelname)
+    local json = super_sam_highscore.storage:get_string(levelname)
+    return minetest.parse_json(json) or {}
+end
 
-function super_sam.update_highscore(playername, score, level)
+function super_sam_highscore.set_level_highscore(levelname, highscore)
+    local json = minetest.write_json(highscore)
+    super_sam_highscore.storage:set_string(levelname, json)
+end
+
+function super_sam_highscore.update_highscore(playername, score, levelname)
 
     -- create new entry object
     local new_entry = {
         name = playername,
         score = score,
-        timestamp = os.time(),
-        level = level
+        timestamp = os.time()
     }
+
+    local highscore = super_sam_highscore.get_level_highscore(levelname)
 
     -- check existing list
     local existing_updated = false
     for i, entry in ipairs(highscore) do
-        if entry.name == playername then
-            -- change existing
+        if entry.name == playername and entry.score < score then
+            -- change existing if score is greater
             highscore[i] = new_entry
             existing_updated = true
             break
@@ -37,12 +46,13 @@ function super_sam.update_highscore(playername, score, level)
         table.remove(highscore, #highscore)
     end
 
-    super_sam.storage:set_string("highscore", minetest.serialize(highscore))
+    super_sam_highscore.set_level_highscore(levelname, highscore)
 end
 
-function super_sam.get_highscore_formspec_fragment(x, y, size_x, size_y, entries)
+function super_sam_highscore.get_highscore_formspec_fragment(levelname, x, y, size_x, size_y, entries)
     entries = entries or max_entries
 
+    local highscore = super_sam_highscore.get_level_highscore(levelname)
     local list = ""
     for i, entry in ipairs(highscore) do
         local color = "#FFFFFF"
@@ -57,8 +67,8 @@ function super_sam.get_highscore_formspec_fragment(x, y, size_x, size_y, entries
             -- bronze
             color = "#CD7F32"
         end
-        list = list .. color .. "," .. super_sam.format_score(entry.score) .. "," ..
-            entry.name .. "," .. entry.level .. "," .. os.date('%Y-%m-%d %H:%M:%S', entry.timestamp) .. ","
+        list = list .. color .. "," .. super_sam_highscore.format_score(entry.score) .. "," ..
+            entry.name .. "," .. os.date('%Y-%m-%d %H:%M:%S', entry.timestamp) .. ","
 
         if i > entries then
             break
@@ -66,19 +76,19 @@ function super_sam.get_highscore_formspec_fragment(x, y, size_x, size_y, entries
     end
 
     return [[
-        tablecolumns[color;text;text;text;text]
-        table[]] .. x..","..y..";"..size_x..","..size_y.. [[;items;#999,Score,Playername,Level,Date,]] .. list .. [[]
+        tablecolumns[color;text;text;text]
+        table[]] .. x..","..y..";"..size_x..","..size_y.. [[;items;#999,Score,Playername,Date,]] .. list .. [[]
     ]]
 end
 
 minetest.register_chatcommand("highscore", {
     description = "Shows the current highscore",
-    func = function(name)
+    func = function(name, levelname)
         minetest.show_formspec(name, "highscore", [[
             size[12,12;]
             label[0,0.1;Highscore top 10]
             button_exit[10,0;2,1;quit;Quit]
-            ]] .. super_sam.get_highscore_formspec_fragment(0, 1, 11.7, 11, 10) .. [[
+            ]] .. super_sam_highscore.get_highscore_formspec_fragment(levelname, 0, 1, 11.7, 11, 10) .. [[
         ]])
     end
 })

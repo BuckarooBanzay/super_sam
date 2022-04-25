@@ -18,7 +18,7 @@ function super_sam.show_intro(playername)
         label[10,5;Higher jumps]
 
         label[0,6.1;Current highscore top 5 (also available with /highscore)]
-        ]] .. super_sam.get_highscore_formspec_fragment(0, 7, 11.7, 6, 5) .. [[
+        ]] .. super_sam_highscore.get_highscore_formspec_fragment("total", 0, 7, 11.7, 6, 5) .. [[
     ]])
 end
 
