@@ -6,7 +6,11 @@ local function execute_teleport(player, beacon_pos)
         z = meta:get_int("tpz")
     }
 
-    player:set_pos(vector.add(target_pos, super_sam.player_offset))
+    local pos = vector.add(target_pos, super_sam.player_offset)
+    player:set_pos(pos)
+
+    -- save startpos
+    super_sam.set_player_startpos(player, pos)
 end
 
 -- level end beacon

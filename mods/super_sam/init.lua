@@ -10,6 +10,7 @@ super_sam = {
 local MP = minetest.get_modpath(minetest.get_current_modname())
 
 -- basic functions
+dofile(MP .. "/startpos.lua")
 dofile(MP .. "/protection.lua")
 dofile(MP .. "/spawn.lua")
 dofile(MP .. "/controls.lua")

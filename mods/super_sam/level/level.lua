@@ -3,10 +3,6 @@
 local current_levels = {}
 
 -- coords
-
--- constants
-local META_STARTPOS = "super_sam_last_startpos"
-
 local lookdir_to_rad = {
     ["+x"] = math.pi / 2 * 3,
     ["-x"] = math.pi / 2,
@@ -15,13 +11,8 @@ local lookdir_to_rad = {
 }
 
 function super_sam.start_level(player, level)
-    local meta = player:get_meta()
     local playername = player:get_player_name()
-
     local start_pos = vector.add(level.start, super_sam.player_offset)
-
-    -- store current pos in case of logout/timeout
-    meta:set_string(META_STARTPOS, minetest.pos_to_string(start_pos))
 
     minetest.log("action", "[super_sam] starting level '" .. level.name .. "' for player '" .. playername .. "'")
 
@@ -158,18 +149,9 @@ function super_sam.reset_level(player)
     })
 end
 
-minetest.register_on_leaveplayer(super_sam.reset_level)
-
-minetest.register_on_joinplayer(function(player)
-    if not super_sam.check_play_mode(player) then
-        -- not in play mode
-        return
-    end
-    local meta = player:get_meta()
-    local last_startpos = meta:get_string("super_sam_last_startpos")
-    if last_startpos ~= "" then
-        player:set_pos(minetest.string_to_pos(last_startpos))
-    end
+minetest.register_on_leaveplayer(function(player)
+    local playername = player:get_player_name()
+    current_levels[playername] = nil
 end)
 
 minetest.register_chatcommand("killme", {

@@ -27,6 +27,10 @@ local function execute_teleport(player, beacon_pos)
 
     local ok, err_msg = can_start_level(player, beacon_pos)
     if ok or not super_sam.check_play_mode(player) then
+        -- save startpos
+        local start_pos = vector.add(beacon_pos, super_sam.player_offset)
+        super_sam.set_player_startpos(player, start_pos)
+
         -- either the level-requirements are met or the player is in edit-mode
         player:set_pos(vector.add(target_pos, super_sam.player_offset))
     else
