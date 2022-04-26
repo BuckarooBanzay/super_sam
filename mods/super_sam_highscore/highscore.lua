@@ -96,14 +96,18 @@ function super_sam_highscore.get_highscore_formspec_fragment(levelname, x, y, si
     ]]
 end
 
+function super_sam_highscore.show_highscore_formspec(playername, levelname)
+    minetest.show_formspec(playername, "highscore", [[
+        size[12,12;]
+        label[0,0.1;Highscore top 10 for the level ']] .. levelname .. [[']
+        button_exit[10,0;2,1;quit;Quit]
+        ]] .. super_sam_highscore.get_highscore_formspec_fragment(levelname, 0, 1, 11.7, 11, 10) .. [[
+    ]])
+end
+
 minetest.register_chatcommand("highscore", {
     description = "Shows the current highscore",
     func = function(name, levelname)
-        minetest.show_formspec(name, "highscore", [[
-            size[12,12;]
-            label[0,0.1;Highscore top 10 for the level ']] .. levelname .. [[']
-            button_exit[10,0;2,1;quit;Quit]
-            ]] .. super_sam_highscore.get_highscore_formspec_fragment(levelname, 0, 1, 11.7, 11, 10) .. [[
-        ]])
+        super_sam_highscore.show_highscore_formspec(name, levelname)
     end
 })

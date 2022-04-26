@@ -9,7 +9,6 @@ for name, def in pairs(vines) do
     def.groups = def.groups or { cracky = 1 }
     def.inventory_image = def.tiles[1]
 	def.wield_image = def.tiles[1]
-    def.drawtype = "plantlike"
 	def.waving = 1
     def.paramtype = "light"
     def.paramtype2 = "wallmounted"

@@ -12,8 +12,8 @@
       }
    },
    "chunks" : 21,
-   "mtime" : 1650996378,
-   "next_id" : 78,
+   "mtime" : 1651000244,
+   "next_id" : 79,
    "node_mapping" : {
       "air" : 0,
       "super_sam:border" : 16,
@@ -37,6 +37,7 @@
       "super_sam:grass_3" : 39,
       "super_sam:grass_4" : 42,
       "super_sam:grass_5" : 40,
+      "super_sam:highscore" : 78,
       "super_sam:item_spawner" : 4,
       "super_sam:item_spawner_hidden" : 66,
       "super_sam:ladder_steel" : 36,
@@ -94,7 +95,7 @@
       "super_sam:wood" : 69,
       "super_sam_ambience:sound_beacon" : 19
    },
-   "size" : 127077,
+   "size" : 127149,
    "uid" : "970683",
    "version" : 4
 }
