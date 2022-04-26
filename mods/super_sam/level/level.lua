@@ -56,7 +56,6 @@ function super_sam.finalize_level(player, highscore_name)
     end
 
     local playername = player:get_player_name()
-    local ppos = player:get_pos()
 
     -- register as finished
     super_sam.add_finished_level(player, finished_level.name)
@@ -88,18 +87,7 @@ function super_sam.finalize_level(player, highscore_name)
     end
 
     -- effects
-    minetest.sound_play({ name = "super_sam_cash", gain = 1.5 }, { to_player = playername }, true)
-    minetest.add_particlespawner({
-        amount = coins * 50,
-        time = 1,
-        -- floor
-        minpos = vector.subtract(ppos, {x=5, y=1, z=5}),
-        maxpos = vector.subtract(ppos, {x=-5, y=1, z=-5}),
-        minvel = {x=0, y=2, z=0},
-        maxvel = {x=0, y=4, z=0},
-        minsize = 2,
-        texture = "super_sam_items.png^[sheet:6x5:4,3"
-    })
+    super_sam.animation_cash(player, coins)
 
     -- Clear time
     super_sam.set_time(playername, nil)
@@ -108,7 +96,8 @@ function super_sam.finalize_level(player, highscore_name)
     current_levels[playername] = nil
 end
 
--- aborts the current level (used for edit mode)
+-- aborts the current level (used for edit mode or on death)
+-- teleports the player to the last startpos if in play mode
 function super_sam.abort_level(player)
     local playername = player:get_player_name()
     minetest.log("action", "[super_sam] aborting level for player '" .. playername .. "'")
@@ -116,9 +105,14 @@ function super_sam.abort_level(player)
     super_sam.set_coins(playername, 0)
 
     current_levels[playername] = nil
+
+    if super_sam.check_play_mode(player) then
+        super_sam.teleport_player_startpos(player)
+        super_sam.animation_failed(player)
+    end
 end
 
--- resets the level after too much damage or timeout
+-- resets the level after the player is outside the defined level-area
 function super_sam.reset_level(player)
     local playername = player:get_player_name()
     local level = current_levels[playername]
@@ -129,24 +123,14 @@ function super_sam.reset_level(player)
     minetest.log("action", "[super_sam] resetting level for player '" .. playername .. "'")
 
     -- clear level data
-    super_sam.abort_level(player)
+    super_sam.set_coins(playername, 0)
+    current_levels[playername] = nil
 
     -- start level again
     super_sam.start_level(player, level)
 
     -- particle rain on respawn position
-    local ppos = player:get_pos()
-    minetest.add_particlespawner({
-        amount = 350,
-        time = 1,
-        -- floor
-        minpos = vector.subtract(ppos, {x=5, y=1, z=5}),
-        maxpos = vector.subtract(ppos, {x=-5, y=1, z=-5}),
-        minvel = {x=0, y=2, z=0},
-        maxvel = {x=0, y=4, z=0},
-        minsize = 2,
-        texture = "super_sam_items.png^[sheet:6x5:4,2"
-    })
+    super_sam.animation_failed(player)
 end
 
 minetest.register_on_leaveplayer(function(player)
@@ -158,7 +142,7 @@ minetest.register_chatcommand("killme", {
     description = "Resets the current level",
     func = function(name)
         local player = minetest.get_player_by_name(name)
-        super_sam.reset_level(player)
+        super_sam.abort_level(player)
         return true, "Level reset!"
     end
 })

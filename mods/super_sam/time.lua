@@ -21,7 +21,7 @@ local function decrement_time()
         elseif time and time <= 0 then
             -- timeout
             minetest.chat_send_player(playername, "Your time is up!")
-            super_sam.reset_level(player)
+            super_sam.abort_level(player)
         end
     end
     minetest.after(1, decrement_time)

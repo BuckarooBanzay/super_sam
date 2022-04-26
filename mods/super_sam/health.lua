@@ -1,6 +1,6 @@
 
 minetest.register_on_respawnplayer(function(player)
-    super_sam.reset_level(player)
+    super_sam.abort_level(player)
     return true
 end)
 
