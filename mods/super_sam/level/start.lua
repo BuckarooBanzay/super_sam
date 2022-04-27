@@ -33,6 +33,12 @@ local function execute_teleport(player, beacon_pos)
 
         -- either the level-requirements are met or the player is in edit-mode
         player:set_pos(vector.add(target_pos, super_sam.player_offset))
+
+        -- capture player, if a beacon is nearby
+        minetest.after(0.5, function()
+            -- because: minetest ¯\_(ツ)_/¯
+            super_sam.capture_players_near_beacon(target_pos)
+        end)
     else
         -- not allowed
         super_sam.sound_play_gameover(player)

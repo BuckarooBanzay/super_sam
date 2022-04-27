@@ -89,6 +89,15 @@ local function check_players_near_beacon(beacon_pos)
     end
 end
 
+function super_sam.capture_players_near_beacon(pos, radius)
+    radius = radius or 2
+    local pos1 = vector.subtract(pos, radius)
+    local pos2 = vector.add(pos, radius)
+    for _, beacon_pos in ipairs(minetest.find_nodes_in_area(pos1, pos2, {"super_sam:level_beacon"})) do
+        check_players_near_beacon(beacon_pos)
+    end
+end
+
 minetest.register_abm({
     label = "Level transfer/proceed beacon",
     nodenames = "super_sam:level_beacon",
