@@ -26,6 +26,7 @@ Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
 * `0,0,1000` Castle level
 * `0,0,2000` Lounge
 * `0,0,3000` Sandbox
+* `0,0,4000` Water minigame
 
 # License
 

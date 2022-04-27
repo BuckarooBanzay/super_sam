@@ -3,7 +3,7 @@
       "max" : {
          "x" : 5,
          "y" : 1,
-         "z" : 38
+         "z" : 50
       },
       "min" : {
          "x" : -1,
@@ -11,14 +11,15 @@
          "z" : 0
       }
    },
-   "chunks" : 21,
-   "mtime" : 1651074095,
-   "next_id" : 79,
+   "chunks" : 22,
+   "mtime" : 1651075516,
+   "next_id" : 80,
    "node_mapping" : {
       "air" : 0,
       "super_sam:border" : 16,
       "super_sam:brick" : 25,
       "super_sam:clay_black" : 48,
+      "super_sam:clay_blue" : 79,
       "super_sam:clay_dark_green" : 7,
       "super_sam:clay_green" : 5,
       "super_sam:clay_red" : 74,
@@ -95,7 +96,7 @@
       "super_sam:wood" : 69,
       "super_sam_ambience:sound_beacon" : 19
    },
-   "size" : 127317,
+   "size" : 132113,
    "uid" : "970683",
    "version" : 4
 }
