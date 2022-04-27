@@ -9,5 +9,5 @@ local function format_thousand(v)
 end
 
 function super_sam_highscore.format_score(score)
-    return "$ " .. format_thousand(score)
+	return "$ " .. format_thousand(score)
 end

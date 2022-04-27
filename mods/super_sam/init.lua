@@ -1,11 +1,11 @@
 super_sam = {
-    max_hp = 3,
-    storage = minetest.get_mod_storage(),
-    beacon_teleport_distance = 4,
-    player_offset = {x=0, y=0.5, z=0},
-    zero_pos = {x=0, y=0, z=0},
-    spawn_pos = { x=0, y=5.5, z=2004 },
-    spawn_look_direction = math.pi
+	max_hp = 3,
+	storage = minetest.get_mod_storage(),
+	beacon_teleport_distance = 4,
+	player_offset = {x=0, y=0.5, z=0},
+	zero_pos = {x=0, y=0, z=0},
+	spawn_pos = { x=0, y=5.5, z=2004 },
+	spawn_look_direction = math.pi
 }
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
