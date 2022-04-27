@@ -35,38 +35,72 @@ local function execute_teleport(player, beacon_pos)
         player:set_pos(vector.add(target_pos, super_sam.player_offset))
 
         -- capture player, if a beacon is nearby
-        minetest.after(0.5, function()
+        minetest.after(0.1, function()
             -- because: minetest ¯\_(ツ)_/¯
             super_sam.capture_players_near_beacon(target_pos)
         end)
     else
         -- not allowed
         super_sam.sound_play_gameover(player)
-        minetest.chat_send_player( playername, err_msg)
+        minetest.chat_send_player(playername, err_msg)
     end
 end
 
+local beacon_radius_outer = 50
+local beacon_radius_inner = 2
+
+-- list of players that could be captured (in a close radius to a beacon)
+local capture_players = {}
+local function get_beacon_capture_players(beacon_pos)
+    local hash = minetest.hash_node_position(beacon_pos)
+    local capture = capture_players[hash]
+    if not capture then
+        capture = {}
+        capture_players[hash] = capture
+    end
+    return capture
+end
+
+-- gc
+minetest.register_on_leaveplayer(function(player)
+    for _, capture in pairs(capture_players) do
+        capture[player:get_player_name()] = nil
+    end
+end)
+
+-- beacon animation and player capture
 minetest.register_abm({
     label = "Level start beacon effect",
     nodenames = "super_sam:level_start_beacon",
-    interval = 5,
+    interval = 1,
     chance = 1,
     action = function(beacon_pos)
         for _, player in ipairs(minetest.get_connected_players()) do
-            local distance = vector.distance(player:get_pos(), beacon_pos)
-            if distance < 50 and can_start_level(player, beacon_pos) then
-                minetest.add_particlespawner({
-                    amount = 50,
-                    time = 5,
-                    -- floor
-                    minpos = vector.subtract(beacon_pos, {x=0.5, y=-0.5, z=0.5}),
-                    maxpos = vector.add(beacon_pos, {x=0.5, y=0.5, z=0.5}),
-                    minvel = {x=0, y=1, z=0},
-                    maxvel = {x=0, y=2, z=0},
-                    minsize = 2,
-                    texture = "super_sam_items.png^[sheet:6x5:5,2",
-                    playername = player:get_player_name()
-                })
+            if can_start_level(player, beacon_pos) then
+                -- player could start that level
+                -- beacon animation per player
+                super_sam.animation_teleport_beacon(player, beacon_pos)
+
+                local playername = player:get_player_name()
+                local distance = vector.distance(player:get_pos(), beacon_pos)
+                local capture = get_beacon_capture_players(beacon_pos)
+
+                if distance <= beacon_radius_inner then
+                    -- player is in close proximity
+                    if capture[playername] and super_sam.check_play_mode(player) then
+                        -- player was inside the outer radius before, capture them
+                        capture[playername] = nil
+                        execute_teleport(player, beacon_pos)
+                    end
+                elseif distance < beacon_radius_outer then
+                    -- player is inside the outer radius
+                    -- mark for capture
+                    capture[playername] = true
+                else
+                    -- unmark for capture
+                    capture[playername] = nil
+                end
+
             end
         end
     end
