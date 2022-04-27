@@ -4,7 +4,8 @@ super_sam = {
     beacon_teleport_distance = 4,
     player_offset = {x=0, y=0.5, z=0},
     zero_pos = {x=0, y=0, z=0},
-    spawn_pos = { x=22.5, y=9.5, z=19.5 }
+    spawn_pos = { x=0, y=5.5, z=2004 },
+    spawn_look_direction = math.pi
 }
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
