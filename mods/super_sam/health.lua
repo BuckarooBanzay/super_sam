@@ -6,6 +6,7 @@ end)
 
 super_sam.register_on_pickup("super_sam:heart", function(player)
 	player:set_hp(math.min(super_sam.max_hp, player:get_hp() + 1), "set_hp")
+	player:set_breath(minetest.PLAYER_MAX_BREATH_DEFAULT)
 	super_sam.update_player_hud(player)
 	super_sam.sound_health_bonus(player)
 end)

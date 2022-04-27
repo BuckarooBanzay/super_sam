@@ -57,9 +57,6 @@ function super_sam.finalize_level(player, highscore_name)
 
 	local playername = player:get_player_name()
 
-	-- register as finished
-	super_sam.add_finished_level(player, finished_level.name)
-
 	minetest.log("action", "[super_sam] finalizing current level for player '" .. playername .. "'")
 
 	-- update score and highscore

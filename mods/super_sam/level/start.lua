@@ -2,7 +2,7 @@
 local function can_start_level(player, beacon_pos)
 	local meta = minetest.get_meta(beacon_pos)
 	local required_lvl = meta:get_string("required_lvl")
-	if required_lvl ~= "" and not super_sam.has_finished_level(player, required_lvl) then
+	if required_lvl ~= "" and not super_sam_highscore.get_highscore_rank(player:get_player_name(), required_lvl) then
 		-- player did not finish the required level
 		return false, "You haven't finished the required level for this yet: '" .. required_lvl .. "'"
 	end
@@ -61,12 +61,19 @@ local function get_beacon_capture_players(beacon_pos)
 	return capture
 end
 
--- gc
-minetest.register_on_leaveplayer(function(player)
+function super_sam.clear_player_beacon_capture(player)
 	for _, capture in pairs(capture_players) do
 		capture[player:get_player_name()] = nil
 	end
-end)
+end
+
+-- gc
+minetest.register_on_leaveplayer(super_sam.clear_player_beacon_capture)
+
+-- clear data on respawn
+minetest.register_on_dieplayer(super_sam.clear_player_beacon_capture)
+minetest.register_on_respawnplayer(super_sam.clear_player_beacon_capture)
+
 
 -- beacon animation and player capture
 minetest.register_abm({

@@ -22,7 +22,6 @@ dofile(MP .. "/animations.lua")
 dofile(MP .. "/sounds.lua")
 
 -- level stuff
-dofile(MP .. "/level/finished_levels.lua")
 dofile(MP .. "/level/formspec.lua")
 dofile(MP .. "/level/start_formspec.lua")
 dofile(MP .. "/level/end_formspec.lua")
