@@ -11,6 +11,5 @@ super_sam.register_control("jump", function(player, state)
         return
     end
 
-    local playername = player:get_player_name()
-    minetest.sound_play({ name = "super_sam_jump", gain = 0.7 }, { to_player = playername }, true)
+    super_sam.sound_play_jump(player)
 end)

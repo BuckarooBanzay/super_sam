@@ -19,6 +19,7 @@ dofile(MP .. "/privs.lua")
 dofile(MP .. "/intro.lua")
 dofile(MP .. "/register_hidden.lua")
 dofile(MP .. "/animations.lua")
+dofile(MP .. "/sounds.lua")
 
 -- level stuff
 dofile(MP .. "/level/finished_levels.lua")

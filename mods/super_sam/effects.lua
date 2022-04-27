@@ -25,8 +25,7 @@ local function register_effect(itemname, name, options)
         end
 
         effects[name] = true
-
-        minetest.sound_play({ name = "super_sam_effect_on", gain = 0.7 }, { to_player = playername }, true)
+        super_sam.sound_play_effect_on(player)
 
         if options.physics then
             -- physics-override
@@ -56,7 +55,7 @@ local function register_effect(itemname, name, options)
             if not player then
                 return
             end
-            minetest.sound_play({ name = "super_sam_effect_off", gain = 0.7 }, { to_player = playername }, true)
+            super_sam.sound_play_effect_off(player)
             if options.physics then
                 -- physics-override
                 local physics_override = player:get_physics_override()

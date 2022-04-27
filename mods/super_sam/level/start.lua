@@ -35,7 +35,7 @@ local function execute_teleport(player, beacon_pos)
         player:set_pos(vector.add(target_pos, super_sam.player_offset))
     else
         -- not allowed
-        minetest.sound_play({ name = "super_sam_game_over", gain = 2 }, { to_player = playername }, true)
+        super_sam.sound_play_gameover(player)
         minetest.chat_send_player( playername, err_msg)
     end
 end

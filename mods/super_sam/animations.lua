@@ -15,9 +15,8 @@ function super_sam.animation_failed(player)
 end
 
 function super_sam.animation_cash(player, coins)
-    local playername = player:get_player_name()
     local ppos = player:get_pos()
-    minetest.sound_play({ name = "super_sam_cash", gain = 1.5 }, { to_player = playername }, true)
+    super_sam.sound_play_cash(player)
     minetest.add_particlespawner({
         amount = coins * 50,
         time = 1,
