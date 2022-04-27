@@ -11,16 +11,20 @@ local nodes = {
         sounds = super_sam_nodes.node_sound_stone()
     },
     ["stone"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        stairsplus = true
     },
     ["stone_block"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        stairsplus = true
     },
     ["stone_brick"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        stairsplus = true
     },
     ["desert_sandstone"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        stairsplus = true
     },
     ["desert_sandstone_block"] = {
         sounds = super_sam_nodes.node_sound_stone()
@@ -50,10 +54,12 @@ local nodes = {
         }
     },
     ["obsidian_block"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        stairsplus = true
     },
     ["obsidian_brick"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        stairsplus = true
     },
     ["ice"] = {groups={slippery=3, cracky=1}},
     ["snow"] = {},
@@ -64,6 +70,18 @@ local nodes = {
         sunlight_propagates = true,
         paramtype = "light"
     },
+    ["tree"] = {
+        tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
+        sounds = super_sam_nodes.node_sound_wood(),
+        paramtype2 = "facedir"
+    },
+    ["wood"] = {
+        sounds = super_sam_nodes.node_sound_wood()
+    },
+    ["leaves"] = {
+        drawtype = "allfaces_optional",
+        paramtype = "light"
+    }
 }
 
 for name, def in pairs(nodes) do
@@ -73,13 +91,15 @@ for name, def in pairs(nodes) do
 
     minetest.register_node(":super_sam:" .. name, def)
 
-    local stairsdef = table.copy(def)
-    if #stairsdef.tiles > 1 and stairsdef.drawtype and stairsdef.drawtype:find("glass") then
-        stairsdef.tiles = {stairsdef.tiles[1]}
-        stairsdef.paramtype2 = nil
-    end
+    if def.stairsplus then
+        local stairsdef = table.copy(def)
+        if #stairsdef.tiles > 1 and stairsdef.drawtype and stairsdef.drawtype:find("glass") then
+            stairsdef.tiles = {stairsdef.tiles[1]}
+            stairsdef.paramtype2 = nil
+        end
 
-    stairsplus:register_all("super_sam", name, "super_sam:" .. name, stairsdef)
+        stairsplus:register_all("super_sam", name, "super_sam:" .. name, stairsdef)
+    end
 end
 
 -- special nodes
@@ -111,6 +131,7 @@ minetest.register_node(":super_sam:ladder_steel", {
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
+    use_texture_alpha = "clip",
 	walkable = false,
 	climbable = true,
     node_box = {
@@ -135,3 +156,20 @@ minetest.register_node(":super_sam:ladder_steel", {
     },
 	sounds = super_sam_nodes.node_sound_metal()
 })
+
+if minetest.get_modpath("i3") then
+    i3.compress("super_sam:stone", {
+        replace = "stone",
+        by = {"stone_block", "stone_brick"}
+    })
+
+    i3.compress("super_sam:desert_stone", {
+        replace = "stone",
+        by = {"stone_block", "stone_brick"}
+    })
+
+    i3.compress("super_sam:desert_sandstone", {
+        replace = "stone",
+        by = {"stone_block", "stone_brick"}
+    })
+end

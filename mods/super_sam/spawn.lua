@@ -1,5 +1,6 @@
 local function move_to_spawn(player)
-    player:set_pos({ x=22.5, y=9.5, z=19.5 })
+	player:set_pos(super_sam.spawn_pos)
+	player:set_look_horizontal(super_sam.spawn_look_direction)
 end
 
 minetest.register_on_respawnplayer(move_to_spawn)

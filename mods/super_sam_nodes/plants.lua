@@ -25,3 +25,10 @@ for name, def in pairs(plants) do
 
     minetest.register_node(":super_sam:" .. name, def)
 end
+
+if minetest.get_modpath("i3") then
+    i3.compress("super_sam:grass_5", {
+        replace = "_5",
+        by = {"_1", "_2", "_3", "_4"}
+    })
+end

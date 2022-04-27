@@ -22,12 +22,16 @@ Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
 
 ## Important coordinates
 
-* `0,0,0` Intro level
-* `0,0,1000` Castle level
+* `0,0,0` Intro level (s01)
+* `0,0,1000` Castle level (s02)
+* `0,0,2000` Lounge
+* `0,0,3000` Sandbox
+* `0,0,4000` Water minigame (s03)
 
 # License
 
 * Code: MIT
 * Textures: (unless otherwise noted) CC-BY SA 4.0
 * `menu/icon.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
+* `menu/theme.ogg` CC-BY SA 4.0 https://freesound.org/people/LagMusics/sounds/582027/
 * Others: see the `readme.md` or `license.txt` files in the various `mods/*` folders

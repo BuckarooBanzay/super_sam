@@ -24,3 +24,4 @@ Super sam nodes mod
 * `sounds/super_sam_effect_off.ogg` CC-BY 3.0 https://freesound.org/people/qubodup/sounds/219570/
 * `textures/super_sam_lights*` CC-BY SA 4.0 https://github.com/random-geek/morelights
 * `models/super_sam_lights*` CC-BY SA 4.0 https://github.com/random-geek/morelights
+* `textures/super_sam_vines_*` CC https://github.com/bas080/vines

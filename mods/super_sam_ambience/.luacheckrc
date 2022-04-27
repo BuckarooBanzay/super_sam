@@ -1,3 +1,12 @@
+globals = {
+	"super_sam_ambience",
+	["worldedit"] = {
+		fields = {
+			"pos1", "pos2"
+		}
+	}
+}
+
 read_globals = {
 	-- Stdlib
 	string = {fields = {"split", "trim"}},
@@ -7,5 +16,8 @@ read_globals = {
 	"minetest",
 	"vector", "ItemStack",
 	"dump", "dump2",
-	"VoxelArea", "AreaStore"
+	"VoxelArea", "AreaStore",
+
+	-- mods
+	"modgen", "worldedit"
 }
