@@ -99,17 +99,20 @@ local function check_level_progress(player, beacon_pos)
     super_sam.start_level(player, nearest_level)
 end
 
+local function check_players_near_beacon(beacon_pos)
+    for _, player in ipairs(minetest.get_connected_players()) do
+        local distance = vector.distance(player:get_pos(), beacon_pos)
+        if distance <= super_sam.beacon_teleport_distance then
+            check_level_progress(player, beacon_pos)
+        end
+    end
+end
+
 minetest.register_abm({
     label = "Level transfer/proceed beacon",
     nodenames = "super_sam:level_beacon",
     interval = 1,
     chance = 1,
-    action = function(beacon_pos)
-        for _, player in ipairs(minetest.get_connected_players()) do
-            local distance = vector.distance(player:get_pos(), beacon_pos)
-            if distance <= super_sam.beacon_teleport_distance then
-                check_level_progress(player, beacon_pos)
-            end
-        end
-    end
+    action = check_players_near_beacon
 })
+
