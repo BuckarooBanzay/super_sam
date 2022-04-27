@@ -103,6 +103,7 @@ function super_sam.abort_level(player)
 	minetest.log("action", "[super_sam] aborting level for player '" .. playername .. "'")
 
 	super_sam.set_coins(playername, 0)
+	super_sam.set_time(playername, nil)
 
 	current_levels[playername] = nil
 
