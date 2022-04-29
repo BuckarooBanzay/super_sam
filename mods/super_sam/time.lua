@@ -28,3 +28,13 @@ local function decrement_time()
 end
 
 decrement_time()
+
+super_sam.register_on_pickup("super_sam:time_bonus", function(player)
+	local playername = player:get_player_name()
+	if not player_times[playername] then
+		return { remove = false }
+	end
+	player_times[playername] = player_times[playername] + 10
+	super_sam.sound_health_bonus(player)
+	super_sam.update_player_hud(player)
+end)

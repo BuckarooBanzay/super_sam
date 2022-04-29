@@ -29,6 +29,11 @@ minetest.register_craftitem("super_sam:star_2", {
 	description = "Star 2"
 })
 
+minetest.register_craftitem("super_sam:time_bonus", {
+	inventory_image = "super_sam_time.png",
+	description = "Time bonus"
+})
+
 minetest.register_craftitem("super_sam:heart", {
 	inventory_image = "super_sam_heart.png",
 	description = "Heart"
