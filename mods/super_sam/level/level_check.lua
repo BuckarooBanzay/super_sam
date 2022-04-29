@@ -7,12 +7,12 @@ local function check_current_level()
 		if playmode and current_level then
 			-- check bounds
 			local ppos = player:get_pos()
-			if ppos.x < current_level.bounds.min.x or
-				ppos.y < current_level.bounds.min.y or
-				ppos.z < current_level.bounds.min.z or
-				ppos.x > current_level.bounds.max.x or
-				ppos.y > current_level.bounds.max.y or
-				ppos.z > current_level.bounds.max.z then
+			if ppos.x < (current_level.bounds.min.x - 0.5) or
+				ppos.y < (current_level.bounds.min.y - 0.5) or
+				ppos.z < (current_level.bounds.min.z - 0.5) or
+				ppos.x > (current_level.bounds.max.x + 0.5) or
+				ppos.y > (current_level.bounds.max.y + 0.5) or
+				ppos.z > (current_level.bounds.max.z + 0.5) then
 				minetest.chat_send_player(playername, "Outside the level-region, resetting...")
 				super_sam.reset_level(player)
 			end
