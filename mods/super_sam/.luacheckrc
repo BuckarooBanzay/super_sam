@@ -19,5 +19,5 @@ read_globals = {
 
 	-- mods
 	"player_api", "worldedit", "modgen", "i3",
-	"super_sam_highscore"
+	"super_sam_highscore", "mtt"
 }

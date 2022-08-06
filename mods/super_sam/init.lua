@@ -53,3 +53,7 @@ dofile(MP .. "/platformspawner.lua")
 dofile(MP .. "/projectilespawner.lua")
 dofile(MP .. "/tools.lua")
 dofile(MP .. "/highscore.lua")
+
+if minetest.get_modpath("mtt") then
+	dofile(MP .. "/mtt.lua")
+end

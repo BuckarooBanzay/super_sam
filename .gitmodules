@@ -4,3 +4,6 @@
 [submodule "mods/player_api"]
 	path = mods/player_api
 	url = https://github.com/minetest-game/player_api
+[submodule "mods/mtt"]
+	path = mods/mtt
+	url = https://github.com/buckarooBanzay/mtt
