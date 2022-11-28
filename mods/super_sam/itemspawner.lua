@@ -76,7 +76,7 @@ local function update_formspec(meta)
 	]]);
 end
 
-super_sam.register_hidden_node("super_sam:item_spawner", {
+minetest.register_node("super_sam:item_spawner", {
 	description = "Item spawner",
 	tiles = {"super_sam_items.png^[sheet:6x5:3,2"},
 	groups = { cracky = 1 },
@@ -108,6 +108,8 @@ super_sam.register_hidden_node("super_sam:item_spawner", {
 	end,
 	on_destruct = remove_item
 })
+
+super_sam.register_hidden_node("super_sam:item_spawner")
 
 minetest.register_entity("super_sam:item", {
 	initial_properties = {},

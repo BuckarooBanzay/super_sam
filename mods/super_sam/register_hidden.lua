@@ -5,7 +5,7 @@ local hideable_nodenames = {}
 local hidden_to_visible_map = {}
 local visible_to_hidden_map = {}
 
-function super_sam.register_hidden_node(name, def)
+function super_sam.register_hidden_node(name)
 	local hidden_name = name .. "_hidden"
 
 	-- register names
@@ -15,7 +15,7 @@ function super_sam.register_hidden_node(name, def)
 	hidden_to_visible_map[hidden_name] = name
 
 	-- visible node
-	minetest.register_node(name, def)
+	local def = minetest.registered_nodes[name]
 
 	-- hidden node
 	local hidden_def = table.copy(def)
