@@ -5,8 +5,12 @@ local hideable_nodenames = {}
 local hidden_to_visible_map = {}
 local visible_to_hidden_map = {}
 
+function super_sam.get_hidden_node_name(name)
+	return name .. "_hidden"
+end
+
 function super_sam.register_hidden_node(name)
-	local hidden_name = name .. "_hidden"
+	local hidden_name = super_sam.get_hidden_node_name(name)
 
 	-- register names
 	table.insert(hideable_nodenames, name)

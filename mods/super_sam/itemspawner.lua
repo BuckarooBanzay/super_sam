@@ -125,7 +125,10 @@ minetest.register_entity("super_sam:item", {
 minetest.register_lbm({
 	label = "Item spawner trigger",
 	name = "super_sam:item_spawner",
-	nodenames = {"super_sam:item_spawner", "super_sam:item_spawner_hidden"},
+	nodenames = {
+		"super_sam:item_spawner",
+		super_sam.get_hidden_node_name("super_sam:item_spawner_hidden")
+	},
 	run_at_every_load = true,
 	action = function(pos)
 		remove_item(pos)
