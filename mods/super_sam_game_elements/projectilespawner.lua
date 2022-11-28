@@ -29,7 +29,7 @@ local function activate_spawner(pos)
 	timer:start(0)
 end
 
-minetest.register_node("super_sam:projectile_spawner", {
+minetest.register_node(":super_sam:projectile_spawner", {
 	description = "Projectile spawner",
 	tiles = {"super_sam_items.png^[sheet:6x5:3,3"},
 	groups = { cracky = 1 },
@@ -128,7 +128,7 @@ minetest.register_node("super_sam:projectile_spawner", {
 	end
 })
 
-minetest.register_entity("super_sam:projectile", {
+minetest.register_entity(":super_sam:projectile", {
 	initial_properties = {},
 	static_save = false,
 	on_activate = function(self, staticdata)
@@ -173,7 +173,7 @@ minetest.after(0.1, check)
 
 minetest.register_lbm({
 	label = "Projectile spawner trigger",
-	name = "super_sam:projectile_spawner",
+	name = "super_sam_game_elements:projectile_spawner",
 	nodenames = "super_sam:projectile_spawner",
 	run_at_every_load = true,
 	action = activate_spawner

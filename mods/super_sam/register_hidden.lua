@@ -31,7 +31,7 @@ function super_sam.register_hidden_node(name)
 	hidden_def.pointable = false
 	hidden_def.walkable = false
 	hidden_def.diggable = false
-	minetest.register_node(hidden_name, hidden_def)
+	minetest.register_node(":" .. hidden_name, hidden_def)
 end
 
 

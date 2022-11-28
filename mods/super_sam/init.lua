@@ -48,9 +48,6 @@ dofile(MP .. "/shoot.lua")
 
 -- nodes, items, etc
 dofile(MP .. "/items.lua")
-dofile(MP .. "/itemspawner.lua")
-dofile(MP .. "/platformspawner.lua")
-dofile(MP .. "/projectilespawner.lua")
 dofile(MP .. "/tools.lua")
 dofile(MP .. "/highscore.lua")
 

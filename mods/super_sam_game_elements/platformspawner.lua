@@ -31,7 +31,7 @@ local function activate_spawner(pos)
 	timer:start(0)
 end
 
-minetest.register_node("super_sam:platform_spawner", {
+minetest.register_node(":super_sam:platform_spawner", {
 	description = "Platform spawner",
 	tiles = {"super_sam_items.png^[sheet:6x5:3,4"},
 	groups = { cracky = 1 },
@@ -128,7 +128,7 @@ minetest.register_node("super_sam:platform_spawner", {
 	end
 })
 
-minetest.register_entity("super_sam:platform", {
+minetest.register_entity(":super_sam:platform", {
 	initial_properties = {},
 	static_save = false,
 	on_activate = function(self, staticdata)
@@ -149,7 +149,7 @@ minetest.register_entity("super_sam:platform", {
 
 minetest.register_lbm({
 	label = "Platform spawner trigger",
-	name = "super_sam:platform_spawner",
+	name = "super_sam_game_elements:platform_spawner",
 	nodenames = "super_sam:platform_spawner",
 	run_at_every_load = true,
 	action = activate_spawner
