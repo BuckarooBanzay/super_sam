@@ -13,6 +13,7 @@ Super sam base mod
 
 ## Media
 
+* `textures/super_sam_banana.png` CC-BY SA 4.0 Discord: NULL#1769
 * `textures/sam_mario_skin.png` CC-BY SA 3.0 ("Mario" by "Fedora P") http://minetest.fensta.bplaced.net/#!page:1,filtertype:Id,filter:684
 * `textures/super_sam_items.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
 * `textures/super_sam_time.png`CC BY-SA 3.0 http://www.small-icons.com/packs/16x16-free-toolbar-icons.htm
