@@ -9,7 +9,7 @@ State: **Playable prototype**
 
 Guide sam through the various levels and score points
 
-Built with [modgen](https://github.com/Buckaroobanzay/modgen)
+Built with [mapsync](https://github.com/Buckaroobanzay/mapsync)
 
 # Commands
 
@@ -18,7 +18,16 @@ Built with [modgen](https://github.com/Buckaroobanzay/modgen)
 
 # Map editing / contributing
 
-Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
+* Fork the `super_sam` repository and add it as a game
+* Grant yourself the needed privs for editing with `/grantme all`
+* Edit/add stuff
+* Export the edited map part with `/mapsync_save <affected-chunk-range>` (the chunk range is usually 1 for a 240 nodes cubic diameter)
+* **OR**: Enable autosave with `/mapsync_autosave on`
+* Commit and create a PR to this repo
+* Profit
+
+In emergencies:
+* Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
 
 ## Important coordinates
 
