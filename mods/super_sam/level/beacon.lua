@@ -106,6 +106,9 @@ local function check_players_near_beacon(beacon_pos)
 			check_level_progress(player, beacon_pos)
 		end
 	end
+
+	-- check again after half the abm-interval time
+	minetest.after(0.5, super_sam.capture_players_near_beacon, beacon_pos)
 end
 
 function super_sam.capture_players_near_beacon(pos, radius)
