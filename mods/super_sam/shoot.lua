@@ -1,16 +1,15 @@
 -- player shoot
 
-super_sam.register_control("dig", function(player, state)
+controls.register_on_press(function(player, control_name)
+	if control_name ~= "dig" then
+		return
+	end
+
 	local playername = player:get_player_name()
 	local effects = super_sam.get_player_effects(playername)
 
 	if not effects.shoot then
 		-- can't shoot
-		return
-	end
-
-	if not state then
-		-- true -> false
 		return
 	end
 

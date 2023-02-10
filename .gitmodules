@@ -13,3 +13,6 @@
 [submodule "mods/mtzip"]
 	path = mods/mtzip
 	url = https://github.com/BuckarooBanzay/mtzip
+[submodule "mods/controls"]
+	path = mods/controls
+	url = https://github.com/mt-mods/controls
