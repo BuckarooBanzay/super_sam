@@ -36,11 +36,14 @@ local function add_item(pos)
 
 	local item_pos = vector.add(pos, {x=x_offset, y=y_offset, z=z_offset})
 	minetest.add_entity(item_pos, "super_sam:item", minetest.serialize({
-		visual = "wielditem",
-		wield_item = item_name,
-		visual_size = { x=0.5, y=0.5 },
-		automatic_rotate = 1,
-		pointable = false
+		spawner_pos = pos,
+		properties = {
+			visual = "wielditem",
+			wield_item = item_name,
+			visual_size = { x=0.5, y=0.5 },
+			automatic_rotate = 1,
+			pointable = false
+		}
 	}))
 end
 
@@ -60,6 +63,11 @@ local function remove_item(pos)
 			object:remove()
 		end
 	end
+end
+
+local function refresh_item(pos)
+	remove_item(pos)
+	add_item(pos)
 end
 
 local function update_formspec(meta)
@@ -118,7 +126,7 @@ minetest.register_entity(":super_sam:item", {
 		self.object:set_armor_groups({punch_operable = 1})
 		local data = minetest.deserialize(staticdata)
 		self.data = data
-		self.object:set_properties(data)
+		self.object:set_properties(data.properties)
 	end
 })
 
@@ -130,8 +138,26 @@ minetest.register_lbm({
 		super_sam.get_hidden_node_name("super_sam:item_spawner")
 	},
 	run_at_every_load = true,
-	action = function(pos)
-		remove_item(pos)
-		add_item(pos)
-	end
+	action = refresh_item
 })
+
+-- time-based item renewal
+local collected_spawners = {}
+
+super_sam.register_on_pickup(function(_, spawner_pos)
+	collected_spawners[minetest.pos_to_string(spawner_pos)] = os.time()
+end)
+
+local function refresh_items()
+	local now = os.time()
+	for pos_str, time in pairs(collected_spawners) do
+		if (time + 30) < now then
+			-- time expired, refresh
+			local pos = minetest.string_to_pos(pos_str)
+			refresh_item(pos)
+			collected_spawners[pos_str] = nil
+		end
+	end
+	minetest.after(1, refresh_items)
+end
+refresh_items()

@@ -13,7 +13,7 @@ end
 
 
 local function register_effect(itemname, name, options)
-	super_sam.register_on_pickup(itemname, function(player)
+	super_sam.register_on_item_pickup(itemname, function(player)
 		local playername = player:get_player_name()
 		local previous_physics = player:get_physics_override()
 		local previous_player_props = player:get_properties()
