@@ -127,7 +127,7 @@ minetest.register_lbm({
 	name = "super_sam_game_elements:item_spawner",
 	nodenames = {
 		"super_sam:item_spawner",
-		super_sam.get_hidden_node_name("super_sam:item_spawner_hidden")
+		super_sam.get_hidden_node_name("super_sam:item_spawner")
 	},
 	run_at_every_load = true,
 	action = function(pos)
