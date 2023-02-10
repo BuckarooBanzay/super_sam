@@ -36,6 +36,7 @@ In emergencies:
 * `0,0,2000` Lounge
 * `0,0,3000` Sandbox
 * `0,0,4000` Water minigame (s03)
+* `0,0,5000` Ice level (s04)
 
 # License
 
