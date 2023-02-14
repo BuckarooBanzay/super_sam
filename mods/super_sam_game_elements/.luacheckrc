@@ -1,5 +1,5 @@
 globals = {
-	"minetest", "super_sam",
+	"minetest", "super_sam_game_elements",
 	["worldedit"] = {
 		fields = {
 			"pos1", "pos2"
@@ -19,5 +19,5 @@ read_globals = {
 
 	-- mods
 	"player_api", "worldedit", "modgen", "i3",
-	"super_sam_highscore", "mtt", "controls"
+	"super_sam", "mtt"
 }

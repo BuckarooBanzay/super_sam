@@ -29,7 +29,7 @@ end
 
 decrement_time()
 
-super_sam.register_on_pickup("super_sam:time_bonus", function(player)
+super_sam.register_on_item_pickup("super_sam:time_bonus", function(player)
 	local playername = player:get_player_name()
 	if not player_times[playername] then
 		return { remove = false }

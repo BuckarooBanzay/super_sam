@@ -14,7 +14,7 @@ local MP = minetest.get_modpath(minetest.get_current_modname())
 dofile(MP .. "/startpos.lua")
 dofile(MP .. "/protection.lua")
 dofile(MP .. "/spawn.lua")
-dofile(MP .. "/controls.lua")
+dofile(MP .. "/initial_emerge.lua")
 dofile(MP .. "/privs.lua")
 dofile(MP .. "/intro.lua")
 dofile(MP .. "/register_hidden.lua")
@@ -48,9 +48,6 @@ dofile(MP .. "/shoot.lua")
 
 -- nodes, items, etc
 dofile(MP .. "/items.lua")
-dofile(MP .. "/itemspawner.lua")
-dofile(MP .. "/platformspawner.lua")
-dofile(MP .. "/projectilespawner.lua")
 dofile(MP .. "/tools.lua")
 dofile(MP .. "/highscore.lua")
 

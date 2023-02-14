@@ -1,11 +1,3 @@
-globals = {
-	"minetest", "super_sam",
-	["worldedit"] = {
-		fields = {
-			"pos1", "pos2"
-		}
-	}
-}
 
 read_globals = {
 	-- Stdlib
@@ -13,11 +5,11 @@ read_globals = {
 	table = {fields = {"copy", "getn"}},
 
 	-- Minetest
+	"minetest",
 	"vector", "ItemStack",
 	"dump", "dump2",
 	"VoxelArea", "AreaStore",
 
 	-- mods
-	"player_api", "worldedit", "modgen", "i3",
-	"super_sam_highscore", "mtt", "controls"
+	"mapsync"
 }

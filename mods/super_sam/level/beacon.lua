@@ -53,6 +53,24 @@ local function create_level_def(beacon_pos)
 	}
 end
 
+-- pos_str(beacon_pos) => true
+local emerged_levels = {}
+
+-- emerge level before entering
+local function pre_emerge_level(beacon_pos)
+	local key = minetest.pos_to_string(beacon_pos)
+	if emerged_levels[key] then
+		return
+	end
+
+	local nearest_level = create_level_def(beacon_pos)
+	if nearest_level and nearest_level.start then
+		minetest.emerge_area(nearest_level.start, nearest_level.start)
+	end
+
+	emerged_levels[key] = true
+end
+
 local function check_level_progress(player, beacon_pos)
 	if not super_sam.check_play_mode(player) then
 		-- not in play mode, ignore
@@ -81,12 +99,16 @@ local function check_level_progress(player, beacon_pos)
 end
 
 local function check_players_near_beacon(beacon_pos)
+	pre_emerge_level(beacon_pos)
 	for _, player in ipairs(minetest.get_connected_players()) do
 		local distance = vector.distance(player:get_pos(), beacon_pos)
 		if distance <= super_sam.beacon_teleport_distance then
 			check_level_progress(player, beacon_pos)
 		end
 	end
+
+	-- check again after half the abm-interval time
+	minetest.after(0.5, super_sam.capture_players_near_beacon, beacon_pos)
 end
 
 function super_sam.capture_players_near_beacon(pos, radius)

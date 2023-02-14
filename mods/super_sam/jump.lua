@@ -1,13 +1,12 @@
 -- jump sound effect
 
-super_sam.register_control("jump", function(player, state)
-	if minetest.check_player_privs(player, "fly") then
-		-- only play if not in fly mode
+controls.register_on_press(function(player, control_name)
+	if control_name ~= "jump" then
 		return
 	end
 
-	if not state then
-		-- true -> false
+	if minetest.check_player_privs(player, "fly") then
+		-- only play if not in fly mode
 		return
 	end
 

@@ -1,6 +1,8 @@
 
 -- itemname -> list<callback>
-local callbacks = {}
+local item_callbacks = {}
+
+local global_callbacks = {}
 
 local function check_player_for_pickups(player)
 	local pos = vector.add(player:get_pos(), {x=0, y=0.5, z=0})
@@ -11,8 +13,11 @@ local function check_player_for_pickups(player)
 		local entity = obj:get_luaentity()
 
 		if not is_player and entity.name == "super_sam:item" and entity.data then
-			local itemname = entity.data.wield_item
-			local list = callbacks[itemname] or {}
+			assert(entity.data.spawner_pos, "entity issue: no 'spawner_pos'")
+			assert(entity.data.properties, "entity issue: no 'properties'")
+
+			local itemname = entity.data.properties.wield_item
+			local list = item_callbacks[itemname] or {}
 			for _, callback in ipairs(list) do
 				local result = callback(player, itemname)
 				if result then
@@ -24,6 +29,10 @@ local function check_player_for_pickups(player)
 					-- default: remove item
 					obj:remove()
 				end
+			end
+
+			for _, callback in ipairs(global_callbacks) do
+				callback(player, entity.data.spawner_pos)
 			end
 		end
 	end
@@ -38,14 +47,18 @@ local function check_for_pickups()
 end
 minetest.after(0, check_for_pickups)
 
-function super_sam.register_on_pickup(itemname, callback)
-	local list = callbacks[itemname]
+-- per wield-item callback
+function super_sam.register_on_item_pickup(itemname, callback)
+	local list = item_callbacks[itemname]
 	if not list then
 		list = {}
-		callbacks[itemname] = list
+		item_callbacks[itemname] = list
 	end
 
 	table.insert(list, callback)
 end
 
-
+-- global callback
+function super_sam.register_on_pickup(callback)
+	table.insert(global_callbacks, callback)
+end

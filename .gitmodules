@@ -7,3 +7,12 @@
 [submodule "mods/mtt"]
 	path = mods/mtt
 	url = https://github.com/buckarooBanzay/mtt
+[submodule "mods/mapsync"]
+	path = mods/mapsync
+	url = https://github.com/BuckarooBanzay/mapsync
+[submodule "mods/mtzip"]
+	path = mods/mtzip
+	url = https://github.com/BuckarooBanzay/mtzip
+[submodule "mods/controls"]
+	path = mods/controls
+	url = https://github.com/mt-mods/controls
