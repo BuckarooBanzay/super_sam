@@ -40,10 +40,9 @@ local function worker()
 			if super_sam.check_play_mode(player) then
 				-- play mode, teleport back
 				local meta = player:get_meta()
-				local last_pos = minetest.string_to_pos(
-					meta:get_string(META_STARTPOS) or minetest.pos_to_string(super_sam.spawn_pos)
-				)
-				player:set_pos(last_pos)
+				local last_pos = minetest.string_to_pos(meta:get_string(META_STARTPOS))
+				-- teleport either to last valid position or to the spawn-position
+				player:set_pos(last_pos or super_sam.spawn_pos)
 			else
 				-- edit mode, just warn
 				minetest.chat_send_player(playername, "WARNING: You are below the teleport-back y-position!")
