@@ -11,6 +11,7 @@ super_sam = {
 local MP = minetest.get_modpath(minetest.get_current_modname())
 
 -- basic functions
+dofile(MP .. "/events.lua")
 dofile(MP .. "/startpos.lua")
 dofile(MP .. "/protection.lua")
 dofile(MP .. "/spawn.lua")
@@ -20,16 +21,6 @@ dofile(MP .. "/intro.lua")
 dofile(MP .. "/register_hidden.lua")
 dofile(MP .. "/animations.lua")
 dofile(MP .. "/sounds.lua")
-
--- level stuff
-dofile(MP .. "/level/formspec.lua")
-dofile(MP .. "/level/start_formspec.lua")
-dofile(MP .. "/level/end_formspec.lua")
-dofile(MP .. "/level/level.lua")
-dofile(MP .. "/level/level_check.lua")
-dofile(MP .. "/level/beacon.lua")
-dofile(MP .. "/level/start.lua")
-dofile(MP .. "/level/end.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
@@ -41,7 +32,6 @@ dofile(MP .. "/score.lua")
 dofile(MP .. "/coins.lua")
 dofile(MP .. "/health.lua")
 dofile(MP .. "/effects.lua")
-dofile(MP .. "/hud.lua")
 dofile(MP .. "/mode.lua")
 dofile(MP .. "/jump.lua")
 dofile(MP .. "/shoot.lua")

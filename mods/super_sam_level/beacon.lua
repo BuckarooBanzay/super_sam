@@ -1,6 +1,6 @@
 
 -- level player-capture and shift-to-next
-minetest.register_node("super_sam:level_beacon", {
+minetest.register_node(":super_sam:level_beacon", {
 	description = "Level beacon",
 	tiles = {
 		"super_sam_beacon_grey.png",
@@ -8,7 +8,7 @@ minetest.register_node("super_sam:level_beacon", {
 	},
 	groups = { cracky = 1 },
 	on_rightclick = function(pos, _, player)
-		super_sam.show_level_formspec(pos, player:get_player_name())
+		super_sam_level.show_level_formspec(pos, player:get_player_name())
 	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -76,7 +76,7 @@ local function check_level_progress(player, beacon_pos)
 		-- not in play mode, ignore
 		return
 	end
-	local current_level = super_sam.get_current_level(player)
+	local current_level = super_sam_level.get_current_level(player)
 	local nearest_level = create_level_def(beacon_pos)
 
 	if not nearest_level then
@@ -91,11 +91,11 @@ local function check_level_progress(player, beacon_pos)
 		end
 
 		-- finalize level first
-		super_sam.finalize_level(player)
+		super_sam_level.finalize_level(player)
 	end
 
 	-- shift to next level
-	super_sam.start_level(player, nearest_level)
+	super_sam_level.start_level(player, nearest_level)
 end
 
 local function check_players_near_beacon(beacon_pos)
@@ -108,10 +108,10 @@ local function check_players_near_beacon(beacon_pos)
 	end
 
 	-- check again after half the abm-interval time
-	minetest.after(0.5, super_sam.capture_players_near_beacon, beacon_pos)
+	minetest.after(0.5, super_sam_level.capture_players_near_beacon, beacon_pos)
 end
 
-function super_sam.capture_players_near_beacon(pos, radius)
+function super_sam_level.capture_players_near_beacon(pos, radius)
 	radius = radius or 2
 	local pos1 = vector.subtract(pos, radius)
 	local pos2 = vector.add(pos, radius)

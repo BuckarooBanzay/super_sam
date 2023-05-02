@@ -3,7 +3,7 @@ local function check_current_level()
 	for _, player in ipairs(minetest.get_connected_players()) do
 		local playername = player:get_player_name()
 		local playmode = super_sam.check_play_mode(player)
-		local current_level = super_sam.get_current_level(player)
+		local current_level = super_sam_level.get_current_level(player)
 		if playmode and current_level then
 			-- check bounds
 			local ppos = player:get_pos()
@@ -14,7 +14,7 @@ local function check_current_level()
 				ppos.y > (current_level.bounds.max.y + 0.5) or
 				ppos.z > (current_level.bounds.max.z + 0.5) then
 				minetest.chat_send_player(playername, "Outside the level-region, resetting...")
-				super_sam.reset_level(player)
+				super_sam_level.reset_level(player)
 			end
 		end
 	end

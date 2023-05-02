@@ -37,7 +37,7 @@ local function execute_teleport(player, beacon_pos)
 		-- capture player, if a beacon is nearby
 		minetest.after(0.1, function()
 			-- because: minetest ¯\_(ツ)_/¯
-			super_sam.capture_players_near_beacon(target_pos)
+			super_sam_level.capture_players_near_beacon(target_pos)
 		end)
 	else
 		-- not allowed
@@ -61,18 +61,18 @@ local function get_beacon_capture_players(beacon_pos)
 	return capture
 end
 
-function super_sam.clear_player_beacon_capture(player)
+local function clear_player_beacon_capture(player)
 	for _, capture in pairs(capture_players) do
 		capture[player:get_player_name()] = nil
 	end
 end
 
 -- gc
-minetest.register_on_leaveplayer(super_sam.clear_player_beacon_capture)
+minetest.register_on_leaveplayer(clear_player_beacon_capture)
 
 -- clear data on respawn
-minetest.register_on_dieplayer(super_sam.clear_player_beacon_capture)
-minetest.register_on_respawnplayer(super_sam.clear_player_beacon_capture)
+minetest.register_on_dieplayer(clear_player_beacon_capture)
+minetest.register_on_respawnplayer(clear_player_beacon_capture)
 
 
 -- beacon animation and player capture
@@ -114,7 +114,7 @@ minetest.register_abm({
 })
 
 -- level start (lounge platform)
-minetest.register_node("super_sam:level_start_beacon", {
+minetest.register_node(":super_sam:level_start_beacon", {
 	description = "Level start beacon",
 	tiles = {
 		"super_sam_beacon_lit.png",
@@ -123,7 +123,7 @@ minetest.register_node("super_sam:level_start_beacon", {
 	groups = { cracky = 1 },
 	on_rightclick = function(pos, _, player)
 		if minetest.check_player_privs(player:get_player_name(), "super_sam_builder") then
-			super_sam.show_level_start_formspec(pos, player:get_player_name())
+			super_sam_level.show_level_start_formspec(pos, player:get_player_name())
 		else
 			execute_teleport(player, pos)
 		end

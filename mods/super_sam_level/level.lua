@@ -10,7 +10,7 @@ local lookdir_to_rad = {
 	["+z"] = 0
 }
 
-function super_sam.start_level(player, level)
+function super_sam_level.start_level(player, level)
 	local playername = player:get_player_name()
 	local start_pos = vector.add(level.start, super_sam.player_offset)
 
@@ -38,18 +38,15 @@ function super_sam.start_level(player, level)
 
 	-- store current level
 	current_levels[playername] = level
-
-	-- update hud
-	super_sam.update_player_hud(player)
 end
 
-function super_sam.get_current_level(player)
+function super_sam_level.get_current_level(player)
 	local playername = player:get_player_name()
 	return current_levels[playername]
 end
 
-function super_sam.finalize_level(player, highscore_name)
-	local finished_level = super_sam.get_current_level(player)
+function super_sam_level.finalize_level(player, highscore_name)
+	local finished_level = super_sam_level.get_current_level(player)
 	if not finished_level then
 		-- nothing started, ignore
 		return
@@ -95,7 +92,7 @@ end
 
 -- aborts the current level (used for edit mode or on death)
 -- teleports the player to the last startpos if in play mode
-function super_sam.abort_level(player)
+function super_sam_level.abort_level(player)
 	local playername = player:get_player_name()
 	minetest.log("action", "[super_sam] aborting level for player '" .. playername .. "'")
 
@@ -110,8 +107,23 @@ function super_sam.abort_level(player)
 	end
 end
 
+super_sam.on_event(super_sam.EVENT_MODE_CHANGE, function(player, mode)
+	if mode == "edit" then
+		super_sam_level.abort_level(player)
+	end
+end)
+
+super_sam.on_event(super_sam.EVENT_TIMEOUT, function(player)
+	super_sam_level.abort_level(player)
+end)
+
+minetest.register_on_respawnplayer(function(player)
+	super_sam_level.abort_level(player)
+	return true
+end)
+
 -- resets the level after the player is outside the defined level-area
-function super_sam.reset_level(player)
+function super_sam_level.reset_level(player)
 	local playername = player:get_player_name()
 	local level = current_levels[playername]
 	if not level then
@@ -125,7 +137,7 @@ function super_sam.reset_level(player)
 	current_levels[playername] = nil
 
 	-- start level again
-	super_sam.start_level(player, level)
+	super_sam_level.start_level(player, level)
 
 	-- particle rain on respawn position
 	super_sam.animation_failed(player)
@@ -140,7 +152,7 @@ minetest.register_chatcommand("killme", {
 	description = "Resets the current level",
 	func = function(name)
 		local player = minetest.get_player_by_name(name)
-		super_sam.abort_level(player)
+		super_sam_level.abort_level(player)
 		return true, "Level reset!"
 	end
 })

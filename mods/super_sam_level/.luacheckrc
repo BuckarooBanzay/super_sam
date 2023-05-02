@@ -1,5 +1,5 @@
 globals = {
-	"minetest", "super_sam_game_elements",
+	"super_sam_level",
 	["worldedit"] = {
 		fields = {
 			"pos1", "pos2"
@@ -8,6 +8,8 @@ globals = {
 }
 
 read_globals = {
+	"minetest", "super_sam",
+
 	-- Stdlib
 	string = {fields = {"split", "trim"}},
 	table = {fields = {"copy", "getn"}},
@@ -17,7 +19,6 @@ read_globals = {
 	"dump", "dump2",
 	"VoxelArea", "AreaStore",
 
-	-- mods
-	"player_api", "worldedit", "i3",
-	"super_sam", "mtt"
+	-- deps
+	"super_sam_highscore", "worldedit"
 }

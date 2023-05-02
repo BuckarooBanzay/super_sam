@@ -61,11 +61,10 @@ end
 function super_sam.set_edit_mode(player)
 	local playername = player:get_player_name()
 
+	super_sam.emit_event(super_sam.EVENT_MODE_CHANGE, player, "edit")
+
 	-- make player immortal
 	player:set_armor_groups({ immortal = 1 })
-
-	-- abort level (if started)
-	super_sam.abort_level(player)
 
 	-- restore inventory formspec
 	if old_inv_formspecs[playername] then

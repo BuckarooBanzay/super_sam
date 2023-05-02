@@ -1,9 +1,8 @@
 local FORMNAME = "level_formspec"
 
 local has_worldedit = minetest.get_modpath("worldedit")
-local has_modgen = minetest.get_modpath("modgen")
 
-function super_sam.show_level_formspec(pos, playername)
+function super_sam_level.show_level_formspec(pos, playername)
 	if not minetest.check_player_privs(playername, "super_sam_builder") then
 		return
 	end
@@ -82,11 +81,6 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 
 		-- backward compat: clear formspec field on node-meta
 		meta:set_string("formspec", nil)
-
-		if has_modgen then
-			-- dispatch changes
-			modgen.mark_changed(pos, pos)
-		end
 	end
 
 	-- mark bounds with WE markers

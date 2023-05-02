@@ -1,8 +1,6 @@
 local FORMNAME = "level_end_formspec"
 
-local has_modgen = minetest.get_modpath("modgen")
-
-function super_sam.show_level_end_formspec(pos, playername)
+function super_sam_level.show_level_end_formspec(pos, playername)
 	if not minetest.check_player_privs(playername, "super_sam_builder") then
 		return
 	end
@@ -47,10 +45,5 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		meta:set_int("tpy", tonumber(fields.tpy) or 0)
 		meta:set_int("tpz", tonumber(fields.tpz) or 0)
 		meta:set_string("highscore_name", fields.highscore_name or "")
-
-		if has_modgen then
-			-- dispatch changes
-			modgen.mark_changed(pos, pos)
-		end
 	end
 end)
