@@ -16,6 +16,5 @@ end
 super_sam.register_on_item_pickup("super_sam:coin", function(player)
 	local playername = player:get_player_name()
 	super_sam.add_coins(playername, 1)
-	super_sam.update_player_hud(player)
 	super_sam.sound_play_coin(player)
 end)

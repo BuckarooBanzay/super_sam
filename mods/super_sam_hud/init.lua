@@ -1,3 +1,4 @@
+super_sam_hud = {}
 
 local enable_damage = minetest.settings:get("enable_damage")
 
@@ -148,7 +149,7 @@ local function setup_hud(player)
 	hud_data[player:get_player_name()] = data
 end
 
-function super_sam.update_player_hud(player)
+function super_sam_hud.update_player_hud(player)
 	local playername = player:get_player_name()
 	local data = hud_data[playername]
 	if not data then
@@ -170,7 +171,7 @@ function super_sam.update_player_hud(player)
 		player:hud_change(data.score_text, "text", super_sam_highscore.format_score(super_sam.get_score(playername)))
 	end
 	if data.level_text then
-		local level = super_sam.get_current_level(player)
+		local level = super_sam_level.get_current_level(player)
 		local levelname = level and level.name or "<none>"
 		player:hud_change(data.level_text, "text", "Level: '" .. levelname .. "'")
 	end
@@ -200,7 +201,7 @@ end
 
 local function update_hud()
 	for _, player in ipairs(minetest.get_connected_players()) do
-		super_sam.update_player_hud(player)
+		super_sam_hud.update_player_hud(player)
 	end
 	minetest.after(1, update_hud)
 end
@@ -213,5 +214,5 @@ minetest.register_on_joinplayer(function(player)
 		restrict_player_hud(player)
 	end
 
-	super_sam.update_player_hud(player)
+	super_sam_hud.update_player_hud(player)
 end)

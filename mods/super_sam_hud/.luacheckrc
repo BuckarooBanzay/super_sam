@@ -1,10 +1,5 @@
 globals = {
-	"minetest", "super_sam_game_elements",
-	["worldedit"] = {
-		fields = {
-			"pos1", "pos2"
-		}
-	}
+	"super_sam_hud",
 }
 
 read_globals = {
@@ -13,11 +8,10 @@ read_globals = {
 	table = {fields = {"copy", "getn"}},
 
 	-- Minetest
-	"vector", "ItemStack",
+	"minetest", "vector", "ItemStack",
 	"dump", "dump2",
 	"VoxelArea", "AreaStore",
 
 	-- mods
-	"player_api", "worldedit", "i3",
-	"super_sam", "mtt"
+	"super_sam", "super_sam_highscore", "super_sam_level"
 }

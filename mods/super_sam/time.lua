@@ -21,7 +21,7 @@ local function decrement_time()
 		elseif time and time <= 0 then
 			-- timeout
 			minetest.chat_send_player(playername, "Your time is up!")
-			super_sam.abort_level(player)
+			super_sam.emit_event(super_sam.EVENT_TIMEOUT, player)
 		end
 	end
 	minetest.after(1, decrement_time)
@@ -36,5 +36,4 @@ super_sam.register_on_item_pickup("super_sam:time_bonus", function(player)
 	end
 	player_times[playername] = player_times[playername] + 10
 	super_sam.sound_health_bonus(player)
-	super_sam.update_player_hud(player)
 end)

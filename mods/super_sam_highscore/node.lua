@@ -1,7 +1,5 @@
 local FORMNAME = "highscore_edit_formspec"
 
-local has_modgen = minetest.get_modpath("modgen")
-
 local function show_formspec(pos, playername)
 	if not minetest.check_player_privs(playername, "super_sam_builder") then
 		return
@@ -37,10 +35,6 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 
 	if fields.save then
 		meta:set_string("highscore_name", fields.highscore_name or "")
-		if has_modgen then
-			-- dispatch changes
-			modgen.mark_changed(pos, pos)
-		end
 	end
 end)
 
