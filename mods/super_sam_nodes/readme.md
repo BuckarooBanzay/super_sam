@@ -17,7 +17,7 @@ Super sam nodes mod
 * `textures/default_steel_block.png` CC-BY SA 3.0 https://github.com/minetest/minetest_game
 * `textures/default_river_*` CC-BY SA 3.0 https://github.com/minetest/minetest_game
 * `textures/default_*` CC-BY SA 4.0 https://gitlab.com/zughy-friends-minetest/soothing-32
-* `textures/baked_clay_*` MIT https://notabug.org/TenPlus1/bakedclay
+* `textures/baked_clay_*` CC0 https://notabug.org/TenPlus1/bakedclay
 * `sounds/default_*` CC-BY SA 4.0 https://github.com/tacotexmex/snowsong
 * `textures/super_sam_spike_*.png` CC0 https://github.com/starninjas/xspikes
 * `sounds/super_sam_effect_on.ogg` CC-BY 3.0 https://freesound.org/people/alonsotm/sounds/396501/
