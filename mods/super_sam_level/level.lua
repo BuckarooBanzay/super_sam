@@ -78,6 +78,9 @@ function super_sam_level.finalize_level(player, highscore_name)
 				"Highscore rank for level '" .. highscore_name .. "': " .. minetest.colorize("#00FF00", rank)
 			)
 		end
+
+		-- emit event
+		super_sam.emit_event("level_finished", player, highscore_name, score, rank)
 	end
 
 	-- effects
