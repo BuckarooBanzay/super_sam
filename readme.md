@@ -29,15 +29,6 @@ Built with [mapsync](https://github.com/Buckaroobanzay/mapsync)
 In emergencies:
 * Contact me on IRC (*BuckarooBanzai*) or discord (*BuckarooBanzai#6742*)
 
-## Important coordinates
-
-* `0,0,0` Intro level (s01)
-* `0,0,1000` Castle level (s02)
-* `0,0,2000` Lounge
-* `0,0,3000` Sandbox
-* `0,0,4000` Water minigame (s03)
-* `0,0,5000` Ice level (s04)
-
 # License
 
 * Code: MIT
