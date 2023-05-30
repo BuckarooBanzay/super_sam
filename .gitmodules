@@ -16,3 +16,6 @@
 [submodule "mods/controls"]
 	path = mods/controls
 	url = https://github.com/mt-mods/controls
+[submodule "mods/travelnet"]
+	path = mods/travelnet
+	url = https://github.com/mt-mods/travelnet
