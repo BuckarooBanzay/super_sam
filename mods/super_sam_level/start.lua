@@ -1,5 +1,10 @@
 
 local function can_start_level(player, beacon_pos)
+	if minetest.check_player_privs(player, {super_sam_builder = true}) then
+		-- builder can always start a level
+		return true
+	end
+
 	local meta = minetest.get_meta(beacon_pos)
 	local required_lvl = meta:get_string("required_lvl")
 	if required_lvl ~= "" and not super_sam_highscore.get_highscore_rank(player:get_player_name(), required_lvl) then
