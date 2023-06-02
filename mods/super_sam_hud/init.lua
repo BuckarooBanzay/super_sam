@@ -208,7 +208,7 @@ function super_sam_hud.update_player_hud(player)
 	local effects = super_sam.get_player_effects(playername)
 	if data.powerup1 then
 		player:hud_change(data.powerup1, "position", effects.jumping and hud_powerup_center_position or position_offscreen)
-		player:hud_change(data.powerup1_time,"position", effects.jumping and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup1_time,"position",effects.jumping and hud_powerup_center_position or position_offscreen)
 		player:hud_change(data.powerup1_time, "text", effects.jumping and format_timer(effects.jumping.time) or "0.0")
 	end
 	if data.powerup2 then
