@@ -16,7 +16,7 @@ minetest.register_craftitem("super_sam:mushroom_2", {
 
 minetest.register_craftitem("super_sam:mushroom_3", {
 	inventory_image = "super_sam_items.png^[sheet:6x5:2,2",
-	description = "Mushroom 3"
+	description = "Mushroom 3 (shrinking effect)"
 })
 
 minetest.register_craftitem("super_sam:star_1", {
