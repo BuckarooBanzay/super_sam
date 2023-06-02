@@ -142,6 +142,12 @@ minetest.register_entity(":super_sam:platform", {
 	on_step = function(self, dtime, moveresult)
 		self.timer = self.timer + dtime
 		if self.timer > 60 or (moveresult and moveresult.collides) then
+			-- lifetime expired
+			self.object:remove()
+		end
+		local v = self.object:get_velocity()
+		if not v or (v.x == 0 and v.y == 0 and v.z == 0) then
+			-- platform stopped or is buggy, remove it
 			self.object:remove()
 		end
 	end

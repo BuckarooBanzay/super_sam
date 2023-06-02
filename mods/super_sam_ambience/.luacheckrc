@@ -19,5 +19,5 @@ read_globals = {
 	"VoxelArea", "AreaStore",
 
 	-- mods
-	"worldedit"
+	"worldedit", "mapsync"
 }

@@ -1,6 +1,7 @@
 local FORMNAME = "ambience_formspec"
 
 local has_worldedit = minetest.get_modpath("worldedit")
+local has_mapsync = minetest.get_modpath("mapsync")
 
 function super_sam_ambience.show_formspec(pos, playername)
 	if not minetest.check_player_privs(playername, "super_sam_builder") then
@@ -95,4 +96,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	end
 
 	super_sam_ambience.register_node(pos)
+
+	if has_mapsync then
+		mapsync.mark_changed(pos, pos)
+	end
 end)

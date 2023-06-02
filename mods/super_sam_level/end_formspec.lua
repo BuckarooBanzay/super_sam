@@ -1,4 +1,5 @@
 local FORMNAME = "level_end_formspec"
+local has_mapsync = minetest.get_modpath("mapsync")
 
 function super_sam_level.show_level_end_formspec(pos, playername)
 	if not minetest.check_player_privs(playername, "super_sam_builder") then
@@ -45,5 +46,9 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		meta:set_int("tpy", tonumber(fields.tpy) or 0)
 		meta:set_int("tpz", tonumber(fields.tpz) or 0)
 		meta:set_string("highscore_name", fields.highscore_name or "")
+	end
+
+	if has_mapsync then
+		mapsync.mark_changed(pos, pos)
 	end
 end)
