@@ -11,7 +11,7 @@ local level_position = { x = 0.6, y = 0.05 }
 local time_position = { x = 0.6, y = 0.08 }
 local score_position = { x = 0.8, y = 0.05 }
 
-local hud_powerup_position = { x = 0.5, y = 0.1 }
+local hud_powerup_center_position = { x = 0.5, y = 0.1 }
 
 local position_offscreen = { x = -1, y = -1 }
 
@@ -25,6 +25,21 @@ local function restrict_player_hud(player)
 		minimap = false,
 		minimap_radar = false
 	})
+end
+
+local function create_offscreen_hud_text(player, offset)
+	return player:hud_add({
+		hud_elem_type = "text",
+		position = position_offscreen,
+		text = "",
+		offset = offset,
+		alignment = { x = 0, y = 0},
+		scale = {x = 2, y = 2}
+	})
+end
+
+local function format_timer(time)
+	return math.floor(time*10) / 10
 end
 
 local function setup_hud(player)
@@ -118,6 +133,7 @@ local function setup_hud(player)
 		alignment = { x = 0, y = 0},
 		scale = {x = 2, y = 2}
 	})
+	data.powerup1_time = create_offscreen_hud_text(player, { x=-32, y=32 })
 
 	data.powerup2 = player:hud_add({
 		hud_elem_type = "image",
@@ -127,6 +143,7 @@ local function setup_hud(player)
 		alignment = { x = 0, y = 0},
 		scale = {x = 2, y = 2}
 	})
+	data.powerup2_time = create_offscreen_hud_text(player, { x=0, y=32 })
 
 	data.powerup3 = player:hud_add({
 		hud_elem_type = "image",
@@ -136,6 +153,7 @@ local function setup_hud(player)
 		alignment = { x = 0, y = 0},
 		scale = {x = 2, y = 2}
 	})
+	data.powerup3_time = create_offscreen_hud_text(player, { x=32, y=32 })
 
 	data.powerup4 = player:hud_add({
 		hud_elem_type = "image",
@@ -145,6 +163,7 @@ local function setup_hud(player)
 		alignment = { x = 0, y = 0},
 		scale = {x = 2, y = 2}
 	})
+	data.powerup4_time = create_offscreen_hud_text(player, { x=64, y=32 })
 
 	hud_data[player:get_player_name()] = data
 end
@@ -184,29 +203,41 @@ function super_sam_hud.update_player_hud(player)
 			player:hud_change(data.time_text, "number", 0xff0000)
 		end
 	end
+
+	-- TODO: proper effect class/module/enumeration/thing
 	local effects = super_sam.get_player_effects(playername)
 	if data.powerup1 then
-		player:hud_change(data.powerup1, "position", effects.jumping and hud_powerup_position or position_offscreen)
+		player:hud_change(data.powerup1, "position", effects.jumping and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup1_time,"position", effects.jumping and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup1_time, "text", effects.jumping and format_timer(effects.jumping.time) or "0.0")
 	end
 	if data.powerup2 then
-		player:hud_change(data.powerup2, "position", effects.speed and hud_powerup_position or position_offscreen)
+		player:hud_change(data.powerup2, "position", effects.speed and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup2_time,"position", effects.speed and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup2_time, "text", effects.speed and format_timer(effects.speed.time) or "0.0")
 	end
 	if data.powerup3 then
-		player:hud_change(data.powerup3, "position", effects.shrink and hud_powerup_position or position_offscreen)
+		player:hud_change(data.powerup3, "position", effects.shrink and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup3_time,"position", effects.shrink and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup3_time, "text", effects.shrink and format_timer(effects.shrink.time) or "0.0")
 	end
 	if data.powerup4 then
-		player:hud_change(data.powerup4, "position", effects.shoot and hud_powerup_position or position_offscreen)
+		player:hud_change(data.powerup4, "position", effects.shoot and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup4_time,"position", effects.shoot and hud_powerup_center_position or position_offscreen)
+		player:hud_change(data.powerup4_time, "text", effects.shoot and format_timer(effects.shoot.time) or "0.0")
 	end
 end
 
+-- update hud periodically
 local function update_hud()
 	for _, player in ipairs(minetest.get_connected_players()) do
 		super_sam_hud.update_player_hud(player)
 	end
-	minetest.after(1, update_hud)
+	minetest.after(0.1, update_hud)
 end
-minetest.after(1, update_hud)
+minetest.after(0.1, update_hud)
 
+-- setup hud on join
 minetest.register_on_joinplayer(function(player)
 	setup_hud(player)
 

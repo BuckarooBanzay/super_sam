@@ -1,5 +1,5 @@
 
--- playername -> { jumping=true }
+-- playername -> { jumping={ time=0.1, ... } }
 local player_effects = {}
 
 function super_sam.get_player_effects(playername)
@@ -11,8 +11,70 @@ function super_sam.get_player_effects(playername)
 	return effects
 end
 
+-- effect_name => fn(playername)
+local effect_off_callbacks = {}
+
+-- decrease time every few ticks
+local function effect_time_decrease()
+	local dtime = 0.2
+	for playername, effects in pairs(player_effects) do
+		for effect_name, ctx in pairs(effects) do
+			ctx.time = ctx.time - dtime
+			if ctx.time < 0 then
+				-- effect expired, run off_callback
+				local cb = effect_off_callbacks[effect_name]
+				if type(cb) == "function" then
+					cb(playername)
+				end
+				-- remove effect context
+				effects[effect_name] = nil
+			end
+		end
+	end
+	minetest.after(dtime, effect_time_decrease)
+end
+effect_time_decrease()
 
 local function register_effect(itemname, name, options)
+	-- off
+	effect_off_callbacks[name] = function(playername)
+		-- get effect context
+		local effects = super_sam.get_player_effects(playername)
+		local ctx = effects[name]
+		if not ctx then
+			return
+		end
+
+		local player = minetest.get_player_by_name(playername)
+		if not player then
+			return
+		end
+		super_sam.sound_play_effect_off(player)
+		if options.physics then
+			-- physics-override
+			local physics_override = player:get_physics_override()
+			for key in pairs(options.physics) do
+				-- restore physics values
+				physics_override[key] = ctx.previous_physics[key]
+			end
+			player:set_physics_override(physics_override)
+		end
+
+		if options.player_properties then
+			-- player properties
+			local restore_props = {}
+			for key in pairs(options.player_properties) do
+				restore_props[key] = ctx.previous_player_props[key]
+			end
+			player:set_properties(restore_props)
+		end
+
+		if options.fov then
+			player:set_fov(0, false, 0.5)
+		end
+	end
+
+	-- on
 	super_sam.register_on_item_pickup(itemname, function(player)
 		local playername = player:get_player_name()
 		local previous_physics = player:get_physics_override()
@@ -20,11 +82,18 @@ local function register_effect(itemname, name, options)
 
 		local effects = super_sam.get_player_effects(playername)
 		if effects[name] then
-			-- already active, don't pick up item
-			return { remove = false }
+			-- reset time
+			effects[name].time = options.time or 5
+			-- already active
+			return
 		end
 
-		effects[name] = true
+		-- create effect context
+		effects[name] = {
+			time = options.time or 5,
+			previous_physics = previous_physics,
+			previous_player_props = previous_player_props
+		}
 		super_sam.sound_play_effect_on(player)
 
 		if options.physics then
@@ -48,37 +117,6 @@ local function register_effect(itemname, name, options)
 		if options.fov then
 			player:set_fov(options.fov, true, 0.5)
 		end
-
-		minetest.after(options.time or 5, function()
-			effects[name] = false
-			player = minetest.get_player_by_name(playername)
-			if not player then
-				return
-			end
-			super_sam.sound_play_effect_off(player)
-			if options.physics then
-				-- physics-override
-				local physics_override = player:get_physics_override()
-				for key in pairs(options.physics) do
-					-- restore physics values
-					physics_override[key] = previous_physics[key]
-				end
-				player:set_physics_override(physics_override)
-			end
-
-			if options.player_properties then
-				-- player properties
-				local restore_props = {}
-				for key in pairs(options.player_properties) do
-					restore_props[key] = previous_player_props[key]
-				end
-				player:set_properties(restore_props)
-			end
-
-			if options.fov then
-				player:set_fov(0, false, 0.5)
-			end
-		end)
 	end)
 end
 
