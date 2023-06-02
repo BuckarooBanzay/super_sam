@@ -1,6 +1,7 @@
 local FORMNAME = "level_formspec"
 
 local has_worldedit = minetest.get_modpath("worldedit")
+local has_mapsync = minetest.get_modpath("mapsync")
 
 function super_sam_level.show_level_formspec(pos, playername)
 	if not minetest.check_player_privs(playername, "super_sam_builder") then
@@ -97,5 +98,9 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		}
 		worldedit.mark_pos1(playername)
 		worldedit.mark_pos2(playername);
+	end
+
+	if has_mapsync then
+		mapsync.mark_changed(pos, pos)
 	end
 end)
