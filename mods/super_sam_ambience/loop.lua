@@ -10,10 +10,10 @@ local sounds = {
 	},
 	main2 = {
 		{ name = "super_sam_ambience_7", duration = 57 },
-		{ name = "super_sam_ambience_8", duration = 91 },
-		{ name = "super_sam_ambience_9", duration = 134 },
-		{ name = "super_sam_ambience_10", duration = 124 },
-		{ name = "super_sam_ambience_11", duration = 98 }
+		{ name = "super_sam_ambience_8", duration = 91, gain = 2 },
+		{ name = "super_sam_ambience_9", duration = 134, gain = 2 },
+		{ name = "super_sam_ambience_10", duration = 124, gain = 2 },
+		{ name = "super_sam_ambience_11", duration = 98, gain = 2 }
 	},
 	relax = {
 		{ name = "super_sam_ambience_relax_1", duration = 67, gain = 2 }
