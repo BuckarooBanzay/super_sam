@@ -24,6 +24,7 @@ dofile(MP .. "/sounds.lua")
 
 -- item/node callbacks
 dofile(MP .. "/itempickup.lua")
+dofile(MP .. "/creative.lua")
 
 -- hud/player stuff
 dofile(MP .. "/player_setup.lua")
