@@ -8,11 +8,13 @@ local nodes = {
         }
     },
     ["cobble"] = {
-        sounds = super_sam_nodes.node_sound_stone()
+        sounds = super_sam_nodes.node_sound_stone(),
+        damage_per_second = 5
     },
     ["stone"] = {
         sounds = super_sam_nodes.node_sound_stone(),
-        stairsplus = true
+        stairsplus = true,
+        damage_per_second = 5
     },
     ["stone_block"] = {
         sounds = super_sam_nodes.node_sound_stone(),
@@ -20,7 +22,8 @@ local nodes = {
     },
     ["stone_brick"] = {
         sounds = super_sam_nodes.node_sound_stone(),
-        stairsplus = true
+        stairsplus = true,
+        damage_per_second = 5
     },
     ["desert_sandstone"] = {
         sounds = super_sam_nodes.node_sound_stone(),
@@ -42,16 +45,18 @@ local nodes = {
         sounds = super_sam_nodes.node_sound_stone()
     },
     ["dirt"] = {
-        sounds = super_sam_nodes.node_sound_dirt()
+        sounds = super_sam_nodes.node_sound_dirt(),
+        damage_per_second = 5
     },
     ["grass"] = {
         sounds = super_sam_nodes.node_sound_dirt(),
         tiles = {
             "default_grass.png", "default_dirt.png", {
                 name = "default_dirt.png^default_grass_side.png",
-			    tileable_vertical = false
+                tileable_vertical = false
             }
-        }
+        },
+        damage_per_second = 5
     },
     ["obsidian_block"] = {
         sounds = super_sam_nodes.node_sound_stone(),
@@ -105,20 +110,21 @@ end
 -- special nodes
 
 minetest.register_node(":super_sam:border", {
-	description = "Border node",
-	drawtype = "airlike",
-	paramtype = "light",
-	sunlight_propagates = true,
-	drop = "",
-	groups = {cracky = 1}
+    description = "Border node",
+    drawtype = "airlike",
+    paramtype = "light",
+    sunlight_propagates = true,
+    damage_per_second = 5,
+    drop = "",
+    groups = {cracky = 1}
 })
 
 -- ladder
 
 minetest.register_node(":super_sam:ladder_steel", {
-	description = "Steel Ladder",
-	drawtype = "nodebox",
-	tiles = {
+    description = "Steel Ladder",
+    drawtype = "nodebox",
+    tiles = {
         "default_ladder_steel.png",
         "default_ladder_steel.png",
         "default_steel_block.png",
@@ -126,14 +132,14 @@ minetest.register_node(":super_sam:ladder_steel", {
         "default_steel_block.png",
         "default_steel_block.png"
     },
-	inventory_image = "default_ladder_steel.png",
-	wield_image = "default_ladder_steel.png",
-	paramtype = "light",
-	paramtype2 = "wallmounted",
-	sunlight_propagates = true,
+    inventory_image = "default_ladder_steel.png",
+    wield_image = "default_ladder_steel.png",
+    paramtype = "light",
+    paramtype2 = "wallmounted",
+    sunlight_propagates = true,
     use_texture_alpha = "clip",
-	walkable = false,
-	climbable = true,
+    walkable = false,
+    climbable = true,
     node_box = {
         type = 'fixed',
         fixed = {
@@ -151,10 +157,10 @@ minetest.register_node(":super_sam:ladder_steel", {
         wall_side = {-0.5, -0.5, -0.4375, -0.375, 0.5, 0.4375},
         wall_bottom = {-0.4375, -0.5, -0.5, 0.4375, -0.375, 0.5}
     },
-	groups = {
+    groups = {
         cracky = 1
     },
-	sounds = super_sam_nodes.node_sound_metal()
+    sounds = super_sam_nodes.node_sound_metal()
 })
 
 if minetest.get_modpath("i3") then
