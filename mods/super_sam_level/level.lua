@@ -15,6 +15,7 @@ function super_sam_level.start_level(player, level)
 	local start_pos = vector.add(level.start, super_sam.player_offset)
 
 	minetest.log("action", "[super_sam] starting level '" .. level.name .. "' for player '" .. playername .. "'")
+	super_sam.emit_event(super_sam.EVENT_PLAYER_START, player, level.name)
 
 	-- set start position
 	local distance = vector.distance(level.start, player:get_pos())
@@ -80,7 +81,7 @@ function super_sam_level.finalize_level(player, highscore_name)
 		end
 
 		-- emit event
-		super_sam.emit_event("level_finished", player, highscore_name, score, rank)
+		super_sam.emit_event(super_sam.EVENT_PLAYER_FINISHED, player, finished_level.name, highscore_name, score, rank)
 	end
 
 	-- effects
@@ -98,6 +99,7 @@ end
 function super_sam_level.abort_level(player)
 	local playername = player:get_player_name()
 	minetest.log("action", "[super_sam] aborting level for player '" .. playername .. "'")
+	super_sam.emit_event(super_sam.EVENT_PLAYER_ABORTED, player)
 
 	super_sam.set_coins(playername, 0)
 	super_sam.set_time(playername, nil)
