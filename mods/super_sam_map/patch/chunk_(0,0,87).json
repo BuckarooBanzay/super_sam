@@ -1,3 +1,24 @@
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":32.0,"z":71.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":33.0,"z":71.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":34.0,"z":71.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":35.0,"z":71.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":36.0,"z":71.0}
+{"name":"super_sam:tree","param2":3.0,"x":33.0,"y":32.0,"z":71.0}
+{"name":"super_sam:tree","param2":0.0,"x":34.0,"y":32.0,"z":71.0}
+{"name":"super_sam:tree","param2":3.0,"x":35.0,"y":32.0,"z":71.0}
 {"name":"super_sam:stone","param2":0.0,"x":32.0,"y":32.0,"z":72.0}
 {"meta":{"fields":{"infotext":"\u001b(T@travelnet)Station '\u001bFs06\u001bE' on network '\u001bFnet1\u001bE' (owned by \u001bFsingleplayer\u001bE) ready for usage.\u001bE","owner":"singleplayer","station_name":"s06","station_network":"net1","timestamp":"1688229663"},"inventory":null},"name":"travelnet:travelnet_red","param2":1.0,"x":32.0,"y":33.0,"z":72.0}
 {"name":"travelnet:hidden_top","param2":0.0,"x":32.0,"y":34.0,"z":72.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":35.0,"z":72.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":36.0,"z":72.0}
+{"name":"super_sam:tree","param2":0.0,"x":33.0,"y":32.0,"z":72.0}
+{"name":"super_sam:tree","param2":0.0,"x":34.0,"y":32.0,"z":72.0}
+{"name":"super_sam:tree","param2":3.0,"x":35.0,"y":32.0,"z":72.0}
+{"name":"super_sam:tree","param2":2.0,"x":32.0,"y":32.0,"z":73.0}
+{"name":"super_sam:tree","param2":2.0,"x":32.0,"y":33.0,"z":73.0}
+{"name":"super_sam:tree","param2":2.0,"x":32.0,"y":34.0,"z":73.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":35.0,"z":73.0}
+{"name":"super_sam:tree","param2":0.0,"x":32.0,"y":36.0,"z":73.0}
+{"name":"super_sam:tree","param2":2.0,"x":33.0,"y":32.0,"z":73.0}
+{"name":"super_sam:tree","param2":2.0,"x":34.0,"y":32.0,"z":73.0}
+{"name":"super_sam:tree","param2":2.0,"x":35.0,"y":32.0,"z":73.0}
