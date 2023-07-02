@@ -73,15 +73,18 @@ local nodes = {
         drawtype = "glasslike_framed_optional",
         use_texture_alpha = "clip",
         sunlight_propagates = true,
-        paramtype = "light"
+        paramtype = "light",
+        stairsplus = true
     },
     ["tree"] = {
         tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
         sounds = super_sam_nodes.node_sound_wood(),
-        paramtype2 = "facedir"
+        paramtype2 = "facedir",
+        stairsplus = true
     },
     ["wood"] = {
-        sounds = super_sam_nodes.node_sound_wood()
+        sounds = super_sam_nodes.node_sound_wood(),
+        stairsplus = true
     },
     ["leaves"] = {
         drawtype = "allfaces_optional",
