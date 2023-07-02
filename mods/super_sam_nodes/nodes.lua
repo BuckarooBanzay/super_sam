@@ -8,13 +8,11 @@ local nodes = {
         }
     },
     ["cobble"] = {
-        sounds = super_sam_nodes.node_sound_stone(),
-        damage_per_second = 5
+        sounds = super_sam_nodes.node_sound_stone()
     },
     ["stone"] = {
         sounds = super_sam_nodes.node_sound_stone(),
-        stairsplus = true,
-        damage_per_second = 5
+        stairsplus = true
     },
     ["stone_block"] = {
         sounds = super_sam_nodes.node_sound_stone(),
@@ -22,8 +20,7 @@ local nodes = {
     },
     ["stone_brick"] = {
         sounds = super_sam_nodes.node_sound_stone(),
-        stairsplus = true,
-        damage_per_second = 5
+        stairsplus = true
     },
     ["desert_sandstone"] = {
         sounds = super_sam_nodes.node_sound_stone(),
@@ -45,8 +42,7 @@ local nodes = {
         sounds = super_sam_nodes.node_sound_stone()
     },
     ["dirt"] = {
-        sounds = super_sam_nodes.node_sound_dirt(),
-        damage_per_second = 5
+        sounds = super_sam_nodes.node_sound_dirt()
     },
     ["grass"] = {
         sounds = super_sam_nodes.node_sound_dirt(),
@@ -55,8 +51,7 @@ local nodes = {
                 name = "default_dirt.png^default_grass_side.png",
                 tileable_vertical = false
             }
-        },
-        damage_per_second = 5
+        }
     },
     ["obsidian_block"] = {
         sounds = super_sam_nodes.node_sound_stone(),
@@ -117,7 +112,6 @@ minetest.register_node(":super_sam:border", {
     drawtype = "airlike",
     paramtype = "light",
     sunlight_propagates = true,
-    damage_per_second = 5,
     drop = "",
     groups = {cracky = 1}
 })
