@@ -57,7 +57,7 @@
 {"name":"super_sam:obsidian_block","x":20.0,"y":42.0,"z":62.0}
 {"name":"super_sam:slope_tree","param2":21.0,"x":20.0,"y":46.0,"z":62.0}
 {"name":"super_sam:slope_tree","param2":1.0,"x":20.0,"y":47.0,"z":62.0}
-{"name":"air","x":21.0,"y":42.0,"z":62.0}
+{"meta":{"fields":{"required_lvl":"s05","tpx":"37","tpy":"-1","tpz":"7024"},"inventory":null},"name":"super_sam:level_start_beacon","x":21.0,"y":42.0,"z":62.0}
 {"name":"super_sam:glass","x":21.0,"y":47.0,"z":62.0}
 {"name":"super_sam:obsidian_block","x":22.0,"y":42.0,"z":62.0}
 {"name":"super_sam:slope_tree","param2":23.0,"x":22.0,"y":46.0,"z":62.0}

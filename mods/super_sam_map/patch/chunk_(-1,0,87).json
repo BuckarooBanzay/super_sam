@@ -860,6 +860,8 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":48.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":48.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":48.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":48.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":63.0,"z":48.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":49.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":49.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":49.0}
@@ -892,6 +894,7 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":50.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":50.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":50.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":50.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":51.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":51.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":51.0}
@@ -908,6 +911,7 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":51.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":51.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":51.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":51.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":52.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":52.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":52.0}
@@ -924,6 +928,7 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":52.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":52.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":52.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":52.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":53.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":53.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":53.0}
@@ -956,6 +961,7 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":54.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":54.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":54.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":54.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":55.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":55.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":55.0}
@@ -972,6 +978,7 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":55.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":55.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":55.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":55.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":56.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":56.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":56.0}
@@ -988,6 +995,7 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":61.0,"z":56.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":62.0,"z":56.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":63.0,"z":56.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":63.0,"z":56.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":48.0,"z":57.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":49.0,"z":57.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":50.0,"z":57.0}
@@ -1672,7 +1680,13 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":61.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":61.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":61.0}
+{"name":"super_sam:slope_wood","param2":16.0,"x":78.0,"y":68.0,"z":61.0}
 {"name":"super_sam:slope_tree","param2":22.0,"x":78.0,"y":79.0,"z":61.0}
+{"name":"super_sam:slope_wood","param2":20.0,"x":79.0,"y":64.0,"z":61.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":65.0,"z":61.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":66.0,"z":61.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":67.0,"z":61.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":68.0,"z":61.0}
 {"name":"super_sam:slope_tree","param2":22.0,"x":79.0,"y":79.0,"z":61.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":62.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":62.0}
@@ -1690,6 +1704,12 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":62.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":62.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":62.0}
+{"name":"super_sam:slope_wood","param2":23.0,"x":78.0,"y":64.0,"z":62.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":65.0,"z":62.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":66.0,"z":62.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":67.0,"z":62.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":68.0,"z":62.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":64.0,"z":62.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":63.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":63.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":66.0,"z":63.0}
@@ -1706,6 +1726,8 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":63.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":63.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":63.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":68.0,"z":63.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":64.0,"z":63.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":64.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":64.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":66.0,"z":64.0}
@@ -1722,6 +1744,12 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":64.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":64.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":64.0}
+{"name":"super_sam:slope_wood","param2":23.0,"x":78.0,"y":64.0,"z":64.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":65.0,"z":64.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":66.0,"z":64.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":67.0,"z":64.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":68.0,"z":64.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":64.0,"z":64.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":65.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":65.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":66.0,"z":65.0}
@@ -1738,6 +1766,8 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":65.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":65.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":65.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":68.0,"z":65.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":64.0,"z":65.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":66.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":66.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":66.0,"z":66.0}
@@ -1754,6 +1784,12 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":66.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":66.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":66.0}
+{"name":"super_sam:slope_wood","param2":23.0,"x":78.0,"y":64.0,"z":66.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":65.0,"z":66.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":66.0,"z":66.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":67.0,"z":66.0}
+{"name":"super_sam:wood","param2":0.0,"x":78.0,"y":68.0,"z":66.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":64.0,"z":66.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":67.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":67.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":66.0,"z":67.0}
@@ -1770,6 +1806,12 @@
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":77.0,"z":67.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":78.0,"z":67.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":79.0,"z":67.0}
+{"name":"super_sam:slope_wood","param2":18.0,"x":78.0,"y":68.0,"z":67.0}
+{"name":"super_sam:slope_wood","param2":22.0,"x":79.0,"y":64.0,"z":67.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":65.0,"z":67.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":66.0,"z":67.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":67.0,"z":67.0}
+{"name":"super_sam:wood","param2":0.0,"x":79.0,"y":68.0,"z":67.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":64.0,"z":68.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":65.0,"z":68.0}
 {"name":"super_sam:tree","param2":0.0,"x":77.0,"y":66.0,"z":68.0}
