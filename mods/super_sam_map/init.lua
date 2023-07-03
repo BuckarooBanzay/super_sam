@@ -1,5 +1,5 @@
 mapsync.register_backend("default", {
-    type = "fs",
+    type = "patch",
     path = minetest.get_modpath("super_sam_map") .. "/map",
     patch_path = minetest.get_modpath("super_sam_map") .. "/patch"
 })
