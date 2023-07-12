@@ -61,7 +61,10 @@ local function check_sound(playername)
 	end
 
 	local sound = theme_sounds[math.random(#theme_sounds)]
-	local handle = minetest.sound_play({ name = sound.name, gain = sound.gain or 0.5 }, { to_player = playername })
+	local handle = minetest.sound_play(sound.name, {
+		to_player = playername,
+		gain = sound.gain or 0.5
+	})
 	handles[playername] = handle
 	player_themes[playername] = theme
 	minetest.after(sound.duration, function()

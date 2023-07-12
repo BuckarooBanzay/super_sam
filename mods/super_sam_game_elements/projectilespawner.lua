@@ -122,6 +122,12 @@ minetest.register_node(":super_sam:projectile_spawner", {
 			}
 		}))
 
+		minetest.sound_play("super_sam_projectile_shoot", {
+			gain = 5,
+			max_hear_distance = 48,
+			pos = pos
+		}, true)
+
 		local interval = tonumber(meta:get_string("interval")) or 5
 		local timer = minetest.get_node_timer(pos)
 		timer:start(interval)
@@ -131,6 +137,7 @@ minetest.register_node(":super_sam:projectile_spawner", {
 minetest.register_entity(":super_sam:projectile", {
 	initial_properties = {},
 	static_save = false,
+	automatic_rotate = 5,
 	on_activate = function(self, staticdata)
 		self.object:set_armor_groups({punch_operable = 1})
 		local data = minetest.deserialize(staticdata)
