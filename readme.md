@@ -11,6 +11,8 @@ Guide sam through the various levels and score points
 
 Built with [mapsync](https://github.com/Buckaroobanzay/mapsync)
 
+Official discord server: https://discord.gg/JcyaETW3zz
+
 # Commands
 
 * `/ambience [on|off]` enable or disable ambient sounds
