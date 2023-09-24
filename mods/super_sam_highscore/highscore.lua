@@ -52,7 +52,7 @@ function super_sam_highscore.update_highscore(playername, score, levelname)
 		table.remove(highscore, #highscore)
 	end
 
-	super_sam_highscore.set_level_highscore(levelname, highscore)
+	super_sam_highscore.set_level_highscore(levelname, highscore, playername, score)
 end
 
 function super_sam_highscore.get_highscore_rank(playername, levelname)
