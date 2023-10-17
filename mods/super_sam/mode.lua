@@ -71,7 +71,9 @@ function super_sam.set_edit_mode(player)
 	player:set_armor_groups({ immortal = 1 })
 
 	-- restore inventory formspec
-	if old_inv_formspecs[playername] then
+	if minetest.get_modpath("unified_inventory") then
+		unified_inventory.set_inventory_formspec(player, "craft")
+	elseif old_inv_formspecs[playername] then
 		player:set_inventory_formspec(old_inv_formspecs[playername])
 	end
 
