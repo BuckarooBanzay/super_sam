@@ -20,10 +20,3 @@ for name, def in pairs(vines) do
 
     minetest.register_node(":super_sam:" .. name, def)
 end
-
-if minetest.get_modpath("i3") then
-    i3.compress("super_sam:vine_end", {
-        replace = "_end",
-        by = {"_middle"}
-    })
-end

@@ -18,6 +18,6 @@ read_globals = {
 	"VoxelArea", "AreaStore",
 
 	-- mods
-	"player_api", "worldedit", "i3",
+	"player_api", "worldedit",
 	"super_sam", "mtt"
 }

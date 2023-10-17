@@ -18,10 +18,3 @@ for _, trap_node in ipairs(trap_nodes) do
 
     minetest.register_node(":super_sam:" .. trap_node.name .. "_trap", def)
 end
-
-if minetest.get_modpath("i3") then
-    i3.compress("super_sam:stone_trap", {
-        replace = "stone",
-        by = {"dirt"}
-    })
-end

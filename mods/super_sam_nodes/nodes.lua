@@ -159,20 +159,3 @@ minetest.register_node(":super_sam:ladder_steel", {
     },
     sounds = super_sam_nodes.node_sound_metal()
 })
-
-if minetest.get_modpath("i3") then
-    i3.compress("super_sam:stone", {
-        replace = "stone",
-        by = {"stone_block", "stone_brick"}
-    })
-
-    i3.compress("super_sam:desert_stone", {
-        replace = "stone",
-        by = {"stone_block", "stone_brick"}
-    })
-
-    i3.compress("super_sam:desert_sandstone", {
-        replace = "stone",
-        by = {"stone_block", "stone_brick"}
-    })
-end

@@ -135,10 +135,3 @@ minetest.register_node(":super_sam:lights_oillamp", {
     light_source = 8,
     groups = {cracky = 1}
 })
-
-if minetest.get_modpath("i3") then
-    i3.compress("super_sam:lights_block", {
-        replace = "block",
-        by = {"smallblock", "lantern_f", "lantern_c", "lantern_w", "oillamp"}
-    })
-end

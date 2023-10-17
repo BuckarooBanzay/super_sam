@@ -29,16 +29,3 @@ for name, def in pairs(bakedclay) do
 
     stairsplus:register_all("super_sam", "clay_" .. name, "super_sam:clay_" .. name, def)
 end
-
-if minetest.get_modpath("i3") then
-    local by = {}
-    for k in pairs(bakedclay) do
-        if k ~= "white" then
-            table.insert(by, k)
-        end
-    end
-    i3.compress("super_sam:clay_white", {
-        replace = "white",
-        by = by
-    })
-end
