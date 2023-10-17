@@ -1,7 +1,7 @@
 
-minetest.register_tool("super_sam:editor", {
-	description = "Edit stick",
-	inventory_image = "default_stick.png",
+minetest.register_tool("super_sam:edit_hand", {
+	description = "Edit hand",
+	inventory_image = "blank.png",
 	range = 32,
 	tool_capabilities = {
 		full_punch_interval = 1,

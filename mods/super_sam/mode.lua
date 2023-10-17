@@ -27,6 +27,10 @@ function super_sam.set_play_mode(player)
 
 	-- clear inventory items
 	local inv = player:get_inventory()
+
+	local hand_inv = {""}
+	inv:set_list("hand", hand_inv)
+
 	local main_inv = inv:get_list("main")
 	for i in ipairs(main_inv) do
 		main_inv[i] = ""
@@ -73,10 +77,13 @@ function super_sam.set_edit_mode(player)
 
 	-- add editor items to inv
 	local inv = player:get_inventory()
+
+	local hand_inv = {"super_sam:edit_hand"}
+	inv:set_list("hand", hand_inv)
+
 	local main_inv = inv:get_list("main")
-	main_inv[1] = "super_sam:editor"
 	if has_worldedit then
-		main_inv[2] = "worldedit:wand"
+		main_inv[1] = "worldedit:wand"
 	end
 	inv:set_list("main", main_inv)
 
