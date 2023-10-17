@@ -1,0 +1,2 @@
+# Editor mode, shows certain node that are otherwise invisible
+super_sam_editor_mode (Super sam edit mode) bool false

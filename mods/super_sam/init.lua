@@ -1,4 +1,5 @@
 super_sam = {
+	editor_mode = minetest.settings:get_bool("super_sam_editor_mode"),
 	max_hp = 3,
 	storage = minetest.get_mod_storage(),
 	beacon_teleport_distance = 4,

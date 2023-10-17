@@ -22,6 +22,7 @@ Official discord server: https://discord.gg/JcyaETW3zz
 
 * Fork the `super_sam` repository and add it as a game
 * Grant yourself the needed privs for editing with `/grantme all`
+* Set the `super_sam_editor_mode` setting to true
 * Edit/add stuff
 * Export the edited map part with `/mapsync_save <affected-chunk-range>` (the chunk range is usually 1 for a 240 nodes cubic diameter)
 * **OR**: Enable autosave with `/mapsync_autosave on`
