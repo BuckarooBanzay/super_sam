@@ -82,7 +82,7 @@ function super_sam_highscore.get_highscore_formspec_fragment(levelname, x, y, si
 			-- bronze
 			color = "#CD7F32"
 		end
-		list = list .. color .. "," .. super_sam_highscore.format_score(entry.score) .. "," ..
+		list = list .. color .. "," .. super_sam.format_score(entry.score) .. "," ..
 			entry.name .. "," .. os.date('%Y-%m-%d %H:%M:%S', entry.timestamp) .. ","
 
 		if i > entries then

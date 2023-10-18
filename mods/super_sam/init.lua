@@ -41,7 +41,6 @@ dofile(MP .. "/shoot.lua")
 -- nodes, items, etc
 dofile(MP .. "/items.lua")
 dofile(MP .. "/tools.lua")
-dofile(MP .. "/highscore.lua")
 
 if minetest.get_modpath("mtt") then
 	dofile(MP .. "/mtt.lua")

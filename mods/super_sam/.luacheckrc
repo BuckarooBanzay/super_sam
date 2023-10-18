@@ -19,5 +19,5 @@ read_globals = {
 
 	-- mods
 	"player_api", "worldedit",
-	"super_sam_highscore", "mtt", "controls", "unified_inventory"
+	"mtt", "controls", "unified_inventory"
 }

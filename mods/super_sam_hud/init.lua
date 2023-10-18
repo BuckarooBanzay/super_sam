@@ -187,7 +187,7 @@ function super_sam_hud.update_player_hud(player)
 		player:hud_change(data.health_text, "text", "x" .. hp)
 	end
 	if data.score_text then
-		player:hud_change(data.score_text, "text", super_sam_highscore.format_score(super_sam.get_score(playername)))
+		player:hud_change(data.score_text, "text", super_sam.format_score(super_sam.get_score(playername)))
 	end
 	if data.level_text then
 		local level = super_sam_level.get_current_level(player)
