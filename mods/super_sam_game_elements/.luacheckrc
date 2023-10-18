@@ -19,5 +19,5 @@ read_globals = {
 
 	-- mods
 	"player_api", "worldedit",
-	"super_sam", "mtt"
+	"super_sam", "mtt", "mapsync"
 }

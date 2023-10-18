@@ -1,5 +1,4 @@
-super_sam_game_elements = {
-}
+super_sam_game_elements = {}
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
 
