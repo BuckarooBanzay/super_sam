@@ -5,7 +5,7 @@ Super sam adventures
 [![License](https://img.shields.io/badge/License-MIT%20and%20CC%20BY--SA%204.0-green.svg)](license.txt)
 [![Download](https://img.shields.io/badge/Download-ContentDB-blue.svg)](https://content.minetest.net/packages/BuckarooBanzay/super_sam)
 
-State: **Playable prototype**
+State: **Stable**
 
 Guide sam through the various levels and score points
 
