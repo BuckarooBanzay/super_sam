@@ -12,6 +12,22 @@ minetest.register_entity(":super_sam:item", {
 		local data = minetest.deserialize(staticdata)
 		self.data = data
 		self.object:set_properties(data.properties)
+		if data.velocity then
+			self.object:set_velocity(data.velocity)
+		end
+		if data.acceleration then
+			self.object:set_acceleration(data.acceleration)
+		end
+	end,
+	on_step = function(self, _, moveresult)
+		if not self.data.enable_physics then
+			return
+		end
+
+		if moveresult.touching_ground and not moveresult.standing_on_object then
+			self.object:set_velocity({ x=0, y=0, z=0 })
+			self.data.enable_physics = false
+		end
 	end
 })
 
