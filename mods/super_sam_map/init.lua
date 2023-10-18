@@ -1,7 +1,7 @@
 local MP = minetest.get_modpath("super_sam_map")
 
 mapsync.register_backend("default", {
-    type = "fs",
+    type = "patch",
     path = MP .. "/map",
     patch_path = MP .. "/patch"
 })
