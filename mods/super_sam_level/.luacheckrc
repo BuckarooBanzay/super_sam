@@ -20,5 +20,5 @@ read_globals = {
 	"VoxelArea", "AreaStore",
 
 	-- deps
-	"super_sam_highscore", "worldedit", "mapsync"
+	"super_sam_highscore", "super_sam_skybox", "worldedit", "mapsync"
 }

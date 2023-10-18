@@ -24,6 +24,7 @@ local function execute_teleport(player, beacon_pos)
 
 	local playername = player:get_player_name()
 	local meta = minetest.get_meta(beacon_pos)
+	local skybox = meta:get_string("skybox")
 	local target_pos = {
 		x = meta:get_int("tpx"),
 		y = meta:get_int("tpy"),
@@ -38,6 +39,10 @@ local function execute_teleport(player, beacon_pos)
 
 		-- either the level-requirements are met or the player is in edit-mode
 		player:set_pos(vector.add(target_pos, super_sam.player_offset))
+
+		if skybox ~= "" then
+			super_sam_skybox.set_skybox(skybox, player)
+		end
 
 		-- capture player, if a beacon is nearby
 		minetest.after(0.1, function()

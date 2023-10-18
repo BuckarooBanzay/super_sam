@@ -108,6 +108,7 @@ function super_sam_level.abort_level(player)
 
 	if super_sam.check_play_mode(player) then
 		super_sam.teleport_player_startpos(player)
+		super_sam_skybox.reset_skybox(player)
 		super_sam.animation_failed(player)
 	end
 end

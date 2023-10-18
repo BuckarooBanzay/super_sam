@@ -9,6 +9,9 @@ local function execute_teleport(player, beacon_pos)
 	local pos = vector.add(target_pos, super_sam.player_offset)
 	player:set_pos(pos)
 
+	-- reset skybox
+	super_sam_skybox.reset_skybox(player)
+
 	-- save startpos
 	super_sam.set_player_startpos(player, pos)
 end
