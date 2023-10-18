@@ -108,6 +108,12 @@ minetest.register_node(":super_sam:box", {
             end
         end
 
+        minetest.sound_play("super_sam_box_open", {
+			pos = pos,
+			gain = 1.0,
+			max_hear_distance = 10
+		})
+
         -- swap to hidden node and start regeneration timer
         minetest.swap_node(pos, { name = "super_sam:box_hidden" })
 		local timer = minetest.get_node_timer(pos)
