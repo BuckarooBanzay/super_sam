@@ -4,6 +4,31 @@ local item_callbacks = {}
 
 local global_callbacks = {}
 
+minetest.register_entity(":super_sam:item", {
+	initial_properties = {},
+	static_save = false,
+	on_activate = function(self, staticdata)
+		self.object:set_armor_groups({punch_operable = 1})
+		local data = minetest.deserialize(staticdata)
+		self.data = data
+		self.object:set_properties(data.properties)
+	end
+})
+
+function super_sam.add_item_entity(pos, data)
+	minetest.add_entity(pos, "super_sam:item", minetest.serialize(data))
+end
+
+function super_sam.remove_item_entities(pos1, pos2)
+	local objects = minetest.get_objects_in_area(pos1, pos2)
+	for _, object in ipairs(objects) do
+		local entity = object:get_luaentity()
+		if entity and entity.name == "super_sam:item" then
+			object:remove()
+		end
+	end
+end
+
 local function check_player_for_pickups(player)
 	local pos = vector.add(player:get_pos(), {x=0, y=0.5, z=0})
 	local objects = minetest.get_objects_inside_radius(pos, 1.5)
@@ -13,7 +38,6 @@ local function check_player_for_pickups(player)
 		local entity = obj:get_luaentity()
 
 		if not is_player and entity.name == "super_sam:item" and entity.data then
-			assert(entity.data.spawner_pos, "entity issue: no 'spawner_pos'")
 			assert(entity.data.properties, "entity issue: no 'properties'")
 
 			local itemname = entity.data.properties.wield_item
@@ -32,7 +56,7 @@ local function check_player_for_pickups(player)
 			end
 
 			for _, callback in ipairs(global_callbacks) do
-				callback(player, entity.data.spawner_pos)
+				callback(player, entity.data)
 			end
 		end
 	end

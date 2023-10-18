@@ -32,10 +32,8 @@ local function add_item(pos)
 		return
 	end
 
-	-- print("Adding item: " .. item_name .. " at pos " .. minetest.pos_to_string(pos))
-
 	local item_pos = vector.add(pos, {x=x_offset, y=y_offset, z=z_offset})
-	minetest.add_entity(item_pos, "super_sam:item", minetest.serialize({
+	super_sam.add_item_entity(item_pos, {
 		spawner_pos = pos,
 		properties = {
 			visual = "wielditem",
@@ -44,7 +42,7 @@ local function add_item(pos)
 			automatic_rotate = 1,
 			pointable = false
 		}
-	}))
+	})
 end
 
 local function remove_item(pos)
@@ -56,13 +54,7 @@ local function remove_item(pos)
 	local pos1 = vector.add(item_pos, 0.5)
 	local pos2 = vector.subtract(item_pos, 0.5)
 
-	local objects = minetest.get_objects_in_area(pos1, pos2)
-	for _, object in ipairs(objects) do
-		local entity = object:get_luaentity()
-		if entity and entity.name == "super_sam:item" then
-			object:remove()
-		end
-	end
+	super_sam.remove_item_entities(pos1, pos2)
 end
 
 local function refresh_item(pos)
@@ -119,16 +111,7 @@ super_sam.register_hidden_node(":super_sam:item_spawner", {
 
 minetest.register_alias("super_sam:item_spawner_hidden", "super_sam:item_spawner")
 
-minetest.register_entity(":super_sam:item", {
-	initial_properties = {},
-	static_save = false,
-	on_activate = function(self, staticdata)
-		self.object:set_armor_groups({punch_operable = 1})
-		local data = minetest.deserialize(staticdata)
-		self.data = data
-		self.object:set_properties(data.properties)
-	end
-})
+
 
 minetest.register_lbm({
 	label = "Item spawner trigger",
@@ -141,8 +124,10 @@ minetest.register_lbm({
 -- time-based item renewal
 local collected_spawners = {}
 
-super_sam.register_on_pickup(function(_, spawner_pos)
-	collected_spawners[minetest.pos_to_string(spawner_pos)] = os.time()
+super_sam.register_on_pickup(function(_, data)
+	if data.spawner_pos then
+		collected_spawners[minetest.pos_to_string(data.spawner_pos)] = os.time()
+	end
 end)
 
 local function refresh_items()
