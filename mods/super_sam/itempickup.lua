@@ -19,7 +19,16 @@ minetest.register_entity(":super_sam:item", {
 			self.object:set_acceleration(data.acceleration)
 		end
 	end,
-	on_step = function(self, _, moveresult)
+	on_step = function(self, dtime, moveresult)
+		if self.data.ttl ~= nil then
+			self.data.ttl = self.data.ttl - dtime
+
+			if self.data.ttl < 0 then
+				self.object:remove()
+				return
+			end
+		end
+
 		if not self.data.enable_physics then
 			return
 		end

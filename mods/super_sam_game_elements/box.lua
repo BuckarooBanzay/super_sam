@@ -60,8 +60,8 @@ minetest.register_node(":super_sam:box", {
 		local meta = minetest.get_meta(pos)
 
 		-- position offsets
-		meta:set_string("maxvel", "(0,0,0)")
-		meta:set_string("minvel", "(0,-1,0)")
+		meta:set_string("maxvel", "(7,7,7)")
+		meta:set_string("minvel", "(7,0,7)")
 		meta:set_string("regenerate", "15")
 
 		local inv = meta:get_inventory()
@@ -75,6 +75,7 @@ minetest.register_node(":super_sam:box", {
 
         local max_vel = minetest.string_to_pos(meta:get_string("maxvel"))
         local min_vel = minetest.string_to_pos(meta:get_string("minvel"))
+        local regenerate = tonumber(meta:get_string("regenerate")) or 5
 
 		local inv = meta:get_inventory()
         for i=1,8 do
@@ -82,32 +83,33 @@ minetest.register_node(":super_sam:box", {
             local item_name = stack:get_name()
 
             if item_name and item_name ~= "" then
-
-                local velocity = {
-                    x = (math.random() * (max_vel.x - min_vel.x)) + min_vel.x,
-                    y = (math.random() * (max_vel.y - min_vel.y)) + min_vel.y,
-                    z = (math.random() * (max_vel.z - min_vel.z)) + min_vel.z,
-                }
-
-                super_sam.add_item_entity(pos, {
-                    enable_physics = true,
-                    velocity = velocity,
-                    acceleration = { x=0, y=-10, z=0 },
-                    properties = {
-                        visual = "wielditem",
-                        wield_item = item_name,
-                        visual_size = { x=0.5, y=0.5 },
-                        automatic_rotate = 1,
-                        pointable = false,
-                        physical = true
+                for _=1,stack:get_count() do
+                    local velocity = {
+                        x = (math.random() * (max_vel.x - min_vel.x)) + min_vel.x,
+                        y = (math.random() * (max_vel.y - min_vel.y)) + min_vel.y,
+                        z = (math.random() * (max_vel.z - min_vel.z)) + min_vel.z,
                     }
-                })
+
+                    super_sam.add_item_entity(pos, {
+                        ttl = regenerate,
+                        enable_physics = true,
+                        velocity = velocity,
+                        acceleration = { x=0, y=-10, z=0 },
+                        properties = {
+                            visual = "wielditem",
+                            wield_item = item_name,
+                            visual_size = { x=0.5, y=0.5 },
+                            automatic_rotate = 1,
+                            pointable = false,
+                            physical = true
+                        }
+                    })
+                end
             end
         end
 
         -- swap to hidden node and start regeneration timer
         minetest.swap_node(pos, { name = "super_sam:box_hidden" })
-        local regenerate = tonumber(meta:get_string("regenerate")) or 5
 		local timer = minetest.get_node_timer(pos)
 		timer:start(regenerate)
     end
@@ -123,6 +125,16 @@ minetest.register_node(":super_sam:box_hidden", {
 	walkable = false,
 	diggable = false,
     on_timer = function(pos)
+        minetest.swap_node(pos, { name = "super_sam:box" })
+    end
+})
+
+minetest.register_lbm({
+	label = "Hidden box sentinel",
+	name = ":super_sam:box_hidden",
+	nodenames = "super_sam:box_hidden",
+	run_at_every_load = true,
+	action = function(pos)
         minetest.swap_node(pos, { name = "super_sam:box" })
     end
 })
