@@ -1,5 +1,4 @@
-super_sam_game_elements = {
-}
+super_sam_game_elements = {}
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
 
@@ -7,3 +6,4 @@ local MP = minetest.get_modpath(minetest.get_current_modname())
 dofile(MP .. "/itemspawner.lua")
 dofile(MP .. "/platformspawner.lua")
 dofile(MP .. "/projectilespawner.lua")
+dofile(MP .. "/box.lua")
