@@ -16,7 +16,6 @@ Super sam base mod
 * `textures/sam_mario_skin.png` CC-BY SA 3.0 ("Mario" by "Fedora P") http://minetest.fensta.bplaced.net/#!page:1,filtertype:Id,filter:684
 * `textures/super_sam_items.png` CC-BY SA 4.0 https://opengameart.org/content/mario-like-stuff
 * `textures/super_sam_time.png`CC BY-SA 3.0 http://www.small-icons.com/packs/16x16-free-toolbar-icons.htm
-* `textures/arid*` CC-BY SA 3.0 https://opengameart.org/content/skiingpenguins-skybox-pack
 * `models/super_sam_sphere.obj` LGPL 2.0 https://github.com/mt-mods/technic
 * `sounds/super_sam_coin.ogg` CC0 https://freesound.org/people/plasterbrain/sounds/242857/
 * `sounds/super_sam_heart.ogg` CC0 https://freesound.org/people/Phenala/sounds/478647/
