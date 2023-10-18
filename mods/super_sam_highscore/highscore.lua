@@ -52,6 +52,7 @@ function super_sam_highscore.update_highscore(playername, score, levelname)
 		table.remove(highscore, #highscore)
 	end
 
+	super_sam.emit_event(super_sam.EVENT_UPDATE_HIGHSCORE, levelname, highscore, playername, score)
 	super_sam_highscore.set_level_highscore(levelname, highscore, playername, score)
 end
 

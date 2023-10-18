@@ -2,11 +2,17 @@
 -- name -> {fn, fn}
 local events = {}
 
+-- player state
 super_sam.EVENT_MODE_CHANGE = "mode_change" -- player, edit|play
 super_sam.EVENT_TIMEOUT = "timeout" -- player
+
+-- level events
 super_sam.EVENT_PLAYER_START = "player_start" -- player, levelname
 super_sam.EVENT_PLAYER_FINISHED = "player_finished" -- player, levelname, highscore_name, score, rank
 super_sam.EVENT_PLAYER_ABORTED = "player_aborted" -- player
+
+-- highscore
+super_sam.EVENT_UPDATE_HIGHSCORE = "update_highscore" -- levelname, highscore, playername, score
 
 function super_sam.on_event(name, fn)
     local list = events[name]
