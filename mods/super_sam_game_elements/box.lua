@@ -61,7 +61,7 @@ minetest.register_node(":super_sam:box", {
 
 		-- position offsets
 		meta:set_string("maxvel", "(7,7,7)")
-		meta:set_string("minvel", "(7,0,7)")
+		meta:set_string("minvel", "(-7,0,-7)")
 		meta:set_string("regenerate", "15")
 
 		local inv = meta:get_inventory()
