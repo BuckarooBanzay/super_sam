@@ -1,5 +1,0 @@
-{"name":"air","x":24.0,"y":39.0,"z":40.0}
-{"name":"air","x":26.0,"y":39.0,"z":40.0}
-{"name":"air","x":28.0,"y":39.0,"z":40.0}
-{"meta":{"fields":{"maxvel":"(7,7,7)","minvel":"(-7,0,-7)","regenerate":"15"},"inventory":{"main":["super_sam:coin 5","","","","","","",""]}},"name":"super_sam:box","x":16.0,"y":45.0,"z":62.0}
-{"meta":{"fields":{"maxvel":"(7,7,7)","minvel":"(-7,0,-7)","regenerate":"15"},"inventory":{"main":["super_sam:coin 5","super_sam:heart","","","","","",""]}},"name":"super_sam:box","x":28.0,"y":50.0,"z":41.0}
