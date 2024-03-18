@@ -19,3 +19,9 @@
 [submodule "mods/travelnet"]
 	path = mods/travelnet
 	url = https://github.com/mt-mods/travelnet
+[submodule "mods/pick_and_place"]
+	path = mods/pick_and_place
+	url = https://github.com/BuckarooBanzay/pick_and_place
+[submodule "mods/wield_events"]
+	path = mods/wield_events
+	url = https://github.com/mt-mods/wield_events
