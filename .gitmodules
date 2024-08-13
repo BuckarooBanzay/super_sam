@@ -25,3 +25,6 @@
 [submodule "mods/wield_events"]
 	path = mods/wield_events
 	url = https://github.com/mt-mods/wield_events
+[submodule "mods/xcompat"]
+	path = mods/xcompat
+	url = https://github.com/mt-mods/xcompat
