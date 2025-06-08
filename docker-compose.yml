@@ -1,0 +1,9 @@
+services:
+  mtt:
+    image: ghcr.io/buckaroobanzay/mtt:latest
+    volumes:
+     - "./:/github/workspace"
+    environment:
+     INPUT_TEST_MODE: "game"
+     INPUT_MAPGEN: "singlenode"
+     INPUT_MTT_FILTER: "super_sam"

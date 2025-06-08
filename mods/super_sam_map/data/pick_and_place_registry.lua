@@ -1,0 +1,1 @@
+local _={};_[1]="category";return {ac5c45={id="ac5c45",pos2={y=10,x=-38,z=3036},name="Tube upright straight ",pos1={y=1,x=-47,z=3027},[_[1]]="Tubes"},["15cf5b"]={id="15cf5b",pos2={y=22,x=-38,z=3036},name="Tube top end",pos1={y=13,x=-47,z=3027},[_[1]]="Tubes"}}
