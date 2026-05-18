@@ -31,6 +31,3 @@
 [submodule "mods/omnidriver"]
 	path = mods/omnidriver
 	url = https://github.com/OgelGames/omnidriver
-[submodule "mods/invsaw"]
-	path = mods/invsaw
-	url = https://github.com/mt-mods/invsaw
